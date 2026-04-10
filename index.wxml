@@ -1,0 +1,185 @@
+<view class="detail-page">
+  <!-- 顶部训练营切换 -->
+  <scroll-view
+    wx:if="{{currentCampList.length}}"
+    class="camp-switch-scroll"
+    scroll-x="true"
+    show-scrollbar="false"
+  >
+    <view class="camp-switch-list">
+      <block wx:for="{{currentCampList}}" wx:key="camp_id">
+        <view
+          class="camp-switch-item {{item.camp_id == camp_id ? 'active' : ''}}"
+          data-camp-id="{{item.camp_id}}"
+          bindtap="handleSwitchCamp"
+        >
+          {{item.camp_name}}
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+
+  <!-- 主卡 -->
+  <view class="hero-card">
+    <view class="hero-head">
+      <view class="hero-stage">
+        第 {{dashboard.currentDay}} 天 · {{dashboard.stageText}}
+      </view>
+      <view class="hero-status">{{statusText || '进行中'}}</view>
+    </view>
+
+    <view class="hero-title">
+      {{info.name || info.title || info.company || ('训练营' + camp_id)}}
+    </view>
+
+    <view class="hero-company">
+      {{info.company || '--'}}
+    </view>
+
+    <view class="hero-tip">
+      {{dashboard.remainTaskText}}
+    </view>
+
+    <view class="hero-task-list" wx:if="{{dashboard.todayTaskList.length}}">
+      <block wx:for="{{dashboard.todayTaskList}}" wx:key="index">
+        <view class="hero-task-item">
+          <view class="hero-task-dot"></view>
+          <view class="hero-task-text">{{item}}</view>
+        </view>
+      </block>
+    </view>
+
+    <view class="hero-btn-row">
+      <view class="hero-btn hero-btn-primary" bindtap="goCheckIn">去打卡</view>
+      <view class="hero-btn hero-btn-secondary" bindtap="goWeightRecord">录入体重</view>
+    </view>
+  </view>
+
+  <!-- 关键数据 -->
+  <view class="section-title">关键数据</view>
+  <view class="metric-row">
+    <view class="metric-card">
+      <view class="metric-top">
+        <view class="metric-dot"></view>
+        <view class="metric-label">当前体重</view>
+      </view>
+      <view class="metric-value">{{dashboard.currentWeight}}</view>
+      <view class="metric-unit">kg</view>
+    </view>
+
+    <view class="metric-card">
+      <view class="metric-top">
+        <view class="metric-dot"></view>
+        <view class="metric-label">已减重</view>
+      </view>
+      <view class="metric-value">{{dashboard.lostWeight}}</view>
+      <view class="metric-unit">kg</view>
+    </view>
+
+    <view class="metric-card">
+      <view class="metric-top">
+        <view class="metric-dot"></view>
+        <view class="metric-label">距目标</view>
+      </view>
+      <view class="metric-value">{{dashboard.distanceWeight}}</view>
+      <view class="metric-unit">kg</view>
+    </view>
+  </view>
+
+  <!-- 当前营期摘要 -->
+  <view class="section-title">当前营期摘要</view>
+  <view class="panel-card">
+    <view class="summary-head">
+      <view class="summary-title">
+        本周已完成 {{dashboard.weekDone}} / {{dashboard.weekTotal}} 项任务
+      </view>
+      <view class="summary-tag">{{statusText || '进行中'}}</view>
+    </view>
+
+    <view class="summary-sub">本期进度 {{dashboard.progressPercent}}%</view>
+
+    <view class="progress-head">
+      <view class="progress-label">本期进度</view>
+      <view class="progress-value">{{dashboard.progressPercent}}%</view>
+    </view>
+
+    <view class="progress-bar">
+      <view class="progress-inner" style="{{dashboard.progressStyle}}"></view>
+    </view>
+
+    <view class="summary-grid">
+      <view class="summary-grid-item">
+        <view class="summary-grid-label">企业</view>
+        <view class="summary-grid-text">{{info.company || '--'}}</view>
+      </view>
+      <view class="summary-grid-item">
+        <view class="summary-grid-label">营期编号</view>
+        <view class="summary-grid-text">{{info.camp_code || '--'}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 活动任务入口 -->
+  <view class="section-title">活动任务入口</view>
+  <view class="panel-card task-card">
+    <view
+      class="task-item"
+      wx:for="{{taskList}}"
+      wx:key="key"
+      data-url="{{item.url}}"
+      bindtap="goTaskPage"
+    >
+      <view class="task-main">
+        <view class="task-title">{{item.title}}</view>
+        <view class="task-desc">{{item.desc}}</view>
+      </view>
+      <view class="task-btn">进入</view>
+    </view>
+  </view>
+
+  <!-- 体测报告 -->
+  <view class="panel-card small-card">
+    <view class="small-card-title">体测报告</view>
+    <view class="small-card-desc" wx:if="{{reportSummary.hasReport}}">
+      {{reportSummary.label}}：{{reportSummary.latestDate}}
+    </view>
+    <view class="small-card-desc" wx:else>
+      暂无体测报告
+    </view>
+    <view class="full-action-btn" bindtap="goReportPage">查看报告</view>
+  </view>
+
+  <!-- 线下签到记录 -->
+  <view class="panel-card small-card">
+    <view class="small-card-title">线下签到记录</view>
+
+    <block wx:if="{{signSummary.hasRecord && signSummary.latestList.length}}">
+      <block wx:for="{{signSummary.latestList}}" wx:key="index">
+        <view class="sign-item">
+          <view class="sign-title">{{item.title}}</view>
+          <view class="sign-time">{{item.time}} · {{item.location}}</view>
+        </view>
+      </block>
+    </block>
+
+    <view class="small-card-desc" wx:else>
+      暂无签到记录
+    </view>
+
+    <view class="full-action-btn" bindtap="goSignPage">查看全部</view>
+  </view>
+
+  <!-- 排行概览 -->
+  <view class="section-title">排行概览</view>
+  <view class="panel-card rank-card">
+    <view class="rank-my">我的当前排名：第 {{rankingSummary.myRank}} 名</view>
+
+    <view class="rank-item" wx:for="{{rankingSummary.topList}}" wx:key="name">
+      <view class="rank-main">
+        <view class="rank-name">{{index + 1}}. {{item.name}}</view>
+        <view class="rank-desc">减重表现</view>
+      </view>
+      <view class="rank-badge">{{item.value}}</view>
+    </view>
+  </view>
+</view>
