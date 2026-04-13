@@ -1,0 +1,78 @@
+/* pages/news/index.wxss */
+page{
+    box-sizing: border-box;
+    padding-bottom: 80rpx;
+}
+.list {
+    width: 690rpx;
+    margin: 0 auto;
+}
+.list .item {
+    margin-top: 37rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 170rpx;
+}
+
+.list .item>view:first-child {
+    font-size: 26rpx;
+    color: rgba(0, 0, 0, 0.45);
+    line-height: 43rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 170rpx;
+    max-width: 432rpx;
+}
+
+.list .item>view:first-child>view:first-child {
+    font-size: 30rpx;
+    color: #000000;
+}
+
+.list .item>view:nth-child(2) {
+    width: 260rpx;
+    height: 170rpx;
+}
+
+.list .item>view:nth-child(2) image {
+    width: 100%;
+    height: 100%;
+}
+
+.camp-news-head {
+  width: 690rpx;
+  margin: 24rpx auto 0;
+  padding: 24rpx;
+  background: #f6fbfb;
+  border-radius: 16rpx;
+  box-sizing: border-box;
+}
+
+.camp-news-head-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.camp-news-title {
+  font-size: 30rpx;
+  line-height: 42rpx;
+  color: #222222;
+  font-weight: 600;
+}
+
+.camp-news-back {
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #00C7C7;
+}
+
+.camp-news-desc {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #666666;
+}

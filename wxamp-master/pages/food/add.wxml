@@ -1,0 +1,204 @@
+<view wx:if="{{fromCamp}}" class="camp-food-add-head">
+    <view class="camp-food-add-top">
+        <view class="camp-food-add-title">饮食打卡</view>
+        <view class="camp-food-add-back" bindtap="goCampDetail">返回活动</view>
+    </view>
+    <view class="camp-food-add-desc">{{camp_name || '当前活动饮食记录'}}</view>
+</view>
+
+<van-sticky>
+    <view class="header">
+        <van-search
+            value="{{ value }}"
+            shape="round"
+            placeholder="请输入食物名称"
+            clearable
+            bind:search="onSearch"
+            bind:change="onSearch"
+            bind:cancel="onCancel"
+            bind:clear="onCancel"
+        />
+    </view>
+</van-sticky>
+
+<view class="page-body">
+    <view class="container">
+        <view class="category-list">
+            <view
+                wx:for="{{tabList}}"
+                wx:key="index"
+                class="category-item {{active === item.value ? 'active' : ''}}"
+                data-type="{{item.value}}"
+                bindtap="change"
+            >
+                {{item.label}}
+            </view>
+        </view>
+
+        <scroll-view scroll-y class="product-list">
+            <view class="item" wx:for="{{list}}" wx:key="id" data-item="{{item}}" bindtap="add">
+                <view class="left">
+                    <image src="{{item.imgurl}}" />
+                    <view class="ct">
+                        <view>{{item.component}}</view>
+                        <view>{{item.energy}}千卡/{{item.amount}}{{item.unit||''}}</view>
+                    </view>
+                </view>
+                <van-icon wx:if="{{item.num>0}}" name="add-o" size="45rpx" info="1" />
+                <van-icon wx:else name="add-o" size="45rpx" />
+            </view>
+
+            <van-empty wx:if="{{list.length==0 && active == 0}}" description="暂无数据" />
+
+            <view wx:if="{{active == 1}}" class="add">
+                <image src="https://oss.mcloud.moveclub.cn/movewell/img/add%402x.png" />
+                <view class="mvbutton" bindtap="setconfig">添加自定义食物</view>
+            </view>
+
+            <view class="list-bottom-holder"></view>
+        </scroll-view>
+    </view>
+</view>
+
+<view class="footer">
+  <view class="remark-box">
+    <view class="remark-title">备注</view>
+    <textarea
+        class="remark-textarea"
+        maxlength="100"
+        placeholder="可补充说明本次饮食情况，如少油、少糖、外食等"
+        value="{{remark}}"
+        bindinput="onRemarkInput"
+    />
+    <view class="remark-tip" wx:if="{{fromCamp}}">
+        活动饮食打卡将同步到活动记录中
+    </view>
+    <view class="camp-point-tip" wx:if="{{fromCamp}}">
+        今日饮食打卡达到积分上限后，记录仍会保留，但不额外加分
+    </view>
+</view>
+
+  <view class="datetime">
+      <view>{{date}}</view>
+      <view>｜</view>
+      <view bindtap="showTime">{{time}} <van-icon name="arrow" /></view>
+  </view>
+
+    <view class="footer-main">
+        <view class="footer-left">
+            <image src="https://oss.mcloud.moveclub.cn/movewell/img/icon-test%402x.png" />
+            <view class="tx" bindtap="showtap">
+                {{typename}} ({{checklist.length}})
+            </view>
+        </view>
+        <view class="btn" bindtap="submit">确认打卡</view>
+    </view>
+</view>
+
+<van-popup show="{{ show2 }}" position="bottom" round="{{ true }}" custom-style="height: 45%;" bind:close="onClose2">
+    <van-datetime-picker
+        type="time"
+        value="{{ time }}"
+        min-hour="{{ minHour }}"
+        max-hour="{{ maxHour }}"
+        bind:cancel="onClose2"
+        bind:confirm="onConfirm2"
+    />
+</van-popup>
+
+<van-popup show="{{ show }}" position="bottom" round="{{ true }}" custom-style="height: 55%;" bind:close="onClose" closeable="{{ true }}">
+    <view class="editBox">
+        <view class="editBox-title">确认食物</view>
+        <view class="formBox">
+            <view>
+                <view class="formBox-item1">
+                    <image src="{{detail.imgurl}}" />
+                    <view class="ct">
+                        <view>{{detail.component}}</view>
+                        <view>{{detail.energy}}千卡/{{detail.amount}}{{detail.unit||''}}</view>
+                    </view>
+                </view>
+                <view class="formBox-item2">
+                    <view class="formBox-item2-item">
+                        <view class="form-label">热量</view>
+                        <view class="form-con">
+                            <text>{{detail.energy}}</text>千卡
+                        </view>
+                    </view>
+                    <view class="formBox-item2-item">
+                        <view class="form-label">碳水化合物</view>
+                        <view class="form-con">
+                            <text>{{detail.carbohydrate|| '-'}}</text>克
+                        </view>
+                    </view>
+                    <view class="formBox-item2-item">
+                        <view class="form-label">蛋白质</view>
+                        <view class="form-con">
+                            <text>{{detail.protein|| '-'}}</text>克
+                        </view>
+                    </view>
+                    <view class="formBox-item2-item">
+                        <view class="form-label">脂肪</view>
+                        <view class="form-con">
+                            <text>{{detail.fat|| '-'}}</text>克
+                        </view>
+                    </view>
+                </view>
+                <view class="formBox-item3">
+                    <van-field
+                        value="{{ detail.num || '' }}"
+                        center
+                        label=""
+                        type="digit"
+                        placeholder="请输入"
+                        border="{{ false }}"
+                        use-button-slot
+                        bind:input="changenum"
+                        bind:change="changenum"
+                    >
+                        <view slot="button" size="small" type="primary">
+                            {{detail.unit}}
+                        </view>
+                    </van-field>
+                </view>
+            </view>
+            <view class="btnBox">
+                <van-button custom-class="btnBox-1" bindtap="addFood">确认</van-button>
+            </view>
+        </view>
+    </view>
+</van-popup>
+
+<van-popup show="{{ showadd }}" position="bottom" round="{{ true }}" z-index="{{98}}" custom-style="height: 55%;" bind:close="onCloseA" closeable="{{ true }}">
+    <view class="editList">
+        <view class="editList-item" wx:for="{{checklist}}" wx:key="id">
+            <view class="editList-item-left">
+                <image src="{{item.imgurl}}" />
+                <view class="ct">
+                    <view>{{item.component}}</view>
+                    <view>{{item.energy}}千卡/{{item.amount}}{{item.unit||''}}</view>
+                </view>
+            </view>
+            <view class="editList-item-right">
+                <van-field
+                    value="{{ item.num || '' }}"
+                    data-index="{{index}}"
+                    center
+                    label=""
+                    type="digit"
+                    placeholder="请输入"
+                    border="{{ false }}"
+                    use-button-slot
+                    bind:input="changecheck"
+                    bind:change="changecheck"
+                >
+                    <view slot="button" size="small" type="primary">
+                        {{item.unit}}
+                    </view>
+                </van-field>
+
+                <van-icon name="delete-o" size="40rpx" data-index="{{index}}" bind:tap="delFood" />
+            </view>
+        </view>
+    </view>
+</van-popup>

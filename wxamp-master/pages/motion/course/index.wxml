@@ -1,0 +1,71 @@
+<view class="header">
+  <view class="left" bindtap="goBack">
+    <van-icon name="arrow-left" size="44rpx" color="#444444" />
+    <view>课程跟练</view>
+  </view>
+</view>
+
+<view class="page">
+  <view class="top-bar">
+    <view class="tabs">
+      <block wx:for="{{tabList}}" wx:key="key">
+        <view
+          class="tab-item {{item.key === activeTab ? 'active' : ''}}"
+          data-key="{{item.key}}"
+          bindtap="switchTab"
+        >
+          {{item.label}}
+        </view>
+      </block>
+    </view>
+
+    <view class="my-course-entry" bindtap="openMyCourses">
+      我的课程
+      <text wx:if="{{myCourseCount > 0}}" class="badge">{{myCourseCount}}</text>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">推荐好课</view>
+    <scroll-view class="featured-scroll" scroll-x="true" show-scrollbar="false">
+      <view class="featured-list">
+        <block wx:for="{{featuredList}}" wx:key="id">
+          <view class="featured-card" data-item="{{item}}" bindtap="goDetail">
+            <view class="featured-cover">
+              <image mode="aspectFill" src="{{item.cover}}" />
+              <view class="featured-cover-mask"></view>
+              <view class="featured-cover-title">{{item.title}}</view>
+              <view class="featured-cover-meta">
+                <text>{{item.duration_minute}}分钟</text>
+                <text>{{item.level_text}}</text>
+              </view>
+            </view>
+            <view class="featured-actions">
+              <view class="pill">{{item.duration_minute}}分钟</view>
+              <view class="pill light" data-item="{{item}}" catchtap="handleAddMyCourse">加入我的</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">系列课程</view>
+    <view class="series-list">
+      <block wx:for="{{seriesList}}" wx:key="id">
+        <view class="series-item" data-item="{{item}}" bindtap="goDetail">
+          <image class="series-thumb" mode="aspectFill" src="{{item.cover}}" />
+          <view class="series-content">
+            <view class="series-title">{{item.series_title}}</view>
+            <view class="series-brief">{{item.brief}}</view>
+            <view class="series-meta">
+              {{item.level_text}} · {{item.duration_minute}}分钟 · {{item.calorie}}千卡
+            </view>
+          </view>
+          <van-icon name="arrow" size="28rpx" color="#B8BFCC" />
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,121 @@
+<view class="main">
+  <view class="chart-card">
+    <view class="chart-head">
+      <view class="chart-title">体重趋势</view>
+
+      <view class="period-tabs">
+        <block wx:for="{{periodTabs}}" wx:key="key">
+          <view
+            class="period-tab {{activePeriod === item.key ? 'period-tab-active' : ''}}"
+            data-key="{{item.key}}"
+            bindtap="handlePeriodChange"
+          >
+            {{item.name}}
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view class="chart-summary">
+      <view class="chart-summary-left">
+        <view class="chart-summary-label">当前体重</view>
+        <view class="chart-summary-value">
+          {{ currentWeight }}<text>kg</text>
+        </view>
+      </view>
+
+      <view class="chart-summary-right">
+        <view class="chart-summary-desc">{{ trendDesc }}</view>
+      </view>
+    </view>
+
+    <view id="trendCanvasBox" class="chart-wrap" bindtouchend="handleChartTap">
+      <canvas
+        id="weightTrendCanvas"
+        type="2d"
+        class="trend-canvas"
+      ></canvas>
+
+      <view
+        wx:if="{{showTooltip && selectedPoint}}"
+        class="point-tooltip"
+        style="left: {{tooltipLeft}}px; top: {{tooltipTop}}px;"
+      >
+        <view class="point-tooltip-weight">{{ selectedPoint.weight }}</view>
+        <view class="point-tooltip-date">{{ selectedPoint.labelDate }}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="bmi-card">
+    <view class="sport-stat-title">体重分级</view>
+
+    <view class="sport-stat-content">
+      <view class="sport-stat-content-item">
+        <view class="sport-stat-content-item-1">{{ currentWeight }}<text>kg</text></view>
+        <view class="sport-stat-content-item-2">当前体重</view>
+      </view>
+
+      <view class="sport-stat-content-item">
+        <view class="sport-stat-content-item-1">{{ bmi }}</view>
+        <view class="sport-stat-content-item-2">BMI指数</view>
+      </view>
+
+      <view class="sport-stat-content-item">
+        <view class="sport-stat-content-item-1">{{ suggestWeight }}<text>kg</text></view>
+        <view class="sport-stat-content-item-2">建议目标体重</view>
+      </view>
+
+      <view class="sport-stat-content-item">
+        <view class="sport-stat-content-item-1">{{ label }}</view>
+        <view class="sport-stat-content-item-2">等级</view>
+      </view>
+    </view>
+
+    <view class="progress-panel">
+      <view class="bmi-level-chip">{{ label }}</view>
+
+      <view class="progress-main">
+        <view class="progress-main-1"></view>
+        <view class="progress-main-2"></view>
+        <view class="progress-main-3"></view>
+        <view class="progress-main-4"></view>
+
+        <view
+          wx:if="{{bmi !== '--'}}"
+          class="bmi-arrow"
+          style="left: {{width}}rpx;"
+        ></view>
+      </view>
+
+      <view class="progress-main2">
+        <text>18.5</text>
+        <text>24.0</text>
+        <text>28.0</text>
+      </view>
+
+      <view class="labelBox">
+        <view class="labelBox-item">
+          <view class="square color1"></view>
+          <view class="text01">偏瘦</view>
+        </view>
+        <view class="labelBox-item">
+          <view class="square color2"></view>
+          <view class="text01">正常</view>
+        </view>
+        <view class="labelBox-item">
+          <view class="square color3"></view>
+          <view class="text01">超重</view>
+        </view>
+        <view class="labelBox-item">
+          <view class="square color4"></view>
+          <view class="text01">肥胖</view>
+        </view>
+      </view>
+
+      <view class="text02">
+        体重分级用于辅助判断当前体重状态，建议结合饮食、运动和医生建议进行持续管理。
+      </view>
+    </view>
+  </view>
+</view>

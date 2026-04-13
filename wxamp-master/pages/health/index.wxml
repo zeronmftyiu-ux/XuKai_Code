@@ -1,0 +1,56 @@
+<view class="header">健康管理</view>
+<view class="headlth">
+    <view class="title">
+        <view >
+        <view >基础数据</view>
+        <view >{{userInfo.update_time}} 更新</view>
+        </view>
+        <!-- <view ><van-icon name="browsing-history-o" />记录数据</view> -->
+    </view>
+    <view class="bmi">
+        <view >
+            {{userInfo.bmi||'- -'}}
+            <text >BMI数值</text>
+        </view>
+        <!-- <van-icon name="arrow" /> -->
+    </view>
+    <view class="su">
+        <view >
+            <view >血糖</view>
+            <view >
+                - -
+                <text > /mg</text>
+            </view>
+        </view>
+        <view >
+            <view >血压</view>
+            <view >
+                - -
+                <text > /mmHg</text>
+            </view>
+        </view>
+        <view >
+            <view >体重</view>
+            <view >
+                 {{userInfo.weight||'- -'}}
+                <text > /kg</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="list">
+    <view class="item {{item.col==2?'type2':''}}" data-id="{{ item.id }}" bindtap="go" style="{{item.imgurl!=''?'background:url('+item.imgurl+') no-repeat;background-size: 100%;':''}}" wx:for="{{list}}" wx:key="idx">
+        <view class="title">
+            <image src="{{item.icon}}" />
+            <view >{{item.name}}</view>
+        </view>
+        <view class="desc">
+            <text wx:if="{{item.value!='' && item.id == 2}}">{{ current_weight }}</text>
+            <text wx:if="{{item.value!='' && item.id != 2}}">{{item.value}}</text>
+            {{item.desc}}
+        </view>
+        <view wx:if="{{item.isechat == 1}}" style="padding-top:30rpx">
+            <chart chart-class="chart" width="294rpx" height="151rpx" option="{{ option }}" bindinstance="onInstance" />
+        </view>
+    </view>
+</view>

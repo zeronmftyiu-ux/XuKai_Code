@@ -1,0 +1,151 @@
+page {
+  background: #F7F8FA;
+  min-height: 100%;
+  padding-bottom: 140rpx;
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 128rpx 24rpx 24rpx;
+  font-size: 34rpx;
+  color: #111827;
+  background: #FFFFFF;
+}
+
+.header > view {
+  display: flex;
+  align-items: center;
+}
+
+.page {
+  padding-bottom: 40rpx;
+}
+
+.hero-image {
+  width: 100%;
+  height: 420rpx;
+  background: #EAF4FF;
+}
+
+.content-card {
+  margin-top: -24rpx;
+  background: #FFFFFF;
+  border-radius: 24rpx 24rpx 0 0;
+  padding: 28rpx 24rpx 40rpx;
+}
+
+.course-title {
+  font-size: 42rpx;
+  color: #111827;
+  font-weight: 700;
+  line-height: 56rpx;
+}
+
+.course-meta {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  color: #98A2B3;
+}
+
+.course-intro {
+  margin-top: 18rpx;
+  font-size: 24rpx;
+  color: #7D8797;
+  line-height: 38rpx;
+}
+
+.detail-link {
+  margin-top: 12rpx;
+  color: #15C9C4;
+  font-size: 24rpx;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16rpx;
+  margin-top: 24rpx;
+}
+
+.info-item {
+  background: #FBF6E9;
+  border-radius: 16rpx;
+  padding: 22rpx;
+}
+
+.info-label {
+  font-size: 22rpx;
+  color: #A48D63;
+}
+
+.info-value {
+  margin-top: 12rpx;
+  font-size: 30rpx;
+  color: #111827;
+  font-weight: 700;
+}
+
+.recommend-title {
+  margin-top: 32rpx;
+  font-size: 30rpx;
+  color: #111827;
+  font-weight: 700;
+}
+
+.recommend-list {
+  margin-top: 16rpx;
+}
+
+.recommend-row {
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+}
+
+.recommend-thumb {
+  width: 108rpx;
+  height: 108rpx;
+  border-radius: 16rpx;
+  background: #F3F5F7;
+}
+
+.recommend-content {
+  margin-left: 18rpx;
+  min-width: 0;
+}
+
+.recommend-name {
+  font-size: 28rpx;
+  color: #111827;
+  font-weight: 600;
+}
+
+.recommend-meta {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  color: #98A2B3;
+}
+
+.bottom-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #FFFFFF;
+  padding: 20rpx 24rpx calc(20rpx + env(safe-area-inset-bottom));
+  box-shadow: 0 -8rpx 24rpx rgba(17, 24, 39, 0.06);
+}
+
+.start-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 16rpx;
+  text-align: center;
+  background: #FF6A21;
+  color: #FFFFFF;
+  font-size: 32rpx;
+  font-weight: 700;
+}

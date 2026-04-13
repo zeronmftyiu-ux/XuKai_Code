@@ -1,0 +1,26 @@
+/* pages/lead/seven/index.wxss */
+page{
+    box-sizing: border-box;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: 165rpx;
+}
+.content image{
+    width: 525rpx;
+    height: 702rpx;
+    margin-bottom: 130rpx;
+}
+.content .van-progress{
+    width: 466rpx;
+}
+.content .desc{
+    padding-top: 42rpx;
+    font-size: 26rpx;
+    color: rgb(73, 76, 78, .65);
+}

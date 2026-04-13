@@ -1,0 +1,333 @@
+page {
+  background: #fff;
+  height: 100%;
+}
+
+.header {
+  box-sizing: border-box;
+  padding: 30rpx 0 10rpx;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.page-body {
+  height: calc(100vh - 148rpx);
+  margin-top: 148rpx;
+  padding-bottom: 420rpx;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.category-list {
+  width: 248rpx;
+  height: 100%;
+  background: #F4F6F9;
+  box-sizing: border-box;
+  padding: 16rpx 0;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.category-item {
+  padding: 27rpx 30rpx;
+  font-size: 30rpx;
+  color: rgba(0, 0, 0, .45);
+}
+
+.category-item.active {
+  background-color: #fff;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .85);
+}
+
+.product-list {
+  flex: 1;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 30rpx 30rpx 0;
+}
+
+.product-list .item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 49rpx;
+  box-sizing: border-box;
+  padding-right: 15rpx;
+}
+
+.product-list .item .left {
+  display: flex;
+  align-items: center;
+}
+
+.product-list .item .left image {
+  border-radius: 9rpx;
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 24rpx;
+}
+
+.product-list .item .left .ct {
+  font-size: 26rpx;
+  color: rgba(0, 0, 0, .45);
+}
+
+.product-list .item .left .ct > view:first-child {
+  font-size: 26rpx;
+  color: #000000;
+  font-weight: 600;
+}
+
+.product-list .add {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-list .add image {
+  width: 218rpx;
+  height: 218rpx;
+  margin-bottom: 62rpx;
+}
+
+.product-list .add .mvbutton {
+  background: #00C7C7;
+  box-shadow: inset 0px 0px 16rpx 0px rgba(255,255,255,0.4);
+  border-radius: 48rpx;
+  width: 472rpx;
+  height: 96rpx;
+  text-align: center;
+  line-height: 96rpx;
+  font-size: 34rpx;
+  color: #FFFFFF;
+}
+
+.list-bottom-holder {
+  height: 40rpx;
+}
+
+.camp-food-add-head {
+  padding: 24rpx 24rpx 0;
+  box-sizing: border-box;
+}
+
+.camp-food-add-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.camp-food-add-title {
+  font-size: 30rpx;
+  line-height: 42rpx;
+  color: #222222;
+  font-weight: 600;
+}
+
+.camp-food-add-back {
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #00C7C7;
+}
+
+.camp-food-add-desc {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #666666;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  background: #ffffff;
+  padding: 20rpx 24rpx calc(env(safe-area-inset-bottom) + 20rpx);
+  box-sizing: border-box;
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.04);
+}
+
+.remark-box {
+  padding: 10rpx 30rpx;
+  background: #f8f9fb;
+  border-radius: 16rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #f0f0f0;
+}
+
+.remark-title {
+  font-size: 26rpx;
+  line-height: 36rpx;
+  color: #222222;
+  font-weight: 600;
+}
+
+.remark-textarea {
+  width: 100%;
+  height: 72rpx;
+  min-height: 72rpx;
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  line-height: 32rpx;
+}
+
+.remark-tip {
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  line-height: 32rpx;
+  color: #999999;
+}
+
+.datetime {
+  margin-top: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #666666;
+}
+
+.camp-point-tip {
+  margin-top: 6rpx;
+  font-size: 20rpx;
+  line-height: 5rpx;
+  color: #ff8d4f;
+}
+
+.footer-main {
+  margin-top: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.footer-left image {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 12rpx;
+}
+
+.tx {
+  font-size: 26rpx;
+  line-height: 38rpx;
+  color: #222222;
+}
+
+.btn {
+  min-width: 220rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  background: #16bf92;
+  color: #ffffff;
+  border-radius: 44rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.editBox {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 32rpx 24rpx 24rpx;
+}
+
+.editBox-title {
+  text-align: center;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #222222;
+  font-weight: 600;
+}
+
+.formBox {
+  margin-top: 24rpx;
+}
+
+.formBox-item1 {
+  display: flex;
+  align-items: center;
+}
+
+.formBox-item1 image {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 12rpx;
+  margin-right: 20rpx;
+}
+
+.formBox-item1 .ct {
+  flex: 1;
+}
+
+.formBox-item2 {
+  margin-top: 24rpx;
+}
+
+.formBox-item2-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12rpx;
+}
+
+.formBox-item3 {
+  margin-top: 24rpx;
+  background: #f8f9fb;
+  border-radius: 12rpx;
+  padding: 0 20rpx;
+}
+
+.btnBox {
+  margin-top: 32rpx;
+}
+
+.editList {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 32rpx 24rpx 24rpx;
+}
+
+.editList-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.editList-item-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.editList-item-left image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  margin-right: 16rpx;
+}
+
+.editList-item-right {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}

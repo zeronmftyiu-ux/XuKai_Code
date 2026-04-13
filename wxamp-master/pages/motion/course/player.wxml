@@ -1,0 +1,118 @@
+<view class="header">
+  <view class="left" bindtap="goBack">
+    <van-icon name="arrow-left" size="44rpx" color="#444444" />
+    <view>运动视频</view>
+  </view>
+</view>
+
+<view class="page">
+  <view class="video-wrap">
+    <video
+      id="courseVideo"
+      class="video-box"
+      src="{{courseInfo.video_url}}"
+      controls="{{true}}"
+      autoplay="{{false}}"
+      loop="{{false}}"
+      object-fit="contain"
+      show-center-play-btn="{{true}}"
+      enable-play-gesture="{{false}}"
+      show-play-btn="{{true}}"
+      show-fullscreen-btn="{{true}}"
+      show-background-playback-button="{{ false }}"
+      bindloadedmetadata="handleVideoLoaded"
+      bindplay="handleVideoPlay"
+      bindpause="handleVideoPause"
+      bindtimeupdate="handleTimeUpdate"
+      bindended="handleEnded"
+      bindseeking="handleSeeking"
+      binderror="handleError"
+    ></video>
+
+    <view wx:if="{{!courseInfo.video_url}}" class="video-empty-tip">
+      当前课程还未配置真实视频地址。可先使用局域网 mp4 地址联调，后续再替换成正式静态资源地址。
+    </view>
+  </view>
+
+  <view class="status-card">
+    <view class="status-title">本次课程信息</view>
+
+    <view class="status-row">
+      <text>课程名称</text>
+      <text>{{courseInfo.title}}</text>
+    </view>
+
+    <view class="status-row">
+      <text>课程时长</text>
+      <text>{{courseInfo.duration_minute}}分钟</text>
+    </view>
+
+    <view class="status-row">
+      <text>预计热量</text>
+      <text>{{courseInfo.calorie}}千卡</text>
+    </view>
+
+    <view class="status-row">
+      <text>当前进度</text>
+      <text>{{progressText}}</text>
+    </view>
+
+    <view class="status-row">
+      <text>已看最远进度</text>
+      <text>{{watchedMaxTime}}s</text>
+    </view>
+
+    <view class="status-row">
+      <text>当前暂停</text>
+      <text>{{currentPauseSecond}}s</text>
+    </view>
+
+    <view class="status-row">
+      <text>累计暂停</text>
+      <text>{{totalPauseSecond}}s</text>
+    </view>
+
+    <view class="status-row">
+      <text>当前状态</text>
+      <text>{{statusText}}</text>
+    </view>
+
+    <view wx:if="{{invalidReason}}" class="status-warning">
+      {{invalidReason}}
+    </view>
+  </view>
+
+  <view class="rule-card">
+    <view class="rule-title">当前规则</view>
+    <view class="rule-item">1. 单次暂停不能超过 2 分钟</view>
+    <view class="rule-item">2. 累计暂停不能超过 5 分钟</view>
+    <view class="rule-item">3. 允许回看已播放内容，但不允许跳播未播放内容</view>
+    <view class="rule-item">4. 播放完成后需在 3 分钟内确认打卡</view>
+    <view class="rule-item">5. 中途返回或切后台，本次打卡作废</view>
+    <view class="rule-item">6. 支持当前页播放，也支持点击全屏播放</view>
+  </view>
+</view>
+
+<view wx:if="{{showConfirmPopup}}" class="overlay">
+  <view class="popup">
+    <view class="popup-icon"></view>
+    <view class="popup-title">本次为有效打卡</view>
+    <view class="popup-calorie">{{courseInfo.calorie}} 千卡</view>
+    <view class="popup-desc">请在 {{confirmLeftSecond}} 秒内确认，否则本次打卡作废</view>
+    <view class="popup-btn" bindtap="confirmFinish">确认打卡</view>
+  </view>
+</view>
+
+<view wx:if="{{showPosterPopup}}" class="overlay">
+  <view class="poster-popup">
+    <view class="poster-close" bindtap="closePoster">×</view>
+    <view class="poster-title">打卡完成</view>
+    <view class="poster-line">课程：{{courseInfo.title}}</view>
+    <view class="poster-line">时长：{{courseInfo.duration_minute}}分钟</view>
+    <view class="poster-line">热量：{{courseInfo.calorie}}千卡</view>
+    <view class="poster-actions">
+      <view class="poster-btn light" bindtap="closePoster">关闭</view>
+      <view class="poster-btn" bindtap="mockShare">分享</view>
+    </view>
+  </view>
+</view>

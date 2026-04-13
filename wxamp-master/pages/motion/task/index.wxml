@@ -1,0 +1,70 @@
+<view class="header">
+  <view class="left" bindtap="goBack">
+    <van-icon name="arrow-left" size="44rpx" color="#444444" />
+    <view>运动打卡</view>
+  </view>
+</view>
+
+<view class="main">
+  <view class="intro-card">
+    <view class="intro-title">选择打卡方式</view>
+    <view class="intro-desc">
+      运动记录不再支持手动编辑，请通过下方模块完成同步或打卡。
+    </view>
+
+    <view wx:if="{{hasActiveCamp && activeCamp}}" class="camp-tag">
+      当前进行中活动：{{activeCamp.camp_name}}
+    </view>
+    <view wx:else class="camp-tag plain">
+      当前无进行中活动，仅显示基础运动模块
+    </view>
+  </view>
+
+  <!-- 多个进行中活动时，显示切换条 -->
+  <scroll-view
+    wx:if="{{!lockByCamp && currentCampList.length > 1}}"
+    class="camp-switch-scroll"
+    scroll-x="true"
+    show-scrollbar="false"
+  >
+    <view class="camp-switch-list">
+      <block wx:for="{{currentCampList}}" wx:key="camp_id">
+        <view
+          class="camp-switch-item {{item.camp_id == activeCampId ? 'active' : ''}}"
+          data-camp-id="{{item.camp_id}}"
+          bindtap="handleSwitchCamp"
+        >
+          {{item.camp_name}}
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+
+  <view class="card-grid">
+    <view
+      class="task-card"
+      wx:for="{{taskCards}}"
+      wx:key="key"
+      data-item="{{item}}"
+      bindtap="handleCardTap"
+    >
+      <view class="task-icon {{item.iconClass}}">
+        <text>{{item.iconText}}</text>
+      </view>
+
+      <view class="task-content">
+        <view class="task-title">{{item.title}}</view>
+        <view class="task-desc">{{item.desc}}</view>
+      </view>
+
+      <view class="task-arrow">
+        <van-icon name="arrow" size="30rpx" color="#B8BFCC" />
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{!loading && !taskCards.length}}" class="empty-box">
+    <view class="empty-title">暂无可用打卡模块</view>
+    <view class="empty-desc">请稍后再试</view>
+  </view>
+</view>

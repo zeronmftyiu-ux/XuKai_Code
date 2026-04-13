@@ -1,0 +1,142 @@
+<view class="header">
+  <view class="user-info-area">
+    <view class="title">个人中心</view>
+    <view class="user-info">
+      <image class="avatar" src="{{userInfo.avatarurl}}"></image>
+      <view class="info">
+        <view class="nickname">{{userInfo.nickname}}</view>
+        <view class="mobile">ID:{{userInfo.enurid}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="container">
+  <view class="card">
+    <view class="message">
+      <view>
+        <image src="https://oss.mcloud.moveclub.cn/2024/movewell/mes.png" />
+        <text>您有{{expirePoint}}个积分即将过期</text>
+      </view>
+      <view>
+        <text>去使用</text>
+        <van-icon name="arrow" />
+      </view>
+      <view class="triangle-up"></view>
+    </view>
+    <view class="points">
+      <view>
+        <image src="https://oss.mcloud.moveclub.cn/2024/movewell/coin.png" />
+        <view>
+          <text>{{ userInfo.totalpoint }}</text>
+          <text>积分</text>
+        </view>
+      </view>
+      <view>
+        <view bindtap="gopoint">积分明细</view>
+        <view>去兑换</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="camp-bind" wx:if="{{!campSummary.hasAnyCamp}}" data-type="9" bindtap="redirect">
+    <view class="camp-bind-left">
+      <view class="camp-bind-title-row">
+        <view class="camp-bind-title">我的活动</view>
+        <view class="camp-bind-action">去绑定</view>
+      </view>
+      <view class="camp-bind-desc">
+        绑定后可查看活动期次、时间和详情
+      </view>
+    </view>
+    <image class="camp-bind-img" src="https://oss.mcloud.moveclub.cn/2024/movewell/pc/2.png" />
+  </view>
+
+  <view class="camp-bound" wx:else>
+    <view class="camp-bound-top">
+      <view class="camp-bound-top-left">
+        <view class="camp-bound-title">我的活动</view>
+        <view class="camp-bound-subtitle">
+          已绑定 {{campSummary.currentCount + campSummary.futureCount + campSummary.historyCount}} 个活动
+        </view>
+      </view>
+<!--       <view class="camp-bound-btn" bindtap="goAllCamp">
+        查看全部
+        <van-icon name="arrow" color="#999999" size="30rpx" />
+      </view> -->
+    </view>
+
+    <view class="camp-bound-boxs">
+      <view class="camp-stat-item" data-status="current" bindtap="goCampByStatus">
+        <view class="camp-num">{{campSummary.currentCount}}</view>
+        <view class="camp-label">进行中</view>
+      </view>
+
+      <view class="camp-stat-divider"></view>
+
+      <view class="camp-stat-item" data-status="future" bindtap="goCampByStatus">
+        <view class="camp-num">{{campSummary.futureCount}}</view>
+        <view class="camp-label">即将开始</view>
+      </view>
+
+      <view class="camp-stat-divider"></view>
+
+      <view class="camp-stat-item" data-status="history" bindtap="goCampByStatus">
+        <view class="camp-num">{{campSummary.historyCount}}</view>
+        <view class="camp-label">历史</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="menu">
+    <view class="recit" data-type="8" bindtap="redirect">
+      <view>
+        <image src="https://oss.mcloud.moveclub.cn/2025/csyyls/%E4%BD%93%E9%87%8D%E7%AE%A1%E7%90%86%402x.png" />
+        <text>体重管理计划</text>
+      </view>
+      <view>
+        <image src="https://oss.mcloud.moveclub.cn/2024/movewell/right.png" />
+      </view>
+    </view>
+
+    <view class="recit" data-type="1" bindtap="redirect">
+      <view>
+        <image src="https://oss.mcloud.moveclub.cn/2024/movewell/user.png" />
+        <text>个人资料</text>
+      </view>
+      <view>
+        <image src="https://oss.mcloud.moveclub.cn/2024/movewell/right.png" />
+      </view>
+    </view>
+
+    <view class="recit" data-type="2" bindtap="redirect">
+      <view>
+        <image src="https://oss.mcloud.moveclub.cn/2024/movewell/sports.png" />
+        <text>运动健康数据授权</text>
+      </view>
+      <view>
+        <image src="https://oss.mcloud.moveclub.cn/2024/movewell/right.png" />
+      </view>
+    </view>
+
+    <button open-type="contact" class="recit">
+      <view>
+        <image src="https://oss.mcloud.moveclub.cn/2024/movewell/tell.png" />
+        <text>人工客服</text>
+      </view>
+      <view>
+        <image src="https://oss.mcloud.moveclub.cn/2024/movewell/call.png" />
+      </view>
+    </button>
+
+    <view class="recit" data-type="4" bindtap="redirect">
+      <view>
+        <image src="https://oss.mcloud.moveclub.cn/2024/movewell/%E9%9A%90%E7%A7%81%402x.png" />
+        <text>隐私协议</text>
+      </view>
+      <view>
+        <image src="https://oss.mcloud.moveclub.cn/2024/movewell/right.png" />
+      </view>
+    </view>
+  </view>
+</view>

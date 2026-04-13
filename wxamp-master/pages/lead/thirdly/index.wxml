@@ -1,0 +1,28 @@
+<!--pages/lead/thirdly/index.wxml-->
+<view class="btn" bind:tap="nextto">
+    跳过
+</view>
+<view class="type">
+    <image src="{{info.icon}}" />
+</view>
+
+<view class="boxs">
+    <view class="title">
+        <view >你的BMI</view>
+        <view >{{info.bmi}} <text style="color: {{info.color}}">{{info.name}}</text></view>
+    </view>
+    <view class="list">
+        <view class="icon" style="left: {{info.left}}rpx;border-top: 20rpx solid {{info.color}};"></view>
+        <view class="item" wx:for="{{typelist}}" wx:key="idx">           
+            <view class="sco" style="background: {{item.color}}"></view>
+            <view class="tt">{{item.name}}</view>
+        </view>
+    </view>
+    <view class="notice">{{info.desc}}</view>
+</view>
+<view class="tips">
+    注：BMI是目前诊断肥胖最广泛使用的方法和指标；
+BMI(kg/㎡) = 体重(kg)/身高(㎡)
+</view>
+
+<view class="mvbutton" bind:tap="next">下一步</view>

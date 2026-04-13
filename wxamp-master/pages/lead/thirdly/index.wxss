@@ -1,0 +1,113 @@
+page{
+    background: #ffffff;
+    box-sizing: border-box;
+    padding: 78rpx 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btn{
+    width: 101rpx;
+    height: 56rpx;
+    text-align: center;
+    line-height: 56rpx;
+    background: #9AB3BC;
+    border-radius: 28rpx;
+    font-size: 28rpx;
+    color: #FFFFFF;
+    position: fixed;
+    right: 46rpx;
+    top: 40rpx;
+}
+.type{
+    width: 525rpx;
+    height: 525rpx;
+    margin-bottom: 63rpx;
+}
+.type image{
+    width: 100%;
+    height: 100%;
+}
+.boxs{
+    width: 609rpx;
+    /* height: 306rpx; */
+    border: 2rpx solid rgba(218,221,227,1);
+    border-radius: 21rpx;
+    box-sizing: border-box;
+    padding: 34rpx 22rpx;
+}
+.boxs .title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 5rpx;
+}
+.boxs .title>view:first-child{
+    font-size: 28rpx;
+    color: #262B2D;
+    font-weight: 500;
+}
+.boxs .title>view:nth-child(2){
+    font-size: 31rpx;
+    color: #262B2D;
+    font-weight: 500;
+}
+.boxs .title>view:nth-child(2) text {
+    font-size: 28rpx;
+}
+.boxs .list{
+    display: flex;
+    width: 100%;
+    /* height: 76rpx; */
+    position: relative;
+}
+.boxs .list .icon{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 16rpx solid transparent;   /* 左边透明 */
+    border-right: 16rpx solid transparent;  /* 右边透明 */
+}
+.boxs .list .item{
+    width: 25%;
+    /* height: 76rpx; */
+    padding-top: 29rpx;
+    font-size: 24rpx;
+    color: rgb(38, 43, 45, .57);
+    text-align: center;
+}
+.boxs .list .item .sco{
+    width: 100%;
+    border-radius: 5rpx;
+    height: 10rpx;
+}
+.boxs .list .item .tt{
+    padding-top: 14rpx;
+}
+.boxs .notice{
+    font-size: 28rpx;
+    color: #7F848E;
+    line-height: 49rpx;
+    font-weight: 500;
+    padding-top: 19rpx;
+}
+.tips{
+    width: 574rpx;
+    padding-top: 52rpx;
+    font-size: 22rpx;
+    color: #262B2D;
+    text-align: center;
+    line-height: 40rpx;
+    padding-bottom: 106rpx;
+}
+
+.mvbutton{
+    background: #00C7C7;
+    border-radius: 60rpx;
+    width: 658rpx;
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 32rpx;
+    color: #FFFFFF;
+}

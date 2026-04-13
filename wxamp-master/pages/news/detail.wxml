@@ -1,0 +1,44 @@
+<view wx:if="{{fromCamp}}" class="camp-news-detail-head">
+  <view class="camp-news-detail-top">
+    <view class="camp-news-detail-title">活动推荐阅读</view>
+    <view class="camp-news-detail-back" bindtap="goCampDetail">返回活动</view>
+  </view>
+  <view class="camp-news-detail-desc">{{camp_name || '活动资讯详情'}}</view>
+</view>
+
+<view class="cover">
+  <image src="{{current.coverimg}}" mode="widthFix" />
+</view>
+<view class="head">
+  <view class="auth">
+    <van-icon name="manager" />
+    <view style="margin-left: 18rpx">
+      {{current.author}}
+    </view>
+  </view>
+  <view class="title">{{current.title}}</view>
+  <view class="info">
+    <view class="date">{{current.date}}</view>
+    <view class="views">{{current.views}} 浏览</view>
+  </view>
+</view>
+
+<view class="detail">
+    <wxParse nodes="{{ current.newsdetail }}" />
+</view>
+
+<view class="foot">
+  <view class="btn-area">
+    <!-- <view bindtap="likematch" class="first">
+      <van-icon name="like" wx:if="{{current.favorite}}" color="#FF5507" style="margin-right:10rpx;" />
+      <van-icon name="like-o" wx:else color="#999" style="margin-right:10rpx;" />
+      <button size="mini" plain style="{{current.favorite?'color:#FF5507;':'color:#999'}}">
+        {{current.favorite?'已收藏':'收藏'}}
+      </button>
+    </view> -->
+    <view>
+      <image src="/images/matchdetail/share.png" style="width:30rpx;height:30rpx;margin-right:10rpx;"></image>
+      <button open-type="share" size="mini" plain>分享给好友</button>
+    </view>
+  </view>
+</view>

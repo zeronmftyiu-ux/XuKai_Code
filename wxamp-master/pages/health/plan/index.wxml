@@ -1,0 +1,29 @@
+<!--pages/health/plan/index.wxml-->
+<view class="item" wx:for="{{list}}" wx:key="idx" data-id="{{item.id}}" bindtap="godetail">
+    <view class="title">
+        <view >
+            <view >开始时间：{{item.startday}}</view>
+            <view >减重时长：{{item.title}}</view>
+        </view>
+        <view ><van-icon name="arrow" size="36rpx" /></view>
+    </view>
+    <van-progress percentage="{{item.pro}}" pivot-text="已减{{item.mid}}" pivot-color="#02C7C7" stroke-width="25rpx" color="#00C7C7" />
+    <view class="bi">
+      <view >
+        <view class="start">
+            初始
+        </view>
+        <view >{{item.start}}kg</view>
+      </view>
+      <view >
+        <view class="mid">已减重</view>
+        
+        <view >{{item.mid}}kg</view>
+      </view>
+      <view >
+        <view class="start">目标</view>
+        
+        <view >{{item.target}}kg</view>
+      </view>
+    </view> 
+</view>

@@ -1,0 +1,14 @@
+<view class="type">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{true}}" indicator-active-color="#0D318F" indicator-color="#FFFFFF">
+        <block wx:for="{{bannerList}}" wx:key="index">
+            <swiper-item>
+                <view class="swiper-item">
+                    <van-image  width="690rpx"  height="200rpx" bindtap="jump" data-type="{{ item.jump_type }}" data-value="{{ item.app_id }}"
+          data-url="{{ item.jump_url }}"  lazy-load use-loading-slot src="{{item.img_url}}"  fit="cover">
+                        <image  slot="loading"  src=""  mode="aspectFill"></image>
+                    </van-image>
+                </view>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>

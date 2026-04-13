@@ -1,0 +1,31 @@
+<!--pages/lead/sixth/index.wxml-->
+<view class="list">
+    <view class="cell" wx:for="{{attrs}}" wx:key="idx">
+        <view class="label">{{item.content}}</view>
+        <picker wx:if="{{item.question_type==1}}" bindchange="bindChange" data-index="{{index}}" value="{{item.value}}" data-name="{{item.question_id}}" data-options="{{item.options}}"  data-custom="{{item.custom}}" range="{{item.custom}}">
+            <view class="picker">
+                <view >{{item.custom[item.value]||'请选择'}}</view>
+                <van-icon name="arrow" />
+            </view>
+        </picker>
+        <view wx:if="{{item.question_type==2}}" bindtap="showtap" data-item="{{item}}" data-custom="{{item.options}}" data-name="{{item.question_id}}" data-title="{{item.content}}" class="picker">
+            <view >{{item.value||'请选择'}}</view>
+            <van-icon name="arrow" />
+        </view>
+        <view wx:if="{{item.question_type==3}}" class="picker">
+            <input value="{{item.value}}" data-name="{{item.question_id}}" data-index="{{index}}" bindinput="bindInput" placeholder="请输入"/>
+        </view>
+    </view>
+</view>
+<view class="mvbutton" bind:tap="next">{{type==3?'生成计划':'提交完成'}}</view>
+<van-popup show="{{ show }}" position="bottom" closeable custom-style="height: 100%;" bind:close="onClose">
+    <view class="content">
+        <view class="title">{{title}}</view>
+        <view class="clist">
+            <view wx:for="{{custom}}" class="item {{item.check?'active':''}}" bindtap="change" data-index="{{index}}" data-check="{{item.check}}" wx:key="index">{{item.content}}</view>
+        </view>
+        <view class="btnBox">   
+            <view class="btn" bind:tap="handleSubmit">确定</view>
+        </view>
+    </view>
+</van-popup>

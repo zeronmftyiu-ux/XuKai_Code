@@ -1,0 +1,27 @@
+<template name="goodlist">
+  <view class="b-item">
+    <image
+      class
+      src="{{icon}}"
+      mode="aspectFill"
+      lazy-load="false"
+      binderror
+      bindload
+    />
+    <view class="cent">
+      <view class="tag" wx:if="{{subtitle}}">{{subtitle}}</view>
+      <view class="brand" wx:if="{{brand_name}}">{{brand_name}}</view>
+      <!-- <view class="tags" wx:if="{{vipsupport == 1}}">
+        <view class="vip">
+          {{level == 0 ?'开通会员最高可享'+discount+'折':level<vip_level?'升级会员最高可享'+discount+'折':vip_name+'立享'+discount+'折'}}    
+        </view>
+        <view class="cou" wx:if="{{vipcoupon == 1}}"></view>
+      </view> -->
+      <view class="b-title oneline">{{name}}</view>
+      <view class="free">
+        <view class="price"><text>¥</text>{{sellingprice}}</view>
+        <view class="original" wx:if="{{sellingprice != originalprice}}">¥{{originalprice}}</view>
+      </view>
+    </view>
+  </view>
+</template>
