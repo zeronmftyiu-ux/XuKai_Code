@@ -1,0 +1,22 @@
+/* pages/user/info.wxss */
+.btnBox{
+    /* display: flex;
+    justify-content: center; */
+    width: 100% !important;
+    text-align: center;
+    margin-top: 20rpx;
+}
+.btn{
+    width: 96% !important;
+    /* margin: auto !important; */
+    text-align: center;
+    border-radius: 20rpx !important;
+}
+.content{
+    box-sizing: border-box;
+    padding-top: 50rpx;
+}
+.van-radio-group{
+    width: 95%;
+    margin: auto;
+}

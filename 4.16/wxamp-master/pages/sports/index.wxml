@@ -1,0 +1,76 @@
+<view class="main">
+    <view class="tab">
+        <block wx:for="{{ tab }}">
+            <view class="tab-item {{ idx == index ? 'active' : '' }}" data-idx="{{ index }}" bindtap="toggleTab">{{ item }}</view>
+        </block>       
+    </view>
+    <!-- 周 -->
+    <view class="dateBox" wx:if="{{ idx == 0 }}">
+        <view class="dateBox-value">{{ weekValue }}</view>
+    </view>
+    <!-- 月 -->
+    <view class="dateBox" wx:if="{{ idx == 1 }}">
+        <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+            <view class="month-item {{ month_idx == index ? 'dateBox-value' : '' }}" wx:for="{{ months }}" data-idx="{{ index }}" bindtap="toggleMonth">{{ item.month }}</view>
+        </scroll-view>
+    </view>
+    <!-- 年 -->
+    <view class="dateBox" wx:if="{{ idx == 2 }}">
+        <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+            <view class="month-item {{ year_idx == index ? 'dateBox-value' : '' }}" wx:for="{{ years }}" data-idx="{{ index }}" bindtap="toggleYear">{{ item }}</view>
+        </scroll-view>
+    </view>
+    <!-- 总 -->
+    <view class="dateBox" wx:if="{{ idx == 3 }}">
+        <view class="dateBox-value">{{ total_date }}</view>
+    </view>
+
+    <view class="sportCount">
+        <view class="sportCount-title">
+            <view class="sportCount-title-left">运动总次数</view>
+            <view class="sportCount-title-right">{{ sports_times }}次</view>
+        </view>
+        <view class="sportCount-content">
+            <view class="sportCount-content-item">
+                <view class="sc-title">总时长</view>
+                <view class="sc-value">{{ total_time }}</view>
+            </view>
+            <view class="sportCount-content-item">
+                <view class="sc-title">总距离</view>
+                <view class="sc-value">{{ distance }}<text>公里</text></view>
+            </view>
+            <view class="sportCount-content-item">
+                <view class="sc-title">总运动消耗卡路里</view>
+                <view class="sc-value">{{ calorie }}<text>千卡</text></view>
+            </view>
+        </view>
+    </view>
+
+    <view class="sport-stat">
+        <view class="sport-stat-title">
+            <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/assets/%E6%97%B6%E9%95%BF%402x.png"></image>
+            <view>时长统计</view>
+        </view>
+        <view class="sport-stat-content">
+            <view class="sport-stat-content-item">
+                <view class="sport-stat-content-item-1">类型</view>
+                <view class="sport-stat-content-item-2">占比</view>
+                <view class="sport-stat-content-item-3">用时</view>
+            </view>
+            <block>
+                <view class="sport-stat-content-item2" wx:for="{{ sports }}">
+                    <view class="sport-stat-content-item-1">{{ item.name }}</view>
+                    <view class="sport-stat-content-item-2">
+                        <view class="progress">
+                            <view class="progress-cover" style="width: {{ (item.percent || 0) + '%' }}"></view>
+                            <view class="progress-text">{{ item.percent }}%</view>
+                        </view>
+                    </view>
+                    <view class="sport-stat-content-item-3">{{ item.time_str }}</view>
+                </view>
+            </block>
+            
+        </view>
+    </view>
+
+</view>

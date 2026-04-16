@@ -1,0 +1,94 @@
+<view class="title">必填信息</view>
+<van-cell-group>
+  <van-field
+    value="{{ form.component }}"
+    label="食物名称"
+    data-name="component"
+    placeholder="例如：牛排"
+    input-align="right"
+    bind:change="onChange"
+    size="large"
+  />
+  <van-field
+    value="{{ form.amount }}"
+    label="食物数量"
+    data-name="amount"
+    placeholder="例如：1、100"
+    input-align="right"
+    bind:change="onChange"
+    size="large"
+  />
+  <van-field
+    value="{{ form.unit }}"
+    label="食物单位"
+    data-name="unit"
+    placeholder="例如：块、克"
+    input-align="right"
+    bind:change="onChange"
+    size="large"
+  />
+  <van-field
+    value="{{ form.energy }}"
+    label="食物热量"
+    data-name="energy"
+    placeholder="例：100"
+    input-align="right"
+    bind:change="onChange"
+    size="large"
+  >
+    <view slot="button" size="small" type="default">
+      千卡
+    </view>
+  </van-field>
+</van-cell-group>
+
+<view class="title">选填信息</view>
+<van-cell-group>
+  <van-cell title="添加照片" size="large" bind:click="chooseImage" >
+    <van-icon slot="right-icon" name="{{form.imgurl||'https://oss.mcloud.moveclub.cn/movewell/img/%E6%8B%8D%E7%85%A7%402x.png'}}" size="48rpx" />
+  </van-cell>
+  <van-field
+    value="{{ form.carbohydrate }}"
+    label="碳水化合物含量"
+    title-width="240rpx"
+    data-name="carbohydrate"
+    placeholder="- -"
+    input-align="right"
+    bind:change="onChange"
+    size="large"
+  >
+    <view slot="button" size="small" type="default">
+      克
+    </view>
+  </van-field>
+  <van-field
+    value="{{ form.protein }}"
+    label="蛋白质含量"
+    data-name="protein"
+    placeholder="- -"
+    input-align="right"
+    bind:change="onChange"
+    size="large"
+  >
+    <view slot="button" size="small" type="default">
+      克
+    </view>
+  </van-field>
+  <van-field
+    value="{{ form.fat }}"
+    label="脂肪含量"
+    data-name="fat"
+    placeholder="- -"
+    input-align="right"
+    bind:change="onChange"
+    size="large"
+  >
+    <view slot="button" size="small" type="default">
+      克
+    </view>
+  </van-field>
+</van-cell-group>
+
+<view class="footer">
+    <view class="mvbutton" bindtap="submit">提交申请</view>
+</view>

@@ -1,0 +1,104 @@
+<view class="camp-page">
+  <view class="camp-header">
+    <view class="title">{{pageTitle}}</view>
+    <view wx:if="{{!hasAnyCamp}}" class="bind-btn" bindtap="goBindPage">
+      绑定活动
+    </view>
+  </view>
+
+  <!-- 待开始活动 -->
+  <block wx:if="{{status === 'future'}}">
+    <view wx:if="{{!futureCamps.length}}" class="empty-box">
+      <view class="empty-text">暂无待开始活动</view>
+    </view>
+
+    <block wx:for="{{futureCamps}}" wx:key="camp_id">
+      <view class="future-card simple" bindtap="handleFutureCardTap">
+        <view class="future-card-top">
+          <view class="future-days">距离开营还有 {{item.remain_days}} 天</view>
+          <view class="future-tag">待开始</view>
+        </view>
+
+        <view class="future-title">{{item.camp_name}}</view>
+        <view class="future-company">{{item.company_name}}</view>
+
+        <view class="future-desc">
+          {{item.camp_desc}}
+        </view>
+
+        <view class="future-time">
+          <text class="future-time-label">开始时间：</text>
+          <text class="future-time-value">{{item.start_time || '--'}}</text>
+        </view>
+
+        <view class="future-time">
+          <text class="future-time-label">结束时间：</text>
+          <text class="future-time-value">{{item.end_time || '--'}}</text>
+        </view>
+      </view>
+    </block>
+  </block>
+
+  <!-- 进行中活动 -->
+  <block wx:if="{{status === 'current'}}">
+    <view wx:if="{{!currentCamps.length}}" class="empty-box">
+      <view class="empty-text">暂无进行中活动</view>
+    </view>
+
+    <block wx:for="{{currentCamps}}" wx:key="camp_id">
+      <view class="camp-card" data-item="{{item}}" bindtap="goDetail">
+        <view class="camp-card-top">
+          <view class="camp-name">{{item.company || item.camp_code || ('活动' + item.camp_id)}}</view>
+          <view class="camp-status ongoing">{{item.status_text}}</view>
+        </view>
+        <view class="camp-info">期次：{{item.camp_code || '--'}}</view>
+        <view class="camp-info">时间：{{item.start_time || '--'}} - {{item.end_time || '--'}}</view>
+        <view class="camp-info">初始体重：{{item.initial_weight || '--'}}</view>
+        <view class="camp-info">目标体重：{{item.target_weight || '--'}}</view>
+        <view class="camp-enter yes">立即进入</view>
+      </view>
+    </block>
+  </block>
+
+  <!-- 历史活动 -->
+  <block wx:if="{{status === 'history'}}">
+    <view wx:if="{{!historyCamps.length}}" class="empty-box">
+      <view class="empty-text">暂无历史活动</view>
+    </view>
+
+    <block wx:for="{{historyCamps}}" wx:key="camp_id">
+      <view class="history-card" data-item="{{item}}" bindtap="goDetail">
+        <view class="history-card-top">
+          <view class="history-title">{{item.camp_name}}</view>
+          <view class="history-tag">本期已完成</view>
+        </view>
+
+        <view class="history-subtitle">
+          {{item.company_name}} · {{item.start_time || '--'}} - {{item.end_time || '--'}}
+        </view>
+
+        <view class="history-metric-row">
+          <view class="history-metric-card">
+            <view class="history-metric-label">累计减重</view>
+            <view class="history-metric-value">{{item.total_loss}}</view>
+          </view>
+
+          <view class="history-metric-card">
+            <view class="history-metric-label">完成率</view>
+            <view class="history-metric-value">{{item.finish_rate}}</view>
+          </view>
+
+          <view class="history-metric-card">
+            <view class="history-metric-label">动作提示</view>
+            <view class="history-metric-link">{{item.action_text}}</view>
+          </view>
+        </view>
+
+        <view class="history-bottom">
+          <view class="history-bottom-text">查看成果与变化</view>
+          <view class="history-bottom-arrow">›</view>
+        </view>
+      </view>
+    </block>
+  </block>
+</view>

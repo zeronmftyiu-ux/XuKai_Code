@@ -1,0 +1,47 @@
+<view class="header">
+  <view class="left" bindtap="goBack">
+    <van-icon name="arrow-left" size="44rpx" color="#444444" />
+    <view>运动视频</view>
+  </view>
+</view>
+
+<view class="page">
+  <image class="hero-image" mode="aspectFill" src="{{courseInfo.cover}}" />
+
+  <view class="content-card">
+    <view class="course-title">{{courseInfo.title}}</view>
+    <view class="course-meta">
+      {{courseInfo.level_text}} · {{courseInfo.duration_minute}}分钟
+    </view>
+    <view class="course-intro">{{courseInfo.intro}}</view>
+    <view class="detail-link">详情查看 ></view>
+
+    <view class="info-grid">
+      <view class="info-item">
+        <view class="info-label">预计总消耗热量</view>
+        <view class="info-value">{{courseInfo.calorie}}千卡</view>
+      </view>
+      <view class="info-item">
+        <view class="info-label">训练部位</view>
+        <view class="info-value">{{courseInfo.train_part}}</view>
+      </view>
+    </view>
+
+    <view class="recommend-title">课程推荐</view>
+    <view class="recommend-list">
+      <view class="recommend-row">
+        <image class="recommend-thumb" mode="aspectFill" src="{{courseInfo.cover}}" />
+        <view class="recommend-content">
+          <view class="recommend-name">{{courseInfo.series_title}}</view>
+          <view class="recommend-meta">
+            {{courseInfo.level_text}} · {{courseInfo.duration_minute}}分钟 · {{courseInfo.calorie}}千卡
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="bottom-bar">
+  <view class="start-btn" bindtap="startTraining">开始跟练</view>
+</view>

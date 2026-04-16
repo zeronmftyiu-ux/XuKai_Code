@@ -1,0 +1,22 @@
+<view class="header">健康优品</view>
+<import src="../../templates/goods/good.wxml" />
+<view class="tabs" wx:if="{{cateList.length > 0}}">
+    <view wx:for="{{cateList}}" wx:key="idx" class="tab {{cateid==item.cate_id?'active':''}}" data-cateid="{{item.cate_id}}" bindtap="gocate">
+        <image src="{{cateid==item.cate_id?item.active_url:item.imgurl}}" mode="aspectFit"/>
+    </view>
+</view>
+<block wx:if="{{List.length > 0}}">
+    <view class="bottom">
+        <view class="b-title">
+            <!-- <view>
+                严选好物
+            </view> -->
+            <view class="navigator" wx:if="{{item.sub_title}}" bindtap="gogoods" data-catagoryid="{{item.id}}"> {{item.sub_title}} ></view>
+        </view>
+        <view class="list">
+            <view wx:for="{{List}}" wx:for-item="citem" wx:key="idx" data-goodsid="{{citem.goods_id}}" bindtap="godetail">
+                <template is="goodlist" data="{{...citem}}"></template>
+            </view>
+        </view>
+    </view>
+</block>

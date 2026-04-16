@@ -1,0 +1,314 @@
+page {
+  background: #f7f8fa;
+}
+
+.camp-page {
+  min-height: 100vh;
+  padding: 20rpx 24rpx 36rpx;
+  box-sizing: border-box;
+}
+
+.camp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.title {
+  font-size: 38rpx;
+  font-weight: 700;
+  color: #17324d;
+  line-height: 1.3;
+}
+
+.bind-btn {
+  font-size: 24rpx;
+  color: #16c7cc;
+}
+
+.empty-box {
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 40rpx 24rpx;
+  text-align: center;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #6f7d8d;
+}
+
+.empty-subtext {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #9aa6b2;
+}
+
+/* 待开始 */
+.future-card {
+  background: linear-gradient(180deg, #f4fbf6 0%, #eef8f1 100%);
+  border: 1rpx solid #dbeee0;
+  border-radius: 28rpx;
+  padding: 26rpx 24rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+}
+
+.future-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.future-days {
+  font-size: 28rpx;
+  color: #7e95a8;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.future-tag {
+  min-width: 110rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  text-align: center;
+  border-radius: 23rpx;
+  background: rgba(111, 192, 141, 0.16);
+  color: #5b7c68;
+  font-size: 22rpx;
+  flex-shrink: 0;
+}
+
+.future-title {
+  margin-top: 18rpx;
+  font-size: 34rpx;
+  line-height: 1.35;
+  color: #17324d;
+  font-weight: 700;
+  word-break: break-all;
+}
+
+.future-company {
+  margin-top: 8rpx;
+  font-size: 28rpx;
+  line-height: 1.4;
+  color: #17324d;
+  font-weight: 600;
+}
+
+.future-desc {
+  margin-top: 18rpx;
+  font-size: 28rpx;
+  line-height: 1.7;
+  color: #607487;
+}
+
+.future-time {
+  margin-top: 14rpx;
+  font-size: 26rpx;
+  line-height: 1.6;
+}
+
+.future-time-label {
+  color: #7b8796;
+}
+
+.future-time-value {
+  color: #17324d;
+}
+
+/* 通用旧卡片（进行中保留） */
+.camp-card {
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 24rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(23, 50, 77, 0.03);
+}
+
+.camp-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+
+.camp-name {
+  font-size: 32rpx;
+  color: #17324d;
+  font-weight: 700;
+  line-height: 1.4;
+  flex: 1;
+  padding-right: 20rpx;
+}
+
+.camp-status {
+  min-width: 110rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  text-align: center;
+  border-radius: 23rpx;
+  font-size: 22rpx;
+}
+
+.camp-status.ongoing {
+  background: #fff1e7;
+  color: #ff8f4a;
+}
+
+.camp-status.upcoming {
+  background: #edf8f1;
+  color: #63b27b;
+}
+
+.camp-status.ended {
+  background: #f1f3f6;
+  color: #7b8796;
+}
+
+.camp-info {
+  font-size: 26rpx;
+  color: #607487;
+  line-height: 1.7;
+}
+
+.camp-enter {
+  margin-top: 18rpx;
+  width: 160rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  border-radius: 28rpx;
+  font-size: 24rpx;
+}
+
+.camp-enter.yes {
+  background: #16c7cc;
+  color: #ffffff;
+}
+
+.camp-enter.no {
+  background: #f2f4f7;
+  color: #607487;
+}
+
+/* 历史活动 */
+.history-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 28rpx;
+  padding: 28rpx 24rpx 24rpx;
+  box-sizing: border-box;
+  margin-bottom: 24rpx;
+  border: 1rpx solid #e7ddd2;
+  box-shadow: 0 4rpx 14rpx rgba(23, 50, 77, 0.03);
+  overflow: hidden;
+}
+
+.history-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 24rpx;
+  bottom: 24rpx;
+  width: 8rpx;
+  border-radius: 0 8rpx 8rpx 0;
+  background: #5f90d9;
+}
+
+.history-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 8rpx;
+}
+
+.history-title {
+  flex: 1;
+  padding-right: 20rpx;
+  font-size: 34rpx;
+  line-height: 1.35;
+  color: #17324d;
+  font-weight: 700;
+  word-break: break-all;
+}
+
+.history-tag {
+  min-width: 124rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  text-align: center;
+  border-radius: 24rpx;
+  background: #eef3fb;
+  color: #5f90d9;
+  font-size: 22rpx;
+  flex-shrink: 0;
+}
+
+.history-subtitle {
+  margin-top: 14rpx;
+  padding-left: 8rpx;
+  font-size: 28rpx;
+  line-height: 1.6;
+  color: #607487;
+}
+
+.history-metric-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 26rpx;
+  padding-left: 8rpx;
+}
+
+.history-metric-card {
+  width: 200rpx;
+  background: #eef3fb;
+  border-radius: 22rpx;
+  padding: 20rpx 18rpx;
+  box-sizing: border-box;
+}
+
+.history-metric-label {
+  font-size: 24rpx;
+  line-height: 1.4;
+  color: #7b8796;
+}
+
+.history-metric-value {
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  line-height: 1.4;
+  color: #5f90d9;
+  font-weight: 700;
+}
+
+.history-metric-link {
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  line-height: 1.4;
+  color: #5f90d9;
+  font-weight: 700;
+}
+
+.history-bottom {
+  margin-top: 28rpx;
+  padding-left: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.history-bottom-text {
+  font-size: 28rpx;
+  line-height: 1.5;
+  color: #4f6480;
+  font-weight: 600;
+}
+
+.history-bottom-arrow {
+  font-size: 40rpx;
+  line-height: 1;
+  color: #7b8796;
+}

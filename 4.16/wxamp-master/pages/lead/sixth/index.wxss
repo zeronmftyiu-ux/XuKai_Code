@@ -1,0 +1,95 @@
+/* pages/lead/sixth/index.wxss */
+page{
+    background: url(https://oss.mcloud.moveclub.cn/2025/mv/top.png) no-repeat;
+    width: 100%;
+    height: 100%;
+    background-position: center top;
+    background-size: contain;
+    box-sizing: border-box;
+    padding: 410rpx 46rpx 51rpx;
+}
+.cell{
+    margin-bottom: 56rpx;
+}
+.cell .label{
+    font-size: 36rpx;
+    color: #494C4E;
+    font-weight: 500;
+    padding-bottom: 16rpx;
+}
+.cell .picker{
+    width: 658rpx;
+    height: 108rpx;
+    border: 2rpx solid #e2e3e5;
+    border-radius: 7rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+}
+.cell .picker>view:first-child{
+    color: #999;
+}
+
+.cell .picker input{
+    width: 100%;
+}
+
+.content{
+    box-sizing: border-box;
+    padding: 51rpx 46rpx;
+}
+
+.content .title{
+    font-size: 36rpx;
+    color: #494C4E;
+    font-weight: 500;
+    padding-bottom: 16rpx;
+}
+.content .clist{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 30rpx 0;
+    margin-bottom: 165rpx;
+}
+.content .clist .item{
+    font-size: 28rpx;
+    color: #333333;
+    box-sizing: border-box;
+    padding: 15rpx 30rpx;
+    margin: 0 10rpx;
+    background: #e2e3e5;
+    border-radius: 36rpx;
+    margin-bottom: 30rpx;
+}
+.content .clist .active{
+    background: #00C7C7;
+    color: #ffffff;
+}
+
+.content .btn{
+    background: #00C7C7;
+    border-radius: 60rpx;
+    width: 100%;
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 32rpx;
+    color: #FFFFFF;
+    margin: auto;
+}
+
+.mvbutton{
+    background: #00C7C7;
+    border-radius: 60rpx;
+    width: 658rpx;
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 32rpx;
+    color: #FFFFFF;
+    margin: auto;
+}

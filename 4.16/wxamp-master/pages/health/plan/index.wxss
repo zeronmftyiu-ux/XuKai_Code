@@ -1,0 +1,59 @@
+/* pages/health/plan/index.wxss */
+page{
+    background: #F4F6F9;
+    box-sizing: border-box;
+    padding: 24rpx;
+}
+
+.item{
+    background: #FFFFFF;
+    border-radius: 20rpx;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 33rpx 31rpx;
+    margin-bottom: 24rpx;
+}
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 27rpx;
+    color: #30292C;
+    padding-bottom: 47rpx;
+}
+.title>view:nth-child(2){
+    align-self: flex-start;
+}
+.bi{
+    padding-top: 30rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.bi>view{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.bi>view>view:nth-child(2){
+    font-size: 32rpx;
+    color: #30292C;
+    font-weight: 600;
+    padding-top: 16rpx;
+}
+.bi .start{
+    font-size: 27rpx;
+    color: #64656B;
+    box-sizing: border-box;
+    padding: 6rpx 12rpx;
+    background: #ECEDF2;
+    border-radius: 5rpx;
+}
+.bi .mid{
+    font-size: 27rpx;
+    color: #00BDA7;
+    box-sizing: border-box;
+    padding: 6rpx 12rpx;
+    background: #E8F7F6;
+    border-radius: 5rpx;
+}

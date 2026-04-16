@@ -1,0 +1,158 @@
+/* pages/food/balance.wxss */
+page{
+    background: linear-gradient(to bottom, #E2FFE8, #B9F1ED);
+}
+.header{
+    width: 100%;
+    height: 88rpx;
+    position: relative;
+    box-sizing: border-box;
+    padding: 128rpx 22rpx 39rpx;
+    font-size: 34rpx;
+    color: #30292C;
+    line-height: 44rpx;
+}
+
+.header>view{
+    display: flex;
+    align-items: center;
+}
+.body{
+    box-sizing: border-box;
+    padding: 34rpx 24rpx;
+}
+.body .main{
+    background: #ffffff;
+    box-shadow: 0px 2rpx 5rpx 2rpx rgba(175,228,220,1);
+    border-radius: 20rpx;
+    box-sizing: border-box;
+    padding: 40rpx;
+}
+.main .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-bottom: 30rpx;
+    border-bottom: 1rpx dashed #F5F5F5;
+}
+.main .top>view{
+    font-size: 25rpx;
+    color: #6F788B;
+}
+.main .top>view>view:nth-child(2){
+    color: #30292C;
+    padding-top: 6rpx;
+}
+.main .top>view text{
+    font-size: 48rpx;
+    font-weight: 700;
+}
+.calendar {
+    /* padding: 20px; */
+    box-sizing: border-box;
+    padding-top: 30rpx;
+}
+.calendar .month-switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 70rpx;
+}
+  
+  
+.calendar .title {
+    text-align: center;
+    font-size: 40rpx;
+    color: #30292C;
+    font-weight: 600;
+    padding: 0 35rpx;
+}
+
+.calendar .weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 26rpx;
+    color: #30292C;
+    padding-bottom: 20rpx;
+}
+  
+.calendar .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap:40rpx 5rpx;
+}
+  
+.calendar .day {
+    /* width: 56rpx;
+    height: 56rpx; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30rpx;
+    color: #30292C;
+    text-align: center;
+    font-weight: 700;
+}
+  
+.calendar .day.empty {
+    background-color: transparent;
+}
+  
+/* .calendar .day:not(.empty):active {
+    background-color: #ddd;
+} */
+
+.body .btitle {
+    font-size: 35rpx;
+    color: #30292C;
+    font-weight: 600;
+    padding-top: 43rpx;
+    padding-bottom: 11rpx;
+}
+
+.body .list{
+    background: #FFFFFF;
+    box-shadow: 0px 2rpx 5rpx 2rpx rgba(175,228,220,1);
+    border-radius: 20rpx;
+    box-sizing: border-box;
+    padding: 32rpx 30rpx;
+}
+.body .list .item{
+    margin-bottom: 40rpx;
+}
+.body .list .item .date{
+    font-size: 27rpx;
+    color: #30292C;
+    padding-bottom: 16rpx;
+}
+
+.body .list .item .box{
+    width: 100%;
+    background: #E8F7F6;
+    border-radius: 16rpx;
+    box-sizing: border-box;
+    padding: 20rpx 28rpx 18rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24rpx;
+    color: #212327;
+}
+.body .list .item .box>view>view:nth-child(2){
+    color: #212327;
+    font-weight: 700;
+}
+.item .h{
+    height: 90rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.fu{
+    align-self: flex-end;
+    padding-bottom: 10rpx;
+}
+

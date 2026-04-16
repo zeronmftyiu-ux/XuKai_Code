@@ -1,0 +1,57 @@
+page{
+    background: #F2F5F6;
+}
+.header{
+    box-sizing: border-box;
+    padding: 112rpx 0 0 21rpx;
+    opacity: 0.85;
+    font-size: 36rpx;
+    color: #000000;
+    letter-spacing: 0;
+    font-weight: 600;
+}
+@import "../../templates/goods/good.wxss";
+.tabs{
+    width: 100%;
+    background-size: 100% 100%;
+    overflow: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+    box-sizing: border-box;
+    padding: 10rpx;
+    margin-top: 30rpx;
+}
+.tabs image{
+    width: 168rpx;
+    height: 140rpx;
+}
+.tab{
+    display: inline-block;
+    width: 162rpx;
+    height: 140rpx;  
+    margin: 0 10rpx;
+}
+
+.bottom{
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20rpx 20rpx;
+    margin-bottom: 50rpx;
+}
+.bottom .b-title{
+    margin-top: 0rpx;
+    font-size: 34rpx;
+    color: #000;
+    padding-bottom: 13rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bottom .list{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}

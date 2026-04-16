@@ -1,0 +1,102 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/goods/index",
+    "pages/health/index",
+    "pages/health/plan/index",
+    "pages/sports/index",
+    "pages/sports/trend",    
+    "pages/user/index",
+    "pages/user/info",
+    "pages/user/camp/index",
+    "pages/user/campVerify/index",
+    "pages/user/campDetail/index",
+    "pages/user/point/index",
+    "pages/news/index",
+    "pages/food/index",
+    "pages/food/add",
+    "pages/food/config",
+    "pages/food/balance",
+    "pages/water/index",
+    "pages/motion/index",
+    "pages/motion/task/index",
+    "pages/motion/course/index",
+    "pages/motion/course/detail",
+    "pages/motion/course/player",
+    "pages/lead/first/index",
+    "pages/lead/second/index",
+    "pages/lead/thirdly/index",
+    "pages/lead/fourth/index",
+    "pages/lead/fifth/index",
+    "pages/lead/sixth/index",
+    "pages/lead/seven/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "MOVEWELL",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#000",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/taber/1.png",
+        "selectedIconPath": "image/taber/1a.png"
+      },
+      {
+        "pagePath": "pages/health/index",
+        "text": "健康管理",
+        "iconPath": "image/taber/2.png",
+        "selectedIconPath": "image/taber/2a.png"
+      },
+      {
+        "pagePath": "pages/goods/index",
+        "text": "健康优品",
+        "iconPath": "image/taber/3.png",
+        "selectedIconPath": "image/taber/3a.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "image/taber/4.png",
+        "selectedIconPath": "image/taber/4a.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "van-image": "@vant/weapp/image",
+    "van-loading": "@vant/weapp/loading",
+    "van-icon": "@vant/weapp/icon",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-stepper": "@vant/weapp/stepper/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index"
+  },
+  "__usePrivacyCheck__": true
+}

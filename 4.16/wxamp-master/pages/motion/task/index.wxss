@@ -1,0 +1,179 @@
+page {
+  background: #F4F6F9 url(https://oss.mcloud.moveclub.cn/2025/csyyls/%E8%BF%90%E5%8A%A8-bg%402x.png) no-repeat;
+  width: 100%;
+  min-height: 100%;
+  background-position: center top;
+  background-size: contain;
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+  height: 88rpx;
+  position: relative;
+  box-sizing: border-box;
+  padding: 128rpx 22rpx 39rpx;
+  font-size: 34rpx;
+  color: #30292C;
+  line-height: 44rpx;
+}
+
+.header > view {
+  display: flex;
+  align-items: center;
+}
+
+.main {
+  box-sizing: border-box;
+  padding: 54rpx 24rpx 60rpx;
+}
+
+.intro-card {
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+  box-shadow: 0 8rpx 24rpx rgba(17, 24, 39, 0.04);
+  margin-bottom: 24rpx;
+}
+
+.intro-title {
+  font-size: 34rpx;
+  color: #1F2430;
+  font-weight: 700;
+  line-height: 48rpx;
+}
+
+.intro-desc {
+  margin-top: 12rpx;
+  font-size: 25rpx;
+  color: #7D8797;
+  line-height: 38rpx;
+}
+
+.camp-tag {
+  display: inline-block;
+  margin-top: 18rpx;
+  padding: 10rpx 18rpx;
+  background: #EAF8F7;
+  color: #0CB9B9;
+  font-size: 22rpx;
+  border-radius: 999rpx;
+}
+
+.camp-tag.plain {
+  background: #F3F5F7;
+  color: #7D8797;
+}
+
+.camp-switch-scroll {
+  white-space: nowrap;
+  margin-bottom: 22rpx;
+}
+
+.camp-switch-list {
+  display: flex;
+  align-items: center;
+}
+
+.camp-switch-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 60rpx;
+  padding: 0 24rpx;
+  margin-right: 16rpx;
+  border-radius: 30rpx;
+  background: #FFFFFF;
+  border: 1rpx solid #E5EAF1;
+  color: #5F6B7A;
+  font-size: 24rpx;
+  box-sizing: border-box;
+}
+
+.camp-switch-item.active {
+  background: #14C3C8;
+  border-color: #14C3C8;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.task-card {
+  width: calc(50% - 10rpx);
+  min-height: 196rpx;
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  box-sizing: border-box;
+  padding: 28rpx 24rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+  box-shadow: 0 8rpx 24rpx rgba(17, 24, 39, 0.04);
+}
+
+.task-icon {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.task-icon.wechat {
+  background: linear-gradient(135deg, #1FCB8F, #10B981);
+}
+
+.task-icon.course {
+  background: linear-gradient(135deg, #FF8A65, #FF6B6B);
+}
+
+.task-icon.water {
+  background: linear-gradient(135deg, #64B5F6, #4FC3F7);
+}
+
+.task-title {
+  margin-top: 18rpx;
+  font-size: 36rpx;
+  color: #111827;
+  font-weight: 700;
+  line-height: 46rpx;
+}
+
+.task-desc {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: #8A93A3;
+  line-height: 34rpx;
+}
+
+.task-arrow {
+  position: absolute;
+  right: 22rpx;
+  top: 24rpx;
+}
+
+.empty-box {
+  margin-top: 80rpx;
+  text-align: center;
+}
+
+.empty-title {
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: 600;
+}
+
+.empty-desc {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #98A2B3;
+}

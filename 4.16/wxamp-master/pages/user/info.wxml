@@ -1,0 +1,56 @@
+<!--pages/user/info.wxml-->
+<wxs module="tool">
+    var showtips = function(tips)
+    {
+        switch(tips*1) {
+            case 1:
+                return '男'
+            case 2:
+                return '女'
+            default:
+                return '未知'
+        }
+    }
+    module.exports={
+    showtips:showtips
+    };
+</wxs>
+<view class="main">
+    <van-cell title="昵称" value="{{ nickname }}" is-link data-label="昵称" bind:click="showDialog" />
+    <!-- <van-cell title="姓名" value="{{ realname }}" is-link /> -->
+    <van-cell title="性别" value="{{ tool.showtips(gender) }}" is-link data-label="性别" bind:click="showDialog" />
+    <van-cell title="出生日期" value="{{ birth||'请选择生日' }}" is-link data-label="出生日期" bind:click="showDialog" />
+    <van-cell title="身高(cm)" value="{{ height||'请填写身高' }}" is-link data-label="身高" bind:click="showDialog" />
+    <van-cell title="体重(kg)" value="{{ weight||'请填写体重' }}" is-link data-label="体重" bind:click="showDialog" />
+</view>
+
+<van-popup show="{{ show }}" position="bottom" custom-style="height: 50%;" bind:close="onClose">
+    <view class="content" wx:if="{{ title == '昵称' || title == '身高' || title == '体重' }}">
+        <van-field model:value="{{ dvalue }}" required clearable label="{{ title }}" placeholder="请输入{{ title }}" />
+        <view class="btnBox">
+            <van-button custom-class="btn" type="info" bind:click="handleSubmit">确定</van-button>
+        </view>
+    </view>
+    <view class="content" wx:if="{{ title == '性别' }}">
+        <van-radio-group value="{{ dvalue }}" direction="horizontal" bind:change="onChange">
+            <van-radio name="1">男</van-radio>
+            <van-radio name="2">女</van-radio>
+        </van-radio-group>
+        <view class="btnBox">   
+            <van-button custom-class="btn" type="info" bind:click="handleSubmit">确定</van-button>
+        </view>
+    </view>
+    <view class="content" wx:if="{{ title == '出生日期' }}">
+        <van-datetime-picker
+            type="date"
+            value="{{ currentDate }}"
+            min-date="{{ minDate }}"
+            bind:change="changeDate"
+            bind:cancel="onClose"
+            bind:confirm="handleSubmit"
+        />
+        <!-- <view class="btnBox">   
+            <van-button custom-class="btn" type="info" bind:click="handleSubmit">确定</van-button>
+        </view> -->
+    </view>
+</van-popup>

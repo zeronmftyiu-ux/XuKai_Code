@@ -1,0 +1,230 @@
+<view class="header">
+  <view class="info">
+    <image src="{{userInfo.avatarurl}}" />
+    <view class="name">{{userInfo.nickname}}</view>
+    <view class="points" bindtap="gopoint">
+      <view >{{totalpoint}} 积分</view>
+      <van-icon name="arrow" />
+    </view>
+  </view>
+  <view class="message" bindtap="gomessage">
+    <image src="https://oss.mcloud.moveclub.cn/2025/mv/mess.png" />
+    <view >消息</view>
+  </view>
+</view>
+
+<view class="advice" wx:if="{{list.length>0}}" bindtap="goadvice">
+  <view >
+    <image src="https://oss.mcloud.moveclub.cn/2025/mv/zhu.png" />
+    <view >{{list[0].date}}你有新的医嘱请查收！</view>
+  </view>
+  <image src="https://oss.mcloud.moveclub.cn/2025/mv/r.png" />
+</view>
+
+<view class="hot">
+    <m-banner-list bannerList="{{bannerList}}" indicatorDots="{{false}}" wx:if="{{bannerList.length}}"></m-banner-list>
+</view>
+
+<view class="echats">
+  <view class="top">
+    <view >吃动平衡</view>
+    <view bindtap="gobalance">查看日志<van-icon name="arrow" /></view>
+  </view>
+  <block wx:if="{{cyclelist.length>0}}">
+    <view class="left">
+      <view class="one">
+        <view >饮食摄入</view>
+        <view >{{balance.calorie_intake||0}}</view>
+      </view>
+      <view class="canvas">
+        <canvas type="2d" id="canvas" class="my-canvas" style="width: 300rpx;height: 200rpx;"></canvas>
+        <!-- // 注意：该 canvas 在微信开发者工具中滚动时可能出现残影/悬浮显示异常，真机调试正常 -->
+        <view class="btn-area">
+          <view >还可摄入(千卡)</view>
+          <view >{{balance.banlance||balance.standard_intake}}</view>
+        </view>
+      </view>
+      <view class="one">
+        <view bind:tap="showt">
+          <image src="https://oss.mcloud.moveclub.cn/2025/mv/info-circle-fill.png" />
+          <view >运动消耗*0.9</view>
+          
+        </view>
+        <view >{{balance.exercise||0}}</view>
+      </view>
+    </view>
+    <view class="notice">目标摄入热量值为{{balance.standard_intake}}千卡</view>
+  </block>
+  <view wx:else class="cover" bindtap="plan"></view>
+</view>
+
+<view class="camp-entry" wx:if="{{campSummary.hasAnyCamp}}">
+  <view class="camp-entry-top">
+    <view class="camp-entry-title">当前训练营</view>
+    <view class="camp-entry-more" bindtap="goCampCenter">立即进入</view>
+  </view>
+
+  <view class="camp-entry-name">
+    {{campSummary.latestCamp.company || campSummary.latestCamp.camp_code || '训练营'}}
+  </view>
+
+  <view class="camp-entry-time">
+    {{campSummary.latestCamp.start_time || '--'}} - {{campSummary.latestCamp.end_time || '--'}}
+  </view>
+
+  <view class="camp-entry-status" wx:if="{{campSummary.currentCount > 0}}">
+    进行中
+  </view>
+  <view class="camp-entry-status wait" wx:elif="{{campSummary.futureCount > 0}}">
+    即将开始
+  </view>
+</view>
+
+<view class="tabs">
+  <view wx:for="{{tags}}" class="tab" wx:key="index" data-url="{{ item.jumpurl }}" bindtap="jumpurl">
+    <image src="{{item.icon}}" />
+  </view>
+</view>
+<view class="healths">
+  <view class="title">
+    <view >
+      <view >体重记录</view>
+      <view >{{userInfo.update_time}} 更新</view>
+    </view>
+    <view bind:tap="gotrend"><van-icon name="bar-chart-o" />查看趋势</view>
+  </view>
+  <view class="heal" >
+    <view >
+      {{userInfo.weight||'--'}}
+      <text >公斤</text> 
+    </view>
+    <view class="bmi" wx:if="{{userInfo.bmi}}">
+      <view >BMI</view>
+      <view >{{userInfo.bmi}} <van-tag color="{{info.color}}">{{info.name}}</van-tag></view>
+    </view>
+    <view class="add" bindtap="toWeight">
+      +记录
+    </view>
+  </view>
+  <block wx:if="{{cyclelist.length>0}}">
+    <van-progress percentage="{{pro}}" pivot-text="已减{{prose}}" pivot-color="#02C7C7" stroke-width="18rpx" color="#00C7C7" />
+    <view class="bi">
+      <view >
+        初始
+        <text >{{cyclelist[0].weight[0].weight}}</text>
+      </view>
+      <view >
+        目标
+        <text >{{cyclelist[0].target}}</text>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="plan">
+      <view >
+        <image src="https://oss.mcloud.moveclub.cn/2025/mv/plan.png" />
+        <text >是否定制您的体重管理计划</text>
+      </view>  
+      <view class="btn" bindtap="plan">定制计划</view>
+    </view>
+  </block>
+  
+</view>
+
+<view class="ai">
+  <view class="search" bindtap="toPage">
+    <view class="input">有体重问题，先来问问我吧</view>
+    <view class="icon">
+      <image src="https://oss.mcloud.moveclub.cn/2024/movewell/saerch.png" />
+      <text >搜索</text>
+    </view>
+  </view>
+  <view class="setic">
+    <view >试试这样问我</view>
+    <view >体重管理需要注意哪些？</view>
+  </view>
+</view>
+
+<view class="read">
+  <view class="title">
+    <view >推荐阅读</view>
+    <view bindtap="toRead">
+      <text >更多</text>
+      <image src="https://oss.mcloud.moveclub.cn/2024/movewell/rightboldpng.png" />
+    </view>
+  </view>
+  <view class="list">
+    <view class="item" wx:for="{{newlist}}" wx:key="index" bindtap="go_news_detail" data-id="{{item.nid}}">
+      <view >
+        <view >{{item.title}}</view>
+        <view >{{item.create_time}}</view>
+      </view>
+      <view >
+        <image src="{{item.coverimg}}" mode="aspectFit" />
+      </view>
+    </view>
+  </view>
+</view>
+<van-overlay show="{{ show }}" z-index="6000" bind:click="onClickHide">
+  <view class="wrapper">
+    <view class="block">
+        <view class="bg">
+          <view class="bg-title">温馨提示</view>
+          <view class="bg-text">为了评估每日所需热量，达到动吃平衡效果，请先完善您的基础信息吧～</view>
+          <view class="bg-btnbox">
+            <van-button custom-class="bg-btn">去完善</van-button>
+          </view>
+          
+        </view>
+        <view class="closeBox">
+          <van-icon color="#fff" size="64rpx" name="close" />
+        </view>
+    </view>
+  </view>
+</van-overlay>
+
+<van-overlay wx:if="{{showt}}" show="{{ showt }}" z-index="6000" bind:click="onClickHidet">
+  <view class="wrapper">
+    <view class="block">
+        <view class="bg">
+          <view class="bg-title">温馨提示</view>
+          <view class="bg-text">理想计算：剩余摄入=预算（总消耗目标） - 已摄入 + 运动消耗，但需要考虑补偿效应和代谢适应性，估算考虑运动消耗*0.9系数，应对个体差异和代谢补偿。即实际剩余摄入=预算（总消耗目标） - 已摄入 + 运动消耗*0.9。动吃平衡建议饮食控制为主，运动为辅。长期的热量平衡需结合持续的运动和合理饮食，加油哦！</view>
+          <view class="bg-btnbox">
+            <!-- <van-button custom-class="bg-btn">去完善</van-button> -->
+          </view>
+          
+        </view>
+        <view class="closeBox">
+          <van-icon color="#fff" size="64rpx" name="close" />
+        </view>
+    </view>
+  </view>
+</van-overlay>
+
+<van-popup class="popup" closeable show="{{ show2 }}" position="bottom" custom-style="height: 60%;"
+    bind:close="onClose2">
+    <view class="popup-content">
+      <view >手动记录</view>
+      <!-- <view class="cell" bindtap="showDate">
+        {{dayValue}}
+      </view> -->
+      <picker 
+        slot=""
+        mode="multiSelector" 
+        bindchange="bindPickerChange" 
+        bindcolumnchange="bindColumnChange"
+        value="{{startValue}}"
+        range="{{pickerColumns}}"
+      >
+          <view class="cell">{{dayValue}} <van-icon name="arrow" /></view>
+      </picker>
+      <view class="input">
+        <input value="{{weight_value}}" type="digit" class="weui-input" placeholder="" bindinput="bindKeyInput"/>
+        <view slot="button" class="vbtn">
+          公斤
+        </view>
+      </view>
+      
+      <view class="btn" bind:tap="onSubmit">提交</view>
+    </view>
+</van-popup>
