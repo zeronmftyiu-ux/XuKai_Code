@@ -1,0 +1,2 @@
+<!--pages/user/health/image.wxml-->
+<image src="{{imgurl}}" mode="widthFix" />

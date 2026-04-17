@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "重置计划",
+  "usingComponents": {
+    "van-popup": "@vant/weapp/popup/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index"
+  }
+}

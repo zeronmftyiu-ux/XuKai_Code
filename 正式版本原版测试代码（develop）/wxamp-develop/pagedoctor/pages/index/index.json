@@ -1,0 +1,9 @@
+{
+  "navigationStyle":"default",
+  "navigationBarTitleText": "医生端",
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "painter": "/components/painter/painter"
+  }
+}

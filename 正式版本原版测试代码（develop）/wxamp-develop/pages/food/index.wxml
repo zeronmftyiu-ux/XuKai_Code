@@ -1,0 +1,268 @@
+<view class="calendar">
+    <view class="left" bindtap="goback">
+        <van-icon name="arrow-left" size="50rpx" color="#444444" />
+    </view>
+    <view class="date">
+        <view class="box" bindtap="up">
+            <van-icon name="arrow-left" size="32rpx" color="#444444" />
+        </view>
+        <view class="calendarMain">
+            <view class="week">
+                <view class="week-item" wx:for="{{ week }}">{{ item }}</view>
+            </view>
+            <view class="day">
+                <van-circle wx:if="{{ !show }}" value="{{ item.pro }}" class="day-item {{ date == item.date ? 'active' : '' }}{{ item.date > today ? 'disabled' : '' }}" layer-color="#CDE0DD" size="{{width}}" 
+                stroke-width="5" color="{{item.color}}"  wx:for="{{ day }}" wx:key="date" data-index="{{ index }}" 
+                data-date="{{item.date}}" bindtap="toggleDate" text="{{item.value}}"/>
+                <!-- <view class="day-item {{ date == item.date ? 'active' : '' }} {{item.color}}" wx:for="{{ day }}" data-index="{{ index }}" data-date="{{item.date}}"
+                    bindtap="toggleDate">{{ item.value }}</view> -->
+            </view>
+        </view>
+        <view class="box" bindtap="down">
+            <van-icon name="arrow" size="32rpx" color="#444444" />
+        </view>
+    </view>
+    
+    <view class="textBox">
+        <view class="textBox-item">
+            <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/img/%E5%BA%86%E7%A5%9D%402x.png">
+            </image>
+            <view>已记录饮食{{ sign_num }}天</view>
+        </view>
+        <view class="textBox-item">
+            <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/img/%E5%8A%A0%E6%B2%B9%402x.png">
+            </image>
+            <view>请继续努力打卡哦~</view>
+        </view>
+    </view>
+</view>
+<view class="nowday">
+    <view class="tit">{{date}}饮食摄入</view>
+    <view class="cont">
+        <text>{{balance.calorie_intake||0}}</text> <text >/{{balance.standard_intake||0}}</text>
+        <text >目标摄入热量值为{{balance.standard_intake||0}}千卡</text>
+    </view>
+    <view class="tabs">
+        <view class="tab">
+            <view >碳水化合物</view>
+            <view class="t"></view>
+            <view >{{balance.carbohydrate || 0}}克</view>
+        </view>
+        <view class="tab">
+            <view >蛋白质</view>
+            <view class="b"></view>
+            <view >{{balance.protein || 0}}克</view>
+        </view>
+        <view class="tab">
+            <view >脂肪</view>
+            <view class="z"></view>
+            <view >{{balance.fat || 0}}克</view>
+        </view>
+    </view>
+</view>
+<view class="list">
+    <view class="tit">
+        <image class="titimg" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/l%402x.png" />
+        <view style="margin: 0 12rpx;">{{date}}饮食</view>
+        <image class="titimg" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/r%402x.png" />
+    </view>
+    <view class="item" wx:for="{{ list }}">
+        <view class="item-label">
+            <view class="item-title">
+                <image wx:if="{{ item.type == 1 }}" class="item-title-01"
+                    src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/img/%E6%97%A9%E9%A4%90%402x.png">
+                </image>
+                <image wx:if="{{ item.type == 2 }}" class="item-title-01"
+                    src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/img/%E5%8D%88%E9%A4%90%402x.png">
+                </image>
+                <image wx:if="{{ item.type == 3 }}" class="item-title-01"
+                    src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/img/%E5%8D%88%E9%A4%90%E5%A4%87%E4%BB%BD%402x.png">
+                </image>
+                <view wx:if="{{ item.type == 1 }}" class="item-title-02">早餐</view>
+                <view wx:if="{{ item.type == 2 }}" class="item-title-02">午餐</view>
+                <view wx:if="{{ item.type == 3 }}" class="item-title-02">晚餐</view>
+                <view wx:if="{{ item.type == 4 }}" class="item-title-02">加餐</view>
+                <view class="item-title-03">{{ item.food[0].rdatetime }}</view>
+            </view>
+            <!-- <van-icon name="edit" size="45rpx" data-type="{{ item.type }}" data-item="{{ item }}" bindtap="add" /> -->
+        </view>
+        <view class="foodList">
+            <view class="foodList-item" wx:for="{{ item.food }}" wx:for-item="_item">
+                <view class="citem" wx:for="{{_item.details}}"  wx:for-item="citem">
+                    <view class="left">
+                        <image class="left-img" src="{{ citem.imgurl || 'https://oss.mcloud.moveclub.cn/movewell/img/food.png' }}"></image>
+                        <view class="left-text">
+                            <view>{{ citem.component }}</view>                    
+                            <view><text >{{ citem.amount }}</text> <text > {{ citem.unit || '' }}</text></view>
+                            <!-- <view>{{ _item.rdatetime }}</view> -->
+                        </view>
+                    </view>
+                    <view class="right" data-item="{{citem}}" bindtap="showEdit">
+                        {{ citem.totalvalue}} 千卡
+                        <van-icon name="arrow" size="30rpx" />
+                        <!-- <van-icon style="margin-left: 10rpx;" size="36rpx" color="red" name="delete-o" data-dietid="{{ citem.diet_id }}"  data-id="{{ citem.detailid }}" catch:tap="deleteFood" /> -->
+                    </view>
+                </view>
+                <view class="other" wx:if="{{_item.details.length == 0}}">{{item.state == 2?'数据正在处理中，请耐心等待':'暂无数据'}}</view> 
+            </view>
+        </view>
+    </view>
+    <van-empty
+        wx:if="{{list.length == 0}}"
+        class="custom-image"
+        image="https://oss.mcloud.moveclub.cn/2025/mv/%E8%BF%98%E6%9C%AA%E9%A5%AE%E9%A3%9F%E6%89%93%E5%8D%A1%402x.png"
+        description="点击下面按钮进行记录吧"
+    />
+</view>
+<view class="footer">
+    <view class="btn" data-type="1" bindtap="gotype">
+        <image class="imgbox"
+            src="https://oss.mcloud.moveclub.cn/movewell/img/e1.png"></image>
+        <view >+ 早餐</view>
+    </view>
+    <view class="btn" data-type="2" bindtap="gotype">
+        <image class="imgbox"
+            src="https://oss.mcloud.moveclub.cn/movewell/img/e2.png"></image>
+        <view >+ 午餐</view>
+    </view>
+    <view class="btn" data-type="3" bindtap="gotype">
+        <image class="imgbox"
+            src="https://oss.mcloud.moveclub.cn/movewell/img/e3.png"></image>
+        <view >+ 晚餐</view>
+    </view>
+    <view class="btn" data-type="4" bindtap="gotype">
+        <image class="imgbox"
+            src="https://oss.mcloud.moveclub.cn/movewell/img/e4.png"></image>
+        <view >+ 加餐</view>
+    </view>
+    <view class="" bindtap="chooseImage">
+        <image class="imgbox"
+            src="https://oss.mcloud.moveclub.cn/movewell/img/e5.png"></image>
+    </view>
+</view>
+
+<van-popup show="{{ show }}" position="bottom" round="{{ true }}" custom-style="height: 65%;" bind:close="onClose"
+    closeable="{{ true }}">
+    <view class="editBox">
+        <view class="editBox-title">编辑照片信息</view>
+        <view class="formBox">
+            <view class="formBox-item1">
+                <image src="{{ img_url }}"></image>
+            </view>
+            <!-- <view class="formBox-item2">
+                <view class="form-label">食物名称</view>
+                <view class="form-con">
+                    <van-field model:value="{{ food_name }}" placeholder="例：脱脂牛奶" border="{{ false }}"
+                        input-align="right" />
+                </view>
+            </view> -->
+            <!-- <view class="formBox-item2">
+                <view class="form-label">食物数量</view>
+                <view class="form-con2">
+                    <van-field type="digit" model:value="{{ food_num }}" placeholder="例：1" border="{{ false }}"
+                        input-align="right" />
+                    <van-dropdown-menu>
+                        <van-dropdown-item bind:change="onSelect1" value="{{ value1 }}" options="{{ option1 }}" />
+                    </van-dropdown-menu>
+                </view>
+            </view> -->
+            <view class="formBox-item3">
+                <view class="form-label">添加类型</view>
+                <view class="form-con3">
+                    <view class="type-item {{ tidx == index ? 'active2' : '' }}" wx:for="{{ types }}" data-index="{{ index }}" bindtap="toggleType">{{ item }}</view>
+                </view>
+            </view>
+            <view class="formBox-item4">
+                <view class="form-label">摄入时间</view>
+                <view class="form-con2" bindtap="showTime">
+                    <view class="time-1">{{ food_time }}</view>
+                    <van-icon color="#ccc" size="40rpx" name="clock" />
+                </view>
+            </view>
+            <view class="btnBox">
+                <van-button custom-class="btnBox-1" bindtap="addFood">确认添加</van-button>
+            </view>
+        </view>
+    </view>
+</van-popup>
+
+<van-popup show="{{ show2 }}" position="bottom" round="{{ true }}" custom-style="height: 45%;" bind:close="onClose2"
+    >
+    <van-datetime-picker type="time" value="{{ currentDate }}" min-hour="{{ minHour }}" max-hour="{{ maxHour }}" bind:cancel="onClose2"
+        bind:input="onInput" bind:confirm="onConfirm2"  />
+</van-popup>
+
+<van-popup show="{{ show3 }}" position="bottom" custom-style="height: 100%;">
+    <view class="ptitle">
+        <view class="close">
+            <van-icon name="arrow-left" size="50rpx" color="#444444" bindtap="onClose3"/>
+        </view>
+        
+        <view >扫描识别</view>
+    </view>
+    <view class="pcontent">
+        <image class="pimg" mode="aspectFill" src="{{ detail.image }}"></image>
+        <view class="pbody">
+            <view class="pt">识别信息</view>
+            <view class="pnt">如果种类、数量不对，可编辑修改输入框的描述，确认打卡后，热量会重新进行计算</view>
+
+            <view class="plist">
+                <view class="pitem" wx:for="{{detail.details}}" wx:key="index">
+                    <view class="pname">{{item.component}}</view>
+                    <view class="con">
+                        <view class="label">
+                            <input value="{{item.amount}}" />
+
+                            <view class="pv">
+                                <text >{{item.totalvalue}}</text>
+                                <text > 卡路里</text>
+                            </view>
+                        </view>
+                        <van-icon size="50rpx" color="#bbbbbb" name="delete-o" data-id="{{ item.id }}" catch:tap="deleteFoodDetail" />
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    
+</van-popup>
+
+<van-popup show="{{ showS }}" position="bottom" round="{{ true }}" custom-style="height: 55%;" bind:close="onCloses"
+    closeable="{{ true }}">
+    <view class="editBox2">
+        <view class="editBox-title">编辑</view>
+        <view class="formBox">
+            <view >
+                <view class="formBox-item1">
+                    <image src="{{item.imgurl}}" />
+                    <view class="ct">
+                        <view >{{item.component}}</view>
+                        <view >{{item.energy}}千卡/{{item.unitvalue||''}}{{item.unit||''}}</view>
+                    </view>
+                </view>
+                <view class="formBox-item3">
+                    <van-field
+                        value="{{ item.amount }}"
+                        center
+                        label=""
+                        type="digit"
+                        placeholder="请输入"
+                        border="{{ false }}"
+                        use-button-slot
+                        bind:input="changenum"
+                        bind:change="changenum"
+                    >
+                        <view slot="button" size="small" type="primary">
+                            {{item.unit}}
+                        </view>
+                    </van-field>
+                </view>
+            </view>
+                
+            <view class="btnBox">
+                <view class="btnBox-1 cel" bindtap="deleteFood">删除</view>
+                <view class="btnBox-1" bindtap="editFood">确认打卡</view>
+            </view>
+        </view>
+    </view>
+</van-popup>

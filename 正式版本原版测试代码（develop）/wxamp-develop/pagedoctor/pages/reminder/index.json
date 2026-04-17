@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "消息管理",
+  "usingComponents": {
+  "van-search": "@vant/weapp/search/index",
+  "van-nav-bar": "@vant/weapp/nav-bar/index"
+  }
+}

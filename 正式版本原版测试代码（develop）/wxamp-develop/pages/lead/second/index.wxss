@@ -1,0 +1,176 @@
+page{
+    background: #ffffff;
+    box-sizing: border-box;
+    padding: 30rpx;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+.header .title{
+    width: 555rpx;
+    font-size: 30rpx;
+    color: #8F9AA7;
+}
+.header .title>view:first-child{
+    font-size: 36rpx;
+    color: #494C4E;
+    font-weight: 500;
+}
+.header .btn{
+    width: 101rpx;
+    height: 56rpx;
+    line-height: 56rpx;
+    text-align: center;
+    background: #9AB3BC;
+    border-radius: 28rpx;
+    font-size: 28rpx;
+    color: #FFFFFF;
+}
+  
+.height-picker{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 71rpx 10rpx 85rpx;
+}
+.height-picker image{
+    width: 321rpx;
+    height: 522rpx;
+}
+.height-picker .scroll{
+    height: 522rpx;
+    width: 320rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.height-picker .scroll .indicator>view:first-child{
+    font-size: 56rpx;
+    font-weight: 500;
+}
+.height-picker .scroll .indicator{
+    color: #494C4E;   
+    font-size: 32rpx;
+}
+.height-picker .scroll .indicator>view:nth-child(2){
+    text-align: right;
+}
+
+.height-picker .scroll .scroll-view {
+    height: 505rpx;
+    width: 185rpx;
+    position: relative;
+    overflow: hidden;
+}
+.height-picker .scroll .line{
+    position: absolute;
+    width: 69rpx;
+    background-color: #494C4E;
+    left: 195rpx;
+    top: 51.5%;
+    height: 4rpx;
+}
+.height-picker .scroll .scroll-view  .ruler {
+    position: relative;
+    white-space: nowrap;
+    height: 522rpx;
+    width: 185rpx;
+}
+
+.height-picker .scroll .scroll-view .tick {
+    position: absolute;
+    background-color: #ccc;
+    transform: translateX(-50%);
+    height: 2rpx;
+    width: 30rpx; /* 小刻度 */
+    background-color: #ccc;
+    right: 80rpx;
+    
+}
+.height-picker .scroll .scroll-view .tick:nth-child(5n+1) {
+    width: 45rpx;
+    background-color: #ccc;
+    right: 57rpx;
+}
+
+.height-picker .scroll .scroll-view .tick-label {
+    position: absolute;
+    font-size: 12px;
+    color: #666;
+    top: -14rpx; /* 标签位置 */
+    text-align: center;
+    left: -60rpx;
+}
+.weight-picker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-bottom: 185rpx;
+}
+.weight-picker .line{
+    position: absolute;
+    height: 69rpx;
+    width: 4rpx;
+    background-color: #494C4E;
+    left: 50%;
+    bottom: 45rpx;
+}
+.weight-picker .scroll-view {
+    width: 680rpx;
+    height: 118rpx;
+    position: relative;
+    overflow: hidden;
+}
+
+.weight-picker .ruler {
+    position: relative;
+    white-space: nowrap;
+    height: 118rpx;
+}
+
+.weight-picker .tick {
+    position: absolute;
+    width: 2rpx;
+    height: 30rpx;
+    background-color: #ccc;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.weight-picker .tick-label {
+    position: absolute;
+    bottom: -20px;
+    font-size: 24rpx;
+    color: #666;
+    left: -15rpx;
+}
+
+.weight-picker .tick:nth-child(5n+1) {
+    height: 45rpx;
+    background-color: #999;
+    top: 53rpx;
+}
+
+.weight-picker .label{
+    color: #494C4E; 
+    font-size: 32rpx;
+}
+.weight-picker .label>text{
+    font-size: 56rpx;
+    font-weight: 500;
+}
+
+.mvbutton{
+    background: #00C7C7;
+    border-radius: 60rpx;
+    width: 100%;
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 32rpx;
+    color: #FFFFFF;
+}

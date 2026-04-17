@@ -1,0 +1,102 @@
+<van-sticky>
+    <view class="flat">
+        <view class="header">
+            <view >
+                <image src="https://oss.mcloud.moveclub.cn/2025/mv/%E4%BD%93%E6%A3%80%E6%8A%A5%E5%91%8Ah5/jj.png" />
+                报告分析解读
+            </view>
+            <view bindtap="openorc">
+                <view >查看原报告</view>
+                <van-icon name="arrow" size="24rpx" />
+            </view>
+        </view>
+        <view class="top2"> 
+            内容由AI生成
+        </view>
+        <view class="tabs">
+            <view class="tab {{active==1?'active':''}}" data-type="#abnormal" data-active="1" bind:tap="change">
+                <view >核心异常</view>
+                <view ><text >{{abnormal.length}}</text> 项异常</view>
+            </view>
+            <view class="tab {{active==2?'active':''}}" data-type="#normal" data-active="2" bind:tap="change">
+                <view >重要正常</view>
+                <view ><text >{{normal.length}}</text> 项结果</view>
+            </view>
+            <view class="tab {{active==3?'active':''}}" data-type="#recommend" data-active="3" bind:tap="change">
+                <view >后续行动</view>
+                <view ><text >{{recommend.length}}</text> 项清单</view>
+            </view>
+        </view>
+    </view>
+</van-sticky>
+
+
+<view class="main">
+    <view id="abnormal" class="list">
+        <view class="title">
+            <view ><image src="https://oss.mcloud.moveclub.cn/2025/mv/%E4%BD%93%E6%A3%80%E6%8A%A5%E5%91%8Ah5/xx.png" /> 核⼼异常项解读</view>
+            <view class="bord"></view>
+        </view>
+
+        <view class="item" wx:for="{{abnormal}}" wx:key="idx">
+            <view class="i-title">
+                <view class="i">{{index+1}}</view>
+                {{item.abnormal_name}}
+            </view>
+            <view class="icon">分析</view>
+            <view class="citem">
+                <view class="c-item">
+                    <text >报告描述：</text>{{item.abnormal_detail}}
+                </view>
+                <view class="c-item">
+                    <text >潜在意义：</text>{{item.abnormal_risk}}
+                </view>
+            </view>
+            <view class="icon">行动建议</view>
+            <view class="citem">
+                <view class="c-item">
+                    {{item.abnormal_suggest}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view id="normal" class="list">
+        <view class="title">
+            <view ><image src="https://oss.mcloud.moveclub.cn/2025/mv/%E4%BD%93%E6%A3%80%E6%8A%A5%E5%91%8Ah5/xx.png" /> 重要正常结果（安⼼项）</view>
+            <view class="bord"></view>
+        </view>
+        <view class="body">
+            <view class="item2" wx:for="{{normal}}" wx:key="idx">
+                <view class="i-title">
+                    <view class="i">{{index+1}}</view>
+                </view>
+                <view class="citem">
+                    <text >{{item.normal_name}}：</text>{{item.normal_detail}}
+                </view>
+                
+            </view>
+        </view>
+            
+    </view>
+    <view id="recommend" class="list">
+        <view class="title">
+            <view ><image src="https://oss.mcloud.moveclub.cn/2025/mv/%E4%BD%93%E6%A3%80%E6%8A%A5%E5%91%8Ah5/xx.png" /> 后续⾏动清单</view>
+            <view class="bord"></view>
+        </view>
+        <view class="item" wx:for="{{recommend}}" wx:key="idx">
+            <view class="i-title">
+                <view class="i">{{item.type}}</view>
+                {{item.typename}}
+            </view>
+            <view class="citem" wx:for="{{item.list}}"  wx:for-item="citem" wx:key="idx">
+                <view class="c-item">
+                    {{citem.plan_name}}
+                    <view class="cc-item" wx:if="{{citem.plan_detail != '' && citem.plan_detail != null}}">
+                        {{citem.plan_detail}}
+                    </view>
+                </view>
+                
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,251 @@
+page{
+    background: #f5f5f5 url(http://oss.mcloud.moveclub.cn/2025/mv/doctor/banner.png)  no-repeat;
+    background-position: center top;
+    background-size: contain;
+    box-sizing: border-box;
+    padding: 20rpx 40rpx;
+}
+
+.user-card{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 260rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 24rpx 0;
+  padding: 16rpx 12rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+.user-card .stats-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding: 24rpx 48rpx 16rpx;
+}
+.user-card .content {
+  display: flex;
+  flex-direction: column;
+}
+.user-card .stats-number {
+  font-size: 36rpx;
+  color: #000000;
+  font-weight: 700;
+  margin: 12rpx 0 8rpx;
+}
+.user-card .stats-label {
+  font-size: 24rpx;
+  color: #666;
+}
+.user-card .avatar{
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 15rpx;
+}
+.user-card .divider {
+  width: 1rpx;
+  height: 86rpx;
+  background-color: #D3D3D3;
+  margin: 0 10rpx;
+}
+
+.search {
+  padding: 40rpx 0 32rpx;
+  margin: 16rpx -20rpx 12rpx;
+}  
+.custom-search{
+  background: #f5f5f5 !important;
+  height: 70rpx !important;
+}
+.van-search__content {
+  background: #fff !important;
+  height: 70rpx !important;
+  min-height: auto !important;
+  align-items: center !important;
+}
+.van-field__body input {
+  height: 100% !important;
+  font-size: 28rpx !important;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.body1 { 
+    margin: 4rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 99%;
+}
+.body1 .title {
+    font-size: 32rpx;
+    color: #000000;
+    font-weight: 400;
+    padding-bottom: 8rpx;
+}
+.body1 .title.active {
+  font-weight: 600;
+  border-bottom: 6rpx solid #00C7C7;
+}
+
+.alllist {
+  display: flex;
+  flex-direction: column;
+  margin: 0 -28rpx;
+}
+.alllist .list { 
+  margin: 16rpx 8rpx;
+  padding: 18rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  white-space: nowrap;
+  
+}
+.alllist .list .top{ 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60rpx;
+    margin: 10rpx 16rpx;
+    padding-bottom: 10rpx;
+}
+.alllist .list .bottom{ 
+    display: flex;
+    height: 200rpx;
+    margin: 16rpx 16rpx 8rpx;
+    flex-direction: column;
+    gap: 14rpx;
+}
+.alllist .list .top1{ 
+    display: flex;
+    align-items: center;
+    gap: 12rpx;
+    margin: 10rpx 0;
+}
+.alllist .list .top2{ 
+    display: flex;
+    flex-direction: column;
+    align: center;
+}
+.alllist .list .bottom1{
+    display: flex;
+    gap: 16rpx;
+}
+.alllist .list .title{
+    background: #E6F4FF;
+    border-radius: 6rpx;
+}
+.alllist .list .title2{
+    background: #F4FDFA;
+    border-radius: 6rpx;
+}
+.alllist .list .title3{
+    background: #FAFAFA;
+    border-radius: 6rpx;
+}
+.alllist .list .title4{
+    background: #FFF2F0;
+    border-radius: 6rpx;
+}
+.alllist .list .avatar{
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  margin: 8rpx;
+}
+.alllist .list .name{ 
+    font-size: 32rpx;
+    color: #333333;
+    font-weight: 500;
+}
+.alllist .list .content{ 
+    display: flex;
+    gap: 16rpx;
+    align-items: center;
+}
+.alllist .list .bing{ 
+    margin-left: 12rpx;
+    border-radius: 8rpx;
+    font-size: 22rpx;
+    line-height: 34rpx;
+    font-weight: 400;
+    white-space: nowrap;
+    padding: 10rpx 12rpx;
+    height: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.alllist .list .green{
+    color: #3ED4A7;
+    background: #EFFBF7;
+}
+.alllist .list .red{
+    background: #FFF2F1;
+    color: #FA746B;
+}
+.alllist .list .yellow{
+    background: #FFFAE3;
+    color: #FFD14B;
+}
+.alllist .list .text{ 
+    font-size: 24rpx;
+    color: #90A09E;
+    font-weight: 400;
+}
+.alllist .list .time{ 
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #333333;
+    font-weight: 400;
+}
+.alllist .list .button{ 
+    display: flex;
+    justify-content: flex-end;
+    gap: 10rpx;
+    width: 100%;
+    margin: 0 0 8rpx 0;
+}
+.alllist .list .button1{
+    background: #00C7C7;
+    border-radius: 34rpx;
+    padding: 12rpx 2rpx;
+    border: 1rpx solid rgba(207,207,207,1);
+    font-size: 28rpx;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 400;
+    margin: 0;
+    width: 25%;
+}
+.alllist .list .button2{
+    background: #fff;
+    border-radius: 34rpx;
+    padding: 12rpx 22rpx;
+    border: 1rpx solid rgba(207,207,207,1);
+    font-size: 28rpx;
+    color: #333333;
+    text-align: center;
+    font-weight: 400;
+    margin: 0;
+}
+.alllist .whitearea{ 
+  background-color: #FFFFFF;
+  font-weight: 400;
+  color: #333333;
+  display: flex;
+  justify-content: center;
+  padding: 16rpx 0;
+  margin: 16rpx 8rpx;
+  border-radius: 20rpx;
+}
+.alllist .divider {
+  height: 1rpx;
+  width: 100%;
+  background-color: #E0E0E0 ;
+}

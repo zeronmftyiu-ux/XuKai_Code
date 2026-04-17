@@ -1,0 +1,51 @@
+<view class="main">
+    <view class="tag"></view>
+    <view class="title">
+        <view>{{advice.hospital}}</view>
+        <view>互联网云建议</view>
+    </view>
+    <view class="order">
+        <view>建议单号</view> <view >{{advice.code}}</view>
+    </view>
+    <view class="boxs">
+        <view style="display: flex;">
+            <view class="cell" style="width: 33%;">
+                <view class="label">姓名：</view>
+                <view class="value">{{advice.realname}}</view>
+            </view>
+            <view class="cell" style="width: 33%;">
+                <view class="label">性别：</view>
+                <view class="value">{{advice.gender == 1 ? '男':'女'}}</view>
+            </view>
+            <view class="cell">
+                <view class="label">年龄：</view>
+                <view class="value">{{info.age}}岁</view>
+            </view>
+        </view>
+        <view style="display: flex;">
+            <view class="cell" style="width: 33%;">
+                <view class="label">科别：</view>
+                <view class="value">{{advice.department}}</view>
+            </view>
+            <view class="cell">
+                <view class="label">日期：</view>
+                <view class="value">{{advice.create_time}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="cont">
+        <view>Rp. {{detail.title}}</view>
+        <view class="text"><view class="txts">运动类型：</view>{{detail.type}}</view>
+        <view class="text"><view class="txts">运动时长：</view>{{detail.time}}</view>
+        <view class="text"><view class="txts">运动频率：</view>{{detail.frequency}}</view>
+        <view class="text"><view class="txts">运动强度：</view>{{detail.intensity}}</view>
+        <view class="text"><view class="txts">周运动量：</view>{{detail.volume}}</view>
+        <view class="text"><view class="txts">运动进阶：</view>{{detail.progression}}</view>
+        <view class="text"><view class="txts">注意事项：</view>{{detail.warning}}</view>
+        <view style="display: flex;"><view class="txts">建议备注信息：</view>{{detail.remark}}</view>
+    </view>
+    <view class="dc">
+        <view >医师：{{advice.doctorname}}</view>
+        <view >注：本建议仅针对远程体重管控患者跟踪参考，仅限{{advice.hospital}}使用。</view>
+    </view>
+</view>

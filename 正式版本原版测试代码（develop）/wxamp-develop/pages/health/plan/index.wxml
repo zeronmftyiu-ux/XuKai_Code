@@ -1,0 +1,38 @@
+<!--pages/health/plan/index.wxml-->
+<view class="item" wx:for="{{list}}" wx:key="idx">
+    <view class="title" data-id="{{item.id}}" bindtap="godetail">
+        <view >
+            <view >开始时间：{{item.startday}}</view>
+            <view >减重时长：{{item.title}}</view>
+        </view>
+        <view wx:if="{{item.isexpire}}"><van-icon name="arrow" size="36rpx" /></view>
+        <view wx:else><image class="expirelogo" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E5%B7%B2%E7%BB%93%E6%9D%9F%402x.png" /></view>
+    </view>
+    <van-progress percentage="{{item.pro}}" pivot-text="已减{{item.mid}}" pivot-color="#02C7C7" stroke-width="25rpx" color="#00C7C7" />
+    <view class="bi">
+      <view >
+        <view class="start">
+            初始
+        </view>
+        <view >{{item.start}}kg</view>
+      </view>
+      <view >
+        <view class="mid">已减重</view>
+        
+        <view >{{item.mid}}kg</view>
+      </view>
+      <view >
+        <view class="start">目标</view>
+        
+        <view >{{item.target}}kg</view>
+      </view>
+    </view> 
+    <view wx:if="{{item.isexpire}}" class="bottom" bindtap="gochange">
+      <van-icon name="replay" />
+      <view style="padding: 0 0 0 12rpx;">重置计划</view>
+    </view>
+</view>
+
+<!-- <view class="footer">
+    <view bindtap="gochange" class="confirmbt">新增计划</view>
+</view> -->

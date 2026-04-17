@@ -1,0 +1,21 @@
+<view class="toptitle">近期的反馈记录</view>
+
+<view class="card" wx:for="{{list}}" wx:key="id">
+    <view class="body">
+        <view class="item">
+            <view class="title">反馈时间</view>
+            <view class="content">{{item.create_time}}</view>
+        </view>
+        <view class="item">
+            <view class="title">反馈类型</view>
+            <view class="content">{{item.feedtype}}</view>
+        </view>
+        <view class="item" style="margin: 0 0 20rpx 0;">
+            <view class="title">反馈描述</view>
+            <view class="content">{{item.content}}</view>
+        </view>
+    </view>
+    <view class="recardfeed">
+        <view class="text">当前反馈已接收，我们会尽快处理，感谢您的反馈！</view>
+    </view>
+</view>

@@ -1,0 +1,12 @@
+<!--pages/news/index.wxml-->
+<view class="list">
+    <view class="item" wx:for="{{newlist}}" wx:key="index" bindtap="go_news_detail" data-id="{{item.nid}}">
+        <view>
+            <view>{{item.title}}</view>
+            <view>{{item.create_time}}</view>
+        </view>
+        <view>
+            <image src="{{item.coverimg}}" mode="aspectFit" />
+        </view>
+    </view>
+</view>

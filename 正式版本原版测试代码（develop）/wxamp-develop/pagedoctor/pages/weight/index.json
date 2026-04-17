@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "体重数据",
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index"
+  }
+}

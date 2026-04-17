@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "体重",
+  "usingComponents": {
+    "van-popup": "@vant/weapp/popup/index",
+    "van-calendar": "@vant/weapp/calendar/index",
+    "chart": "plugin://echarts/chart",
+    "van-field": "@vant/weapp/field/index"
+  }
+}

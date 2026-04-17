@@ -1,0 +1,41 @@
+<!--pages/motion/detail.wxml-->
+<view class="banner">
+    <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/img/33%402x.png"></image>
+</view>
+<view class="main">
+    <view class="title">3分钟工位运动视频</view>
+    <view class="subtitle">L1级别 · 3分钟</view>
+    <view class="desc">
+        <view class="desc-con">这里是课程介绍，这里是课程介绍，这里是课程介绍，这里是课程介绍，这里是课程介绍。这里是课程介绍，这里是课程介绍，这里是课程介绍，这里是课程介绍，这里是课程介绍。</view>
+        <view class="look">详情查看 ></view>
+    </view>
+    <view class="labelBox">
+        <view class="labelBox-item">
+            <view class="labelBox-item-01">预估总消耗热量</view>
+            <view class="labelBox-item-02">189千卡</view>
+        </view>
+        <view class="labelBox-item">
+            <view class="labelBox-item-01">训练器械</view>
+            <view class="labelBox-item-02">工位空间</view>
+        </view>
+        <!-- <view class="labelBox-item">
+            <view class="labelBox-item-01">训练器械</view>
+            <view class="labelBox-item-02">工位空间</view>
+        </view> -->
+    </view>
+</view>
+<view class="list">
+    <view class="list-title">课程推荐</view>
+    <view class="item-con" wx:for="{{ list }}">
+        <view class="left">
+            <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/img/3%402x.png"></image>
+        </view>
+        <view class="right">
+            <view class="text05">这里课程名称，超出这里课程名称，超出这里课程名称，超出这里课程名称，超出</view>
+            <view class="text06">L1级别 · 3分钟 · 22千卡</view>
+        </view>
+    </view>
+</view>
+<view class="btnBox">
+    <van-button custom-class="btn">开始跟练</van-button>
+</view>

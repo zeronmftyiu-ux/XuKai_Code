@@ -1,0 +1,106 @@
+<view class="body">
+    <view class="card">
+        <view class="list">
+            <view class="title">性别</view>
+            <view class="content" data-label="性别" bindtap="showDialog">
+                <view class="item">{{tempUserInfo.gender == '1' ? '男' : (tempUserInfo.gender == '2' ? '女' : '未知') }}</view>
+                <image class="icon" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E7%AE%AD%E5%A4%B4%402x.png" />
+            </view>
+        </view>
+        <view class="list">
+            <view class="title">生日</view>
+            <view class="content" data-label="生日" bindtap="showDialog">
+                <view class="item">{{tempUserInfo.birthday}}</view>
+                <image class="icon" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E7%AE%AD%E5%A4%B4%402x.png" />
+            </view>
+        </view>
+        <view class="list">
+            <view class="title">身高</view>
+            <view class="content" data-label="身高" bindtap="showDialog">
+                <view class="item">{{tempUserInfo.channel[0].height}} 厘米</view>
+                <image class="icon" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E7%AE%AD%E5%A4%B4%402x.png" />
+            </view>
+        </view>
+        <view class="list" style="border-bottom: 0rpx">
+            <view class="title">当前体重</view>
+            <view class="content" data-label="当前体重" bindtap="showDialog">
+                <view class="item">{{tempUserInfo.channel[0].weight}} 公斤</view>
+                <image class="icon" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E7%AE%AD%E5%A4%B4%402x.png" />
+            </view>
+        </view>
+    </view>
+    <view class="card">
+        <view class="list" style="border-bottom: 0rpx">
+            <view class="title">初始体重</view>
+            <view class="content">
+                <view class="item">{{tempUserInfo.channel[0].weight}} 公斤</view>
+                <image class="icon" />
+            </view>
+        </view>
+        <view class="list" style="border-bottom: 0rpx">
+            <view class="title">初始日期</view>
+            <view class="content">
+                <view class="item">{{today}}</view>
+                <image class="icon" />
+            </view>
+        </view>
+    </view>
+    <view class="card">
+        <view class="list" style="border-bottom: 0rpx">
+            <view class="title">目标体重</view>
+            <view class="content" data-label="目标体重" bindtap="showDialog">
+                <view class="item">{{target}} 公斤</view>
+                <image class="icon" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E7%AE%AD%E5%A4%B4%402x.png" />
+            </view>
+        </view>
+        <view class="list" style="border-bottom: 0rpx">
+            <view class="title">达成时间</view>
+            <picker bindchange="bindChange" value="{{index}}" range="{{list}}">
+                <view class="picker">
+                    <view>{{list[index]}}</view>
+                    <van-tag wx:if="{{index==0}}" style="padding-bottom: 4rpx;" plain type="success">推荐时长</van-tag>
+                    <image class="icon" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E7%AE%AD%E5%A4%B4%402x.png" />
+                </view>
+            </picker>
+        </view>
+    </view>
+    <!-- <view class="card" style="margin-bottom: 60rpx;">
+        <view class="list"></view>
+        <view class="list"></view>
+        <view class="list"></view>
+        <view class="list"></view>
+        <view class="list"></view>
+    </view> -->
+</view>
+
+<view class="footer">
+    <view bindtap="editInfo" class="confirmbt">保存</view>
+</view>
+
+<van-popup show="{{ show }}" position="bottom" custom-style="height: 50%;" bind:close="onClose">
+    <view class="contentt" wx:if="{{ title == '初始体重' || title == '身高' || title == '当前体重' || title == '目标体重' }}">
+        <van-field model:value="{{ dvalue }}" required clearable label="{{ title }}" placeholder="请输入{{ title }}" />
+        <view class="btnBox">
+            <van-button custom-class="btn" type="primary" bind:click="handleSubmit">确定</van-button>
+        </view>
+    </view>
+    <view class="contentt" wx:if="{{ title == '性别' }}">
+        <van-radio-group value="{{ dvalue }}" direction="horizontal" bind:change="onChange">
+            <van-radio name="1">男</van-radio>
+            <van-radio name="2">女</van-radio>
+        </van-radio-group>
+        <view class="btnBox">
+            <van-button custom-class="btn" type="primary" bind:click="handleSubmit">确定</van-button>
+        </view>
+    </view>
+    <view class="contentt" wx:if="{{ title == '生日' }}">
+        <van-datetime-picker
+            type="date"
+            value="{{ currentDate }}"
+            min-date="{{ minDate }}"
+            bind:change="changeDate"
+            bind:cancel="onClose"
+            bind:confirm="handleSubmit"
+        />
+    </view>
+</van-popup>

@@ -1,0 +1,33 @@
+
+<van-sticky>
+    <van-notice-bar
+        scrollable="{{ false }}"
+        text="点击对方头像，即可查看居民详情"
+        />
+</van-sticky>
+
+<view class="body">
+    <view class="list" id="scrollView">
+        <block wx:for="{{list}}" wx:key="index">
+            <view class="time" wx:if="{{item.type=='date'}}">{{item.content}}</view>
+            <view wx:else class="message {{item.mode == 1?'answer':'question'}}" bindtap="gopatient" data-mode="{{item.mode}}" data-urid="{{item.urid}}">
+                <view >
+                    <view wx:if="{{item.mode == 1}}">{{item.patientinfo.realname}}</view>
+                    <view wx:else>我</view>
+                    <view >{{item.createtime}}</view>
+                </view>
+                <view wx:if="{{item.content && item.content != ''}}" class="{{item.mode == 1?'boxa':'boxs'}}">
+                  {{item.content}}
+                </view>
+                <view wx:else>
+                    <image src="{{item.image}}" mode="aspectFit" data-url="{{item.image}}" bindtap="showimg" show-menu-by-longpress="{{true}}" />
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
+<view class="footer">
+    <input value="{{content}}" class="input" bindinput="bindKeyInput" placeholder="请输入您想问的问题"/>
+    <image src="https://oss.mcloud.moveclub.cn/2024/movewell/pc/sand.png" bindtap="chooseImage" />
+    <view class="btn {{content!=''?'':'disabled'}}" bindtap="send">发送</view>
+</view>

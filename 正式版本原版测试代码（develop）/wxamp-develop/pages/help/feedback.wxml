@@ -1,0 +1,44 @@
+<view class="top">
+    <image class="titleimg" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E6%84%8F%E8%A7%81%E5%8F%8D%E9%A6%882x.png"></image>
+    <view>
+        <view class="title">
+            <view class="xinghao">*</view>
+            <view class="label">请选择反馈类型</view>
+        </view>
+        <view class="typelist">
+            <view class="item {{choosetab==index?'active':''}}" wx:for="{{typelist}}" data-type="{{index}}" data-value="{{item.value}}" wx:key="index" bindtap="choosetabs">
+            {{item.name}}</view>
+        </view>
+    </view>
+</view>
+
+<view class="body">
+    <view>
+        <view class="title">
+            <view class="xinghao">*</view>
+            <view class="label">请详细描述具体问题。例如，在哪个页面，遇到什么样的问题？对平台功能有什么建议？体验改进方面有哪些？</view>
+        </view>
+        <textarea bindinput="onInput1" class="input" placeholder="具体问题具体描述哦～"/>
+    </view>
+</view>
+
+<view class="body">
+    <view style="padding: 10rpx 16rpx;">
+        <view style="margin: 0 0 24rpx 0;" class="label">上传图片，支持多张图片上传</view>
+        <van-uploader max-count="6" file-list="{{ fileList }}" deletable="{{ true }}" multiple="true" bind:after-read="afterRead" bind:delete="deleteimg" />
+    </view>
+</view>
+
+<view class="body"> 
+    <view style="margin-bottom: 188rpx;">
+        <view class="title">
+            <view class="xinghao">*</view>
+            <view class="label">联系电话</view>
+        </view>
+        <textarea bindinput="onInput2" class="input" style="height: 32rpx;" placeholder="请输入手机号"/>
+    </view>
+</view>
+
+<view class="footer">
+    <view class="btn" bindtap="submitinput">提交反馈</view>
+</view>

@@ -1,0 +1,30 @@
+<view class="search">
+  <van-search value="{{ value }}" shape="round" placeholder="搜索居民姓名"
+  custom-class="custom-search" bind:change="onSearch"/>
+</view>
+
+<view class="list">
+  <view class="title">
+    居民列表</view>
+  <view class="personlist">
+  <block wx:for="{{ showlist }}" wx:key="index">
+    <view class="item" data-index="{{ index }}" bindtap="gomessage" data-urid="{{item.urid}}" data-name="{{item.info.realname}}">
+      <image catchtap = "gopatient" data-purid="{{item.urid}}" class="avatar" src="{{ item.info.avatarurl }}" mode="aspectFill"></image>
+      
+      <view class="content1">
+        <text class="name">{{ item.info.realname }}</text>
+        <view>
+            <text class="class" wx:if="{{ item.newmsg.image.length > 0 }}">[图片消息类型]</text>
+            <text class="action" wx:if="{{ item.newmsg.image === null }}">{{ item.newmsg.content }}</text>
+        </view>
+      </view>
+      <view class="content2">  
+        <view class="time">{{ item.update_time }}</view>
+        <view class="info" wx:if="{{ item.unread > 0 }}">{{ item.unread }}</view>
+      </view>
+      
+      </view>
+    </block>
+  </view>
+          
+</view>  

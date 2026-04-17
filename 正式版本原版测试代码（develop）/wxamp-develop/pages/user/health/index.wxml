@@ -1,0 +1,23 @@
+<view class="main">
+    <view class="logo">
+        <image src="https://oss.mcloud.moveclub.cn/2024/movewell/huwei.png" />
+        <image src="https://oss.mcloud.moveclub.cn/2024/movewell/cennect.png" />
+        <image src="https://oss.mcloud.moveclub.cn/2024/movewell/logo%402x.png" />
+    </view>
+    <view class="title">
+        {{auth?'已授权华为运动健康数据':'需要授权华为运动健康数据'}}
+    </view>
+
+    <view class="list">
+        <view class="item" wx:for="{{list}}" wx:key="index">
+            <view class="desc">{{item.desc}}</view>
+            <view class="cent {{auth?(item.ischeck==1?'check':'uncheck'):''}}">
+            </view>
+        </view>
+    </view>
+    <view class="notice" wx:if="{{auth}}">以上数据已授权给“MoveWell”使用的数据由其隐私政策管理，您可随时在华为账号隐私中心取消授权。</view>
+</view>
+<view class="footer">
+    <view class="mvbutton cencel" bindtap="cencel">取消授权</view>
+    <view class="mvbutton" bind:tap="goto">返回</view>
+</view>

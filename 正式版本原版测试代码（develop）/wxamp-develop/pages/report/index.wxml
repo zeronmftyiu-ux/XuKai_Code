@@ -1,0 +1,87 @@
+<!--pages/report/index.wxml-->
+<view class="header">
+  <view class="left" bindtap="goback">
+    <van-icon name="arrow-left" size="50rpx" color="#444444" />
+  </view>
+</view>
+<view class="main">
+  
+  <view class="middle">
+    <view class="left">
+      <image class="lefticon" src="https://oss.mcloud.moveclub.cn/2025/mv/%E4%BD%93%E6%A3%80%E6%8A%A5%E5%91%8Ah5/%E5%9B%BE1.png"></image>
+      <view class="lefttext">历史解读记录</view>
+    </view>
+    <view bindtap="goHistory" class="right">查看历史</view>
+  </view>
+
+  <view wx:if="{{active==1}}" class="body">
+    <view class="eachlist">
+      <view class="left">
+        <image class="lefticon" src="https://oss.mcloud.moveclub.cn/2025/mv/%E6%8B%8D%E7%85%A7.png"></image>
+        <view class="lefttext">拍照</view>
+      </view>
+      <view bindtap="uploadFile" data-type="1" class="right">去拍照</view>
+    </view>
+    <view class="eachlist">
+      <view class="left">
+        <image class="lefticon" src="https://oss.mcloud.moveclub.cn/2025/mv/%E4%BD%93%E6%A3%80%E6%8A%A5%E5%91%8Ah5/%E4%B8%8A%E4%BC%A0%E7%85%A7%E7%89%87.png"></image>
+        <view class="lefttext">上传照片</view>
+      </view>
+      <view bindtap="uploadFile" data-type="2" class="right">去上传</view>
+    </view>
+    <view class="eachlist" style="border: none">
+      <view class="left">
+        <image class="lefticon" src="https://oss.mcloud.moveclub.cn/2025/mv/%E4%BD%93%E6%A3%80%E6%8A%A5%E5%91%8Ah5/%E4%B8%8A%E4%BC%A0pdf.png"></image>
+        <view class="lefttext">上传PDF文件</view>
+      </view>
+      <view bindtap="uploadFile" data-type="3" class="right">去上传</view>
+    </view>
+    
+  </view>
+
+  <view wx:if="{{active==2}}" class="body2">
+    <view class="maintitle">当前解读</view>
+    <view class="body2list">
+      <view class="listtitle">正在进行解读报告…</view>
+      <view class="body2progress">
+        <view class="progress">
+          <view class="proline">
+            <view class="prolinebar" style="width: {{progress}}%"></view>
+            <view class="startp" style="left: {{progress*0.975}}%"></view>
+            <image wx:if="{{progress >= 25}}" src="https://oss.mcloud.moveclub.cn/2025/mv/%E4%BD%93%E6%A3%80%E6%8A%A5%E5%91%8Ah5/%E6%88%90%E5%8A%9F.png" class="hongbao" style="left: 22%;"></image>
+            <image wx:if="{{progress >= 50}}" src="https://oss.mcloud.moveclub.cn/2025/mv/%E4%BD%93%E6%A3%80%E6%8A%A5%E5%91%8Ah5/%E6%88%90%E5%8A%9F.png" class="hongbao" style="left: 47%;"></image>
+            <image wx:if="{{progress >= 75}}" src="https://oss.mcloud.moveclub.cn/2025/mv/%E4%BD%93%E6%A3%80%E6%8A%A5%E5%91%8Ah5/%E6%88%90%E5%8A%9F.png" class="hongbao" style="left: 72%;"></image>
+            <image wx:if="{{progress == 100}}" src="https://oss.mcloud.moveclub.cn/2025/mv/%E4%BD%93%E6%A3%80%E6%8A%A5%E5%91%8Ah5/%E6%88%90%E5%8A%9F.png" class="hongbao" style="left: 97%;"></image>
+          </view>
+          <view class="textlist">
+            <text class="body2text">扫描文件</text>
+            <text class="body2text">身份脱敏</text>
+            <text class="body2text">分析报告</text>
+            <text class="body2text">整理归档</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="b2footer">
+      <view class="body2btn">查看结果</view>
+    </view>
+  </view>
+
+  <view wx:if="{{active==3}}" class="body2">
+    <view class="maintitle">当前解读</view>
+    <view class="b3footer">
+      <image class="body3img" src="https://oss.mcloud.moveclub.cn/2025/mv/%E4%BD%93%E6%A3%80%E6%8A%A5%E5%91%8Ah5/%E7%BB%93%E6%9E%9C.png"></image>
+      <view bindtap="goResult" class="body3btn">查看结果</view>
+    </view>
+  </view>
+
+  <!-- 上传文件 -->
+  <view style="display:none;">
+    <button bindtap="chooseImage">选择图片</button>
+    <button bindtap="chooseMessageFile">选择文件</button>
+  </view>
+</view>
+
+<view class="ai-disclaimer">
+  —— 内容由AI生成 ——
+</view>

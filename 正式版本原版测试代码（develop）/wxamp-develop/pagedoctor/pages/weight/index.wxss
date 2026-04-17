@@ -1,0 +1,226 @@
+page{
+    background-image: linear-gradient(180deg, #E2FFE8 2%, #B9F1ED 100%);
+    box-sizing: border-box;
+    padding: 40rpx 24rpx;
+}
+
+.box{
+    background: #FFFFFF;
+    border-radius: 20rpx;
+    box-sizing: border-box;
+    padding: 35rpx;
+    margin-bottom: 34rpx;
+    box-shadow: 0px 2px 5px 2px rgba(175,228,220,0.3);
+}
+
+.box .month-switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 38rpx;
+}
+.box .month-switch .today{
+    background: #E8F7F6;
+    border-radius: 88%;
+    width: 64rpx;
+    height: 56rpx;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 24rpx;
+    margin: 0 -24rpx 0 20rpx;
+}
+.box .month-switch .title {
+    text-align: center;
+    font-size: 30rpx;
+    color: #000000;
+    font-weight: 600;
+    padding: 0 32rpx;
+}
+.box .calendar{
+    border-radius: 10rpx;
+    box-sizing: border-box;
+    padding: 13rpx 0;
+}
+.box .calendar .weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 26rpx;
+    color: #30292C;
+    font-weight: 400;
+    padding-bottom: 20rpx;
+}
+.box .calendar .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 30rpx;
+    color: #30292C;
+    text-align: center;
+    font-weight: 700;
+}
+.box .calendar .day {
+    background: #E8F7F6;
+    border-radius: 50%;
+    width: 56rpx;
+    height: 56rpx;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+}
+.box .calendar .dayclick  { 
+    color: #FFFFFF;
+    background: #00C7C7;
+}
+
+.state{
+    display: flex;
+    justify-content: space-between;
+    margin: 30rpx 0 20rpx 0;
+}
+.state .left{
+    font-size: 32rpx;
+    color: #262626;
+    font-weight: 600;
+}
+.state .right{
+    font-size: 30rpx;
+    color: #61656C;
+    font-weight: 400;
+}
+
+.list{ 
+    display: flex;
+    flex-direction: column;
+    box-sizeing: border-box;
+    padding: 24rpx;
+    background: #FFFFFF;
+    box-shadow: 0rpx 4rpx 8rpx 0rpx rgba(206,231,231,1);
+    border-radius: 20rpx;
+    margin: 24rpx 0;
+}
+.list .top{ 
+    display: flex;
+    justify-content: space-between;
+}
+.list .top .topchild{
+    display: flex;
+}
+.list .top .avatar{
+    width: 58rpx;
+    height: 58rpx;
+    border-radius: 42rpx;
+    margin-right: 24rpx;
+}
+.list .top .name{
+    align-items: center;
+    display: flex;
+    font-size: 28rpx;
+    color: #333333;
+    font-weight: 600;
+}
+.list .top .tag{
+    margin-left: 12rpx;
+    background: #EFFBF7;
+    border-radius: 8rpx;
+    font-size: 22rpx;
+    color: #3ED4A7;
+    line-height: 34rpx;
+    font-weight: 400;
+    white-space: nowrap;
+    padding: 12rpx;
+    height: 32rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.list .top .green{
+    color: #3ED4A7;
+    background: #EFFBF7;
+}
+.list .top .red{
+    background: #FFF2F1;
+    color: #FA746B;
+}
+.list .top .yellow{
+    background: #FFFAE3;
+    color: #FFD14B;
+}
+.list .bottom { 
+    width: 100%;
+    background: #E8F7F6;
+    border-radius: 20rpx;
+    box-sizing: border-box;
+    padding: 20rpx 28rpx 18rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24rpx;
+    color: #212327;
+    margin: 10rpx 0 0 0;
+}
+.list .bottom .describe{
+    display: flex;
+    font-size: 24rpx;
+    color: #212327;
+    font-weight: 400;
+    justify-content: space-between;
+    margin-bottom: 12rpx;
+}
+.list .bottom .number{ 
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.list .bottom .number .operator {
+    font-size: 28rpx;
+    color: #212327;
+    width: 15%;
+    text-align: center;
+    flex-shrink: 0;
+}
+.list .bottom .number .numberall{ 
+    width: 32%;
+    text-align: center;
+    font-size: 46rpx;
+    color: #FF8D4F;
+    letter-spacing: -3.83rpx;
+    font-weight: 700;
+    margin: 0 36rpx 0 12rpx;
+}
+.list .bottom .number .numberchild{ 
+    width: 15%;
+    text-align: center;
+    font-size: 28rpx;
+    color: #212327;
+    letter-spacing: -2.33rpx;
+    font-weight: 700;
+    margin: 0 8rpx 0 -8rpx;
+}
+
+.list .bottom .h{
+    height: 88rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+}
+.list .bottom .fu{
+    align-self: flex-end;
+    padding-bottom: 2rpx;
+}
+
+.zhihui  {
+    opacity: 0.45 !important;
+    color: #212327 !important;
+    background: #F9F9F9 !important;
+    font-size: 46rpx;font-weight: 700;letter-spacing: -3.83rpx;
+}
+.fushu { 
+    color: #FF8D4F;font-size: 46rpx;font-weight: 700;letter-spacing: -3.83rpx;
+}
+.zhengshu { 
+    color: #00C7C7;font-size: 46rpx;font-weight: 700;letter-spacing: -3.83rpx;
+}

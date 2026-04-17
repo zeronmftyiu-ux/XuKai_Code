@@ -1,0 +1,72 @@
+/* pages/user/advice/index.wxss */
+page{
+    background: #F6F6F6;
+}
+
+.list{
+    box-sizing: border-box;
+    padding: 20rpx 30rpx 30rpx;
+}
+.item{
+    background: #FFFFFF;
+    border-radius: 20rpx;
+    margin-bottom: 20rpx;
+}
+.item .title{
+    box-sizing: border-box;
+    padding: 24rpx 35rpx;
+    border-bottom: 1rpx solid #D8D8D8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 26rpx;
+    color: #333333;
+}
+.item .title>view:first-child{
+    font-size: 32rpx;
+    color: #262626;
+    font-weight: 500;
+}
+.item .title>view:nth-child(2){
+    font-size: 26rpx;
+    color: #61656C;
+    font-weight: 400;
+}
+
+.group{
+    box-sizing: border-box;
+    padding: 30rpx 35rpx 0;
+}
+.group .cell{
+    display: flex;
+    padding-bottom: 24rpx;
+}
+.group .cell .label{
+    font-size: 28rpx;
+    color: #90A09E;
+    padding-right: 24rpx;
+}
+.group .cell .value{
+    font-size: 28rpx;
+    color: #333333;
+    padding-right: 24rpx;
+}
+.footer{
+    box-sizing: border-box;
+    padding-bottom: 28rpx;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-right: 35rpx;
+}
+.footer .mvbutton{
+    border: 2rpx solid rgba(218,218,218,1);
+    border-radius: 36rpx;
+    width: 190rpx;
+    height: 68rpx;
+    align-items: center;
+    line-height: 72rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #90A09E;
+}

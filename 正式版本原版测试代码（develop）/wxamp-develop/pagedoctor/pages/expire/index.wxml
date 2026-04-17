@@ -1,0 +1,104 @@
+<view class="title">
+  <image class="avatar" src='{{patientinfo.avatarurl}}' />
+  <view class="info">
+    <view class="title1">
+        <view class="name">{{patientinfo.realname}}</view>
+        <van-tag plain custom-class="icon" size="medium" >已过期</van-tag>
+    </view>
+    <view class="title2">
+        <view class="time1">签约到期时间：</view>
+        <view class="time2">{{patientinfo.expired_time}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="body">
+    <view class="state">
+        居民信息    
+    </view>
+
+    <view class="card">
+        <view class="left">
+            <view >性别</view>
+            <view >年龄</view>
+            <view >身份证号</view>
+            <view >联系电话</view>
+            <view >居民标签</view>
+        </view>
+        <view class="right">
+            <view >{{patientinfo.gender}}</view>
+            <view >{{patientinfo.birthdate}}岁</view>
+            <view >{{patientinfo.id_number}}</view>
+            <view >{{patientinfo.phone}}</view>
+            <view>
+                <view>
+                    <view class="selected-tags">
+                        <block wx:for="{{patientinfo.tags}}" wx:key="*this">
+                            <view bindtap="deleteTag" data-tagid="{{item.tagid}}" class="selecttag {{item.type == 1 ? 'red' : item.type == 2 ? 'green' : 'yellow'}}">
+                            {{item.tagname}}<van-icon name="cross" size="10px"/>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+                <view class="tag" bindtap="showPopup">+ 编辑标签</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="state">
+        当前签约信息    
+    </view>
+
+    <view class="card">
+        <view class="left">
+            <view >签约编号</view>
+            <view >签约医院</view>
+            <view >签约周期</view>
+            <view >生效时间</view>
+            <view >审核时间</view>
+            <view >备注说明</view>
+        </view>
+        <view class="right">
+            <view >{{patientinfo.pcode}}</view>
+            <view >{{patientinfo.signhospital}}</view>
+            <view >1年</view>
+            <view >-</view>
+            <view >-</view>
+            <view >无</view>
+        </view>
+    </view>
+</view>
+
+<view class="footer">
+    <view class="btn" bindtap="gorenewal">续签</view>
+</view>
+
+<van-popup
+  show="{{ show }}"
+  position="bottom"
+  custom-style="height: 45%;"
+  bind:close="onClose"
+>
+    <view class="poptitle">添加居民标签</view>
+    <view class="poplist"> 
+        <van-checkbox-group value="{{ result }}" bind:change="onChange">
+           <view class="checkbox" wx:for="{{actions}}" wx:key="index">
+                <van-checkbox name="{{item.name}}" shape="square">
+                    <view class="itemname">{{item.name}}</view>
+                </van-checkbox>
+                <view class="icon"> 
+                    <view wx:for="{{item.tablist}}" data-tagname="{{item.name}}" data-type="{{citem.type}}" 
+                    data-index="{{index}}" wx:for-item="citem" wx:for-index="cindex" class="radiobig" 
+                    style="border: 3rpx solid {{activelist[index].active===true ?(activelist[index].type===citem.type?citem.color:'transparent'):'transparent'}}" 
+                    catchtap="choosecolor" >
+                        <view class="radio" style="background: {{citem.color}};"/>
+                    </view>
+                </view> 
+           </view>
+        </van-checkbox-group>
+    </view>
+    <view class="popbottom">
+        <view class="button1" bindtap="onClose">取消</view>
+        <view class="button2" bindtap="onSelect">确定</view>
+    </view>
+</van-popup>

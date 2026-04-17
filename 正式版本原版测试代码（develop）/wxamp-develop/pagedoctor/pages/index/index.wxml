@@ -1,0 +1,112 @@
+<!-- <view class="back" bindtap="goback">
+    <van-icon name="arrow-left" size="50rpx" color="#444444" />
+</view> -->
+<view class="user-card">
+  <view class="user-header">
+      <image class="avatar" src="https://oss.mcloud.moveclub.cn/2024/movewell/pc/2.png" mode="aspectFill"></image>
+      <view class="user-name">{{doctorinfo.name}}</view>
+      <view class="invite-code">
+        <van-cell custom-class="custom-cell" is-link bind:click="showPopup" >
+          <image class="avatar-1" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/二维码@2x.png" mode="aspectFill" />
+        </van-cell>
+        <!-- <canvas class="avatar-1" canvas-id="myQrcode" style="background:#fff;width: {{width}}rpx;height: {{width}}rpx;"/> -->
+        <view class="code-text">邀请码：{{doctorinfo.bcode}}</view>
+        <button class="sharebutton" open-type="share">
+          <image class="icon" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/分享@2x.png" mode="aspectFill" />
+        </button>
+        <!-- <van-icon name="share-o" /> -->
+      </view>
+  </view>
+
+  <view class="user-details">
+      <view class="detail-item">
+        <image class="icon" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/所属医院2x.png" mode="aspectFit"></image>
+        <view class="detail-text">
+            <text class="title">所属医院</text>
+            <text class="content">{{doctorinfo.hospital}}</text>
+        </view>
+      </view>
+      <view class="detail-item">  
+        <image class="icon" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/所属科室2x.png" mode="aspectFit"></image>
+        <view class="detail-text">
+            <text class="title">所属科室</text>
+            <text class="content">{{doctorinfo.department}}</text>
+        </view>
+      </view>
+  </view>
+</view>  
+
+<view class="user-card2">
+  <view class="stats-item">
+    <text class="stats-number">{{doctorinfo.allnum}}</text>
+    <text class="stats-label">累计居民人数</text>
+  </view>
+  <view class="divider"></view>
+  <view class="stats-item">
+    <text class="stats-number">{{doctorinfo.validnum}}</text>
+    <text class="stats-label">现管居民人数</text>
+  </view>
+</view>
+
+<view class="user-card3"> 
+  <view class="goods-item" bindtap="goweight">
+    <van-icon name="http://oss.mcloud.moveclub.cn/2025/mv/doctor/weight.png" size="100rpx"  />
+    <view class="ttext">体重数据</view>
+  </view>
+  <view class="goods-item" bindtap="goabnormal">
+    <van-icon name="http://oss.mcloud.moveclub.cn/2025/mv/doctor/dakayicahng.png" size="100rpx"  />
+    <view class="ttext">打卡异常</view>
+  </view>
+  <view class="goods-item" bindtap="goreminder">
+    <van-icon wx:if="{{doctorinfo.unreadmsg == 0}}" name="http://oss.mcloud.moveclub.cn/2025/mv/doctor/management.png" size="100rpx" />
+    <van-icon wx:else name="http://oss.mcloud.moveclub.cn/2025/mv/doctor/management.png" size="100rpx" info="{{doctorinfo.unreadmsg}}" />
+    <view class="ttext">消息管理</view>
+  </view>
+  <view class="goods-item" bindtap="gosign">
+    <van-icon name="http://oss.mcloud.moveclub.cn/2025/mv/doctor/qianyue.png" size="100rpx"  />
+    <view class="ttext">签约审核</view>
+  </view>
+</view>
+
+<view class="goods-list"> 
+  <view class="dongtai"> 
+  最新动态
+  </view>
+  <view class="activity-list">
+    <block wx:for="{{feedslist}}" wx:key="index">
+      <view class="activity-item" data-index="{{item.urid}}" data-dongtai="{{true}}" bindtap="gopatient">
+        <image class="avatar-3" src="{{item.patient.avatarurl}}" mode="aspectFill"></image>
+        <view class="activity-content">
+          <text class="name">{{item.patient.realname}}</text>
+          <text class="action">{{item.description}}</text>
+        </view>
+        <view class="activity-time">
+          {{item.formatted_time }}
+          <van-icon name="arrow" />
+        </view>
+        
+      </view>
+    </block>
+  </view>
+</view>
+
+<van-popup show="{{ show }}" bind:close="onClose">
+  <view style="background: #fff;padding: 8rpx 0;margin: 0 0 16rpx 0; border-radius: 6px;">
+    <view class="popbody">
+      <image wx:if="{{imagePath}}" show-menu-by-longpress="true" src="{{imagePath}}" mode="widthFix" style="width: 340rpx; height: 400rpx;" />
+      <!-- <canvas bindlongpress="handleLongPressSave" show-menu-by-longpress="{{true}}" class="avatar-1" canvas-id="myQrcode" style="background:#fff;width: {{width}}rpx;height: {{width+10}}rpx; "/>
+      <view style="display: flex;justify-content: center; padding: 32rpx 0 0 0;">
+        扫一扫绑定专属医生
+      </view> -->
+    </view>
+    <view class="popbottom">
+      <view class="popbutton" bindtap="saveImageToAlbum">保存图片至本地相册</view>
+    </view>
+  </view>
+  <view style="display: flex;justify-content: center;">
+    <image class="closeicon" src="{{closeurl}}" mode="aspectFit" bindtap="onClose" />
+  </view>
+</van-popup>
+
+<painter style="position:absolute; top:-9999rpx;" palette="{{posterdata}}" bind:imgOK="onImgOK" bind:imgErr="onImgErr"/>
+<canvas show-menu-by-longpress="{{true}}" class="avatar-1" canvas-id="myQrcode" style="background:#fff;width: 180rpx;height: 180rpx;position:absolute; top:-9999rpx; "/>

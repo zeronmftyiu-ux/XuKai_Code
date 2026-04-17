@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "帮助与反馈",
+  "usingComponents": {
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index"
+  }
+}

@@ -1,0 +1,166 @@
+page {
+    background: #ffffff url(https://oss.mcloud.moveclub.cn/2025/mv/first.png) no-repeat;
+    width: 100%;
+    height: 100%;
+    background-position: center top;
+    background-size: contain;
+    box-sizing: border-box;
+    padding: 205rpx 30rpx 30rpx;
+}
+
+.back{
+    position: fixed;
+    left: 23rpx;
+    top: 103rpx;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+.header .title{
+    width: 465rpx;
+    font-size: 30rpx;
+    color: #8F9AA7;
+}
+.header .title>view:first-child{
+    font-size: 56rpx;
+    color: #121215;
+    font-weight: 500;
+}
+.header .btn{
+    width: 101rpx;
+    height: 56rpx;
+    line-height: 56rpx;
+    text-align: center;
+    background: #9AB3BC;
+    border-radius: 28rpx;
+    font-size: 28rpx;
+    color: #FFFFFF;
+}
+.cell{
+    box-sizing: border-box;
+    padding: 30rpx 15rpx;
+}
+.cell .label{
+    font-size: 24rpx;
+    color: #8F9AA7;
+}
+.cell .label>view:first-child{
+    font-size: 36rpx;
+    color: #494C4E;
+    font-weight: 500;
+    padding-bottom: 16rpx;
+}
+.cell .sex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 30rpx 0;
+}
+.cell .sex .item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #F7F8F9;
+    border-radius: 32rpx;
+    box-sizing: border-box;
+    padding: 32rpx 38rpx;
+    font-size: 34rpx;
+    color: #ACB0B2;
+    border: 4rpx solid #ffffff;
+}
+.cell .sex .item image{
+    width: 235rpx;
+    height: 235rpx;
+    margin-bottom: 38rpx;
+}
+.cell .sex .item>view:nth-child(2){
+    font-size: 34rpx;
+    color: #262B2D;
+    font-weight: 500;
+    padding-bottom: 10rpx;
+}
+.cell .sex .active{
+    border: 4rpx solid rgba(0,199,199,1);
+}
+
+.cell .input{
+    display: flex;
+    align-items: center;
+    border: 2px solid rgba(226,227,229,1);
+    border-radius: 7px;
+    width: 100%;
+    height: 108rpx;
+    margin-top: 30rpx;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    margin-bottom: 90rpx;
+}
+.cell .input picker{
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;    
+}
+.cell .input .year{
+    width: 100%;
+    padding: 0 10rpx;
+    border-right: 1rpx solid #eeeeee;
+    display: flex;
+    align-items: center;
+}
+.cell .input .month{
+    width: 100%;
+    padding: 0 10rpx;
+    border-right: 1rpx solid #eeeeee;
+    display: flex;
+    align-items: center;
+}
+.cell .input .day{
+    width: 100%;
+    padding: 0 10rpx;
+    display: flex;
+    align-items: center;
+}
+
+.cell .input .year{
+    font-size: 28rpx;
+    color: #999;
+}
+.cell .input .month{
+    font-size: 28rpx;
+    color: #999;
+}
+.cell .input .day{
+    font-size: 28rpx;
+    color: #999;
+}
+
+.cell .input .year > view:first-child{
+    padding-right: 10rpx;
+    font-size: 34rpx;
+    color: #000;
+}
+.cell .input .month > view:first-child{
+    padding-right: 10rpx;
+    font-size: 34rpx;
+    color: #000;
+}
+.cell .input .day > view:first-child{
+    padding-right: 10rpx;
+    font-size: 34rpx;
+    color: #000;
+}
+.mvbutton{
+    background: #00C7C7;
+    border-radius: 60rpx;
+    width: 100%;
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 32rpx;
+    color: #FFFFFF;
+}

@@ -1,0 +1,264 @@
+// pagedoctor/pages/weight/index.js
+import api from '../../../request/index'
+import moment from "../../../utils/moment";
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+      currentDate: '',
+      sdate: '',
+      edate: '',
+      weekDays: [],
+      list: [],
+      detail: {},
+      date: moment().format('YYYY-MM-DD'),
+      show: false,
+      maxDate: moment().valueOf(),
+      minDate: moment().subtract(3, 'days').valueOf(),
+      showS: false,
+      showT: false,
+      radio: null,
+      sourelist: [],
+      auth: false,
+      isplan: false,
+      // tag:[
+      //   {name:'高血压',tagcolor:3},
+      //   {name:'冠心病',tagcolor:2},
+      //   {name:'糖尿病',tagcolor:1},
+      // ],
+      weightlist: [],
+      dateclick: false,
+      selectdate: '',
+      dakanum: 0,
+    },
+
+    gopatient: function (e) {
+      const urid = e.currentTarget.dataset.index;
+      const day  = e.currentTarget.dataset.day;
+      // const week = this.data.chooseweek;
+      // const state = e.currentTarget.dataset.state;
+      wx.navigateTo({
+        url: `/pagedoctor/pages/patient/index?urid=${urid}&day=${day}`
+      })
+    },
+    getWeight: function () {
+      let i = 0;
+      let sdate = this.data.selectdate;
+      api.doctor.getWeight({sdate}).then(res => {
+        if (res.code == 200) {
+          console.log(res.data);
+          res.data.forEach(item => {
+            if  (item.balance[this.data.selectdate].signin == 0 ) {
+              i++
+            }
+          });
+          this.setData({
+            weightlist: res.data,
+            dakanum: res.data.length - i,
+          });
+        } 
+      })
+    },
+    dateClick: function(e) {
+        const index = e.currentTarget.dataset.index;
+        this.setData({
+            activeIndex: index,
+            selectdate: e.currentTarget.dataset.date
+        });
+        this.getWeight();
+    },
+    setDefaultDate: function() {
+      const today = this.getTodayDate();
+      this.setData({
+        selectdate: today
+      });
+    },
+    // 获取今天日期的函数（格式化为YYYY-MM-DD）
+    getTodayDate: function() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    },
+
+  // 设置当前日期
+  setCurrentDate(date) {
+    this.setData({
+      currentDate: date,
+    });
+    this.generateCalendar();
+  },
+  // 生成日历
+  generateCalendar() {
+    const now = this.data.currentDate; // 当前日期
+    // 获取当前周的起始日期（周一）和结束日期（周日）
+    const startOfCurrentWeek = now.clone().startOf('week'); // 周一
+    const endOfCurrentWeek = now.clone().endOf('week');   // 周日
+    const sdate = startOfCurrentWeek.format('YYYY-MM-DD')
+    const edate = endOfCurrentWeek.format('YYYY-MM-DD')
+    const weekDays = [];
+    api.movewell.myactlist({sdate,edate}).then(res=>{
+      if(res.code == 200) {
+        let list = []
+        let item = []
+        let num = 0
+        let cal = 0
+        let pin = 0
+        let isplan = false
+        for (let i = 0; i < 7; i++) {
+          if(res.data[startOfCurrentWeek.clone().add(i, 'days').format('YYYY-MM-DD')].act) {
+            item = res.data[startOfCurrentWeek.clone().add(i, 'days').format('YYYY-MM-DD')].act
+            num += 1
+            pin += res.data[startOfCurrentWeek.clone().add(i, 'days').format('YYYY-MM-DD')].plan*1
+            item.forEach(row=>{
+              cal+= row.calorie*1
+            })
+            if(res.data[startOfCurrentWeek.clone().add(i, 'days').format('YYYY-MM-DD')].plan*1 > 0) {
+              isplan = true
+            }
+            list.unshift({
+              date: startOfCurrentWeek.clone().add(i, 'days').format('YYYY-MM-DD'),
+              item
+            })
+          }
+          
+          weekDays.push({
+            value: startOfCurrentWeek.clone().add(i, 'days').format('D'),
+            date: startOfCurrentWeek.clone().add(i, 'days').format('YYYY-MM-DD')
+          })
+        }
+        this.setData({
+          sdate,edate,weekDays,list,
+          isplan,
+          detail: {
+            num,cal:parseFloat(cal.toFixed(2)),pin: Math.floor(pin/num),pcal: Math.floor(cal/num),pro:Math.floor((cal/num)/pin*100)>100?100:Math.floor((cal/num)/pin*100)
+          }
+        })
+      }
+    })
+  },
+  // 切换到上一月
+  prevMonth() {
+    // 获取当前选择的日期（YYYY-MM-DD格式）
+    const currentSelectDate = this.data.selectdate; 
+    let newDate;
+    if (currentSelectDate) {
+      // 如果已选择日期，则基于该日期计算上周同一天
+      const momentDate = moment(currentSelectDate, 'YYYY-MM-DD').subtract(1, 'weeks');
+      newDate = momentDate.clone();
+      this.setData({
+        selectdate: momentDate.format('YYYY-MM-DD') // 更新为上周同一天的日期
+      });
+    } else {
+      // 如果没有选择日期，则默认用当前日期计算
+      newDate = this.data.currentDate.clone().subtract(1, 'weeks');
+      this.setData({
+        selectdate: newDate.format('YYYY-MM-DD') // 设置为计算后的日期
+      });
+    }
+    this.setCurrentDate(newDate);
+    this.getWeight();
+    this.setData({
+      activeIndex: '',
+    });
+  },
+  // 切换到下一月
+  nextMonth() {
+    // 获取当前选择的日期（YYYY-MM-DD格式）
+    const currentSelectDate = this.data.selectdate; 
+    let newDate;
+    if (currentSelectDate) {
+      // 如果已选择日期，则基于该日期计算上周同一天
+      const momentDate = moment(currentSelectDate, 'YYYY-MM-DD').add(1, 'weeks');
+      newDate = momentDate.clone();
+      this.setData({
+        selectdate: momentDate.format('YYYY-MM-DD') // 更新为上周同一天的日期
+      });
+    } else {
+      // 如果没有选择日期，则默认用当前日期计算
+      newDate = this.data.currentDate.clone().add(1, 'weeks');
+      this.setData({
+        selectdate: newDate.format('YYYY-MM-DD') // 设置为计算后的日期
+      });
+    }
+    this.setCurrentDate(newDate);
+    this.getWeight();
+    this.setData({
+      activeIndex: '',
+    });
+  },
+  today() {
+    this.setData({
+      selectdate: '',
+      activeIndex: '',
+    });
+    this.setDefaultDate();
+    this.getWeight();
+    this.setCurrentDate(moment());
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad(options) {
+      this.setCurrentDate(moment()); // 初始化为当前日期
+      this.init();
+      this.setDefaultDate();
+  },
+  init() {
+      api.user.sourcelist().then(res=>{
+        if(res.code == 200) {
+          this.setData({
+            sourelist: res.data,
+            radio: res.data.length>0?res.data[0].id:null
+          })
+        }
+      })
+    },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
+    this.getWeight()
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom() {
+
+  },
+})

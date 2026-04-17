@@ -1,0 +1,12 @@
+/* pages/user/health/image.wxss */
+page{
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+}
+image{
+    width: 750rpx;
+    height: auto;
+    display: block;
+}

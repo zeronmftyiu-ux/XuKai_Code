@@ -1,0 +1,278 @@
+// pages/sports/heart.js
+import moment from "../../utils/moment";
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    label: {
+      a: '<35℃',
+      b: '35.0-37.2℃',
+      c: '≥37.2℃'
+    },
+    tab: ['日', '周', '月', '年'],
+    idx: 0,
+    dayValue: '2024年10月6日',
+    weekValue: '2024年9月30日-2024年10月6日',
+    total_date: '2024年9月30日-2024年12月31日',
+    months: ['6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+    month_idx: 0,
+    years: ['2023年', '2024年', '2025年'],
+    year_idx: 0,
+    show: false,
+    minDate: new Date(2023, 0, 1).getTime(),
+    list: [1,1,1,1]
+  },
+  toggleTab(e) {
+    this.setData({
+      idx: e.currentTarget.dataset.idx
+    })
+    this.setEcharts()
+  },
+  showDate() {
+    this.setData({ show: true });
+  },
+  onClose() {
+    this.setData({ show: false });
+  },
+  selectDate(e) {
+    this.setData({ show: false });
+    console.log(e, 'e')
+    this.setData({
+      dayValue: moment(e.detail).format('YYYY年MM月DD日')
+    })
+  },
+  toggleMonth(e) {
+    this.setData({
+      month_idx: e.currentTarget.dataset.idx
+    })
+  },
+  toggleYear(e) {
+    this.setData({
+      year_idx: e.currentTarget.dataset.idx
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad(options) {
+    this.setEcharts()
+  },
+  setEcharts(){
+    if(this.data.idx == 0){
+      var xData = ['00:00', '08:00', '12:00', '18:00', '24:00']
+      var yData1 = [{
+        value: 36.7,
+        itemStyle: {
+          color: '#01DE6C'
+        }
+      },{
+        value: 34.5,
+        itemStyle: {
+          color: '#88CEFA'
+        }
+      },{
+        value: 37.8,
+        itemStyle: {
+          color: '#FF0F19'
+        }
+      },{
+        value: 36,
+        itemStyle: {
+          color: '#01DE6C'
+        }
+      },{
+        value: 36.3,
+        itemStyle: {
+          color: '#01DE6C'
+        }
+      }]
+    }else if(this.data.idx == 1){
+      var xData = ['2024-12-01', '2024-12-02', '2024-12-03', '2024-12-04', '2024-12-05']
+      var yData1 = [{
+        value: 36.7,
+        itemStyle: {
+          color: '#01DE6C'
+        }
+      },{
+        value: 34.5,
+        itemStyle: {
+          color: '#88CEFA'
+        }
+      },{
+        value: 37.1,
+        itemStyle: {
+          color: '#01DE6C'
+        }
+      },{
+        value: 36,
+        itemStyle: {
+          color: '#01DE6C'
+        }
+      },{
+        value: 36.3,
+        itemStyle: {
+          color: '#01DE6C'
+        }
+      }]
+    }else if(this.data.idx == 2){
+      var xData = ['2024-12-01', '2024-12-02', '2024-12-03', '2024-12-04', '2024-12-05']
+      var yData1 = [{
+        value: 36.7,
+        itemStyle: {
+          color: '#01DE6C'
+        }
+      },{
+        value: 34.5,
+        itemStyle: {
+          color: '#88CEFA'
+        }
+      },{
+        value: 37.8,
+        itemStyle: {
+          color: '#FF0F19'
+        }
+      },{
+        value: 36,
+        itemStyle: {
+          color: '#01DE6C'
+        }
+      },{
+        value: 38.3,
+        itemStyle: {
+          color: '#FF0F19'
+        }
+      }]
+    }else {
+      var xData = ['2024-12-01', '2024-12-02', '2024-12-03', '2024-12-04', '2024-12-05']
+      var yData1 = [{
+        value: 36.7,
+        itemStyle: {
+          color: '#01DE6C'
+        }
+      },{
+        value: 34.5,
+        itemStyle: {
+          color: '#88CEFA'
+        }
+      },{
+        value: 37.8,
+        itemStyle: {
+          color: '#FF0F19'
+        }
+      },{
+        value: 36,
+        itemStyle: {
+          color: '#01DE6C'
+        }
+      },{
+        value: 38.3,
+        itemStyle: {
+          color: '#FF0F19'
+        }
+      }]
+    }
+    const option = {
+      color: ['#88CEFA', '#EAA646'],
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      xAxis: {
+        type: 'category',
+        data: xData    
+      },
+      yAxis: {
+        type: 'value',
+        boundaryGap: [0, 0.01],
+        // axisLabel: {
+        //     formatter: '{value}%'  // 将数值格式化为百分比
+        // }
+      },
+      series: [
+        {
+          name: '低压',
+          type: 'line',
+          data: yData1,
+          symbol: 'circle',   //将小圆点改成实心 不写symbol默认空心
+          symbolSize: 6,    //小圆点的大小
+          itemStyle: {
+            normal: {
+              color: "#F29C1B",
+              lineStyle: {
+                color: "#eee"
+              }
+            }
+          }
+          // markLine: {
+          //     data: [
+          //         {type: 'average', name: '平均值'}, // 平均值线(可选)
+          //         [
+          //             {coord: ['A', 15]}, // 自定义起点
+          //             {coord: ['E', 15]} // 自定义终点
+          //         ],
+          //         { xAxis: 'B', yAxis: 25 }
+          //     ],
+          //     lineStyle: { type: 'dashed', color: 'gray' } // 虚线效果
+          // }
+        }
+      ]
+    }
+    this.setData({ 
+      option: option
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage() {
+
+  }
+})

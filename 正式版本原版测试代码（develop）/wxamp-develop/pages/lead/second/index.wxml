@@ -1,0 +1,65 @@
+<view class="container">
+  <!-- 体重选择 -->
+    <view class="header">
+        <view class="title">
+            <view >你的身高体重是</view>
+            <view >精准的身高体重数据将用于计算你的BMI</view>
+        </view>
+        <view class="btn" bind:tap="nextto">跳过</view>
+    </view>
+  
+</view>
+
+<!-- 身高选择 -->
+<view class="height-picker">
+    <image src="https://oss.mcloud.moveclub.cn/2025/mv/zhanzi.png" />
+    <view class="scroll">  
+        <view class="indicator">
+            <view>{{selectedHeight + 13}}</view>
+            <view >CM</view>
+        </view>
+        <scroll-view 
+            scroll-y 
+            class="scroll-view" 
+            scroll-top="{{heightScrollTop}}rpx" 
+            bindscroll="onHeightScroll"
+            enhanced
+            bounces="{{false}}"
+        >
+            <view class="ruler">
+                <block wx:for="{{heights}}" wx:key="index">
+                    <view class="tick" style="top: {{index * 20}}rpx;">
+                        <text class="tick-label" wx:if="{{item % 10 === 0}}">{{item}}</text>
+                    </view>
+                </block>
+            </view>
+            
+        </scroll-view>
+        <view class="line"></view>
+    </view>
+    
+    <!--  -->
+</view>
+
+<view class="weight-picker">
+    <view class="label"><text >{{selectedWeight + 17}} </text>KG</view>
+    <scroll-view 
+      scroll-x 
+      class="scroll-view" 
+      scroll-left="{{weightScrollLeft}}rpx" 
+      bindscroll="onWeightScroll"
+      enhanced
+      bounces="{{false}}"
+    >
+      <view class="ruler">
+        <block wx:for="{{weights}}" wx:key="index">
+          <view class="tick" style="left: {{index * 20}}rpx;">
+            <text class="tick-label" wx:if="{{item % 10 === 0}}">{{item}}</text>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+    <view class="line"></view>
+</view>
+
+<view class="mvbutton" bind:tap="next">下一步</view>

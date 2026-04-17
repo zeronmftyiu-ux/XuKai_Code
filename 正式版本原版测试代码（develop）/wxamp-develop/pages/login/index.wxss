@@ -1,0 +1,53 @@
+page{
+    box-sizing: border-box;
+    padding: 20rpx 80rpx;
+}
+
+.loginicon {
+    width: 132rpx;
+    height: 88rpx;
+    margin: 0 0 70rpx 0;
+}
+.title { 
+    font-size: 56rpx;
+    color: rgba(0,0,0,0.85);
+    font-weight: 500;
+    margin: 0 0 8rpx 0;
+}
+.text {
+    font-size: 24rpx;
+    color: #BFC7CF;
+    font-weight: 400;
+    margin: 0 0 88rpx 0;
+}
+.titlet {
+    font-size: 30rpx;
+    color: rgba(0,0,0,0.85);
+    font-weight: 500;
+    margin: 36rpx 0 12rpx 0;
+}
+.button  { 
+    font-size: 36rpx;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 400;
+    background: #00C7C7;
+    border-radius: 49rpx;
+    padding: 24rpx 250rpx;
+    margin: 200rpx 0 0 0;
+}
+.van-cell {
+    padding: var(--cell-vertical-padding,10px) var(--cell-horizontal-padding,0px) !important;
+}
+.van-button--small {
+    padding: 16rpx 24rpx !important;
+    background: #F0FBFB !important;
+    border: 1rpx solid rgba(13,201,201,1) !important;
+    border-radius: 33rpx !important;
+    font-size: 24rpx !important;
+    color: #0DC9C9 !important;
+    font-weight: 400 !important;
+}
+.vangroup {
+    border-bottom: 1rpx solid #ECF0F5;
+}

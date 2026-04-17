@@ -1,0 +1,109 @@
+<view class="calendar">
+    <view class="left" bindtap="goback">
+        <van-icon name="arrow-left" size="50rpx" color="#444444" />
+    </view>
+    <view class="date">
+        <view class="box" bindtap="up">
+            <van-icon name="arrow-left" size="32rpx" color="#444444" />
+        </view>
+        <view class="calendarMain">
+            <view class="week">
+                <view class="week-item" wx:for="{{ week }}">{{ item }}</view>
+            </view>
+            <view class="day">
+                <view class="day-item {{ date == item.date ? 'active' : '' }}" wx:for="{{ day }}" data-index="{{ index }}" data-date="{{item.date}}" bindtap="toggleDate">{{ item.value }}</view>
+            </view>
+        </view>
+        <view class="box" bindtap="down">
+            <van-icon name="arrow" size="32rpx" color="#444444" />
+        </view>
+    </view>
+    <view class="waterBox1">
+        <text>{{ now_water }}</text>ml
+    </view>
+    <view class="waterBox2">今日已完成：{{ now_percent }}% | 剩余：{{ remain_water }} ml</view>
+    <view class="waterMain">
+        <view class="gai">
+            <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/img/%E7%9B%96%E5%AD%90%402x.png"></image>
+        </view>
+        <view class="bei">
+            <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/img/%E6%B0%B4%E6%9D%AF%402x.png"></image>
+            <view class="waterValue" style="height: {{ now_percent }}%;"></view>
+            <view class="progressBox"></view>
+        </view>
+    </view>
+    <view class="rightBox">
+        <view class="iconBox" data-flag="1" bindtap="handleSet">
+            <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/img/jian.png"></image>
+        </view>
+        <view class="iconBox" data-flag="2" bindtap="handleSet" >
+            <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/img/jia.png"></image>
+        </view>
+        <view class="iconBox" data-flag="3" bind:tap="handleSet">
+            <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/img/set%402x.png"></image>
+        </view>
+    </view>
+    <view class="tips">
+        <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/img/%E4%BF%A1%E6%81%AF%402x.png"></image>
+        <view>推荐饮水量：1500ml/天，详情见<text>《科学饮水说明》</text></view>
+    </view>
+    <!-- <view class="textBox">
+        <view class="textBox-item">
+            <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/img/%E5%BA%86%E7%A5%9D%402x.png">
+            </image>
+            <view>已记录饮食1天</view>
+        </view>
+        <view class="textBox-item">
+            <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/img/%E5%8A%A0%E6%B2%B9%402x.png">
+            </image>
+            <view>请继续努力打卡哦~</view>
+        </view>
+    </view> -->
+</view>
+<view class="record">
+    <view class="record-item">
+        <view class="record-item-01">当月已完成</view>
+        <view class="record-item-02"><text>{{ total_day }}</text>天</view>
+        <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/img/%E5%AE%8C%E6%88%901%402x.png"></image>
+    </view>
+    <view class="record-item">
+        <view class="record-item-01">当月平均每日喝水</view>
+        <view class="record-item-02"><text>{{ balance_water }}</text>ml</view>
+        <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/img/%E5%96%9D%E6%B0%B41%402x.png"></image>
+    </view>
+</view>
+
+<van-popup show="{{ show }}" position="bottom" round="{{ true }}" custom-style="height: 40%;" bind:close="onClose"
+    closeable="{{ true }}">
+    <view class="editBox">
+        <view class="editBox-title">
+            设置饮水量
+        </view>
+        <view class="formBox">
+            <view class="formBox-item2">
+                <view class="form-label">
+                    每日饮水量目标设置：
+                </view>
+                <van-field
+                    value="{{ item.value }}"
+                    center
+                    label=""
+                    type="digit"
+                    placeholder="请输入"
+                    border="{{ false }}"
+                    use-button-slot
+                    bind:input="changenum"
+                    bind:change="changenum"
+                >
+                    <view slot="button" size="small" type="primary">
+                        毫升
+                    </view>
+                </van-field>
+                <view class="form-con2">可根据自身需求制定每日饮水量</view>
+            </view>
+            <view class="btnBox">
+                <van-button custom-class="btnBox-1" bindtap="submit">保存</van-button>
+            </view>
+        </view>
+    </view>
+</van-popup> 

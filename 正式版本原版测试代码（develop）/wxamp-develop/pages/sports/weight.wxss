@@ -1,0 +1,237 @@
+/* pages/sports/weight.wxss */
+page{
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 30rpx 30rpx 50rpx 30rpx;
+}
+.tab{
+    background-color: #F5F5F5;
+    display: flex;
+    border-radius: 40rpx;
+    box-sizing: border-box;
+    padding: 6rpx;
+}
+.tab-item{
+    width: 50%;
+    text-align: center;
+    font-size: 30rpx;
+    color: #333333;
+    text-align: center;
+    font-weight: 500;
+    box-sizing: border-box;
+    padding: 10rpx 0;
+}
+.active{
+    background-color: #fff !important;
+    border-radius: 40rpx;
+    /* color: #007aff; */
+}
+.dateBox{
+    margin-top: 35rpx;
+}
+.dateBox-value{
+    opacity: 0.85 !important;
+    font-family: 'PingFangSC-Semibold';
+    font-size: 28rpx;
+    color: #000000 !important;
+    font-weight: 600;   
+}
+.dateBox-value image{
+    width: 27rpx;
+    height: 18rpx;
+    margin-left: 5rpx;
+}
+.van-calendar__footer .custom-class{
+    width: 100% !important;
+}
+.echarts{
+    margin-top: 36rpx;
+}
+.img{
+    width: 690rpx;
+    height: 213rpx;
+}
+.img image{
+    width: 100%;
+    height: 213rpx;
+}
+.sport-stat{
+    width: 100%;
+    background-color: #F5F5F5;
+    border-radius: 20rpx;
+    margin-top: 48rpx;
+    box-sizing: border-box;
+    padding: 36rpx 30rpx;
+}
+.sport-stat-title{
+    display: flex;
+    align-items: center;
+}
+.sport-stat-title image{
+    width: 67rpx;
+    height: 67rpx;
+}
+.sport-stat-title view{
+    font-family: 'PingFangSC-Semibold';
+    font-size: 30rpx;
+    color: #333333;
+    font-weight: 600;
+    margin-left: 19rpx;
+}
+.sport-stat-content{
+    margin-top: 40rpx;
+    display: flex;
+}
+.sport-stat-content-item{
+    width: 33.33%;
+    text-align: center;
+}
+.sport-stat-content-item-1{
+    font-family: 'DINPro-Bold';
+    font-size: 50rpx;
+    color: #333333;
+    font-weight: 700;
+}
+.sport-stat-content-item-2{
+    opacity: 0.45;
+    font-family: 'PingFangSC-Regular';
+    font-size: 28rpx;
+    color: #000000;
+    text-align: center;
+    font-weight: 400;
+    margin-top: 12rpx;
+}
+.sport-stat-content-item-1 text{
+    font-family: 'PingFangSC-Regular';
+    font-size: 24rpx !important;
+    color: #333333;
+    font-weight: 400;
+    margin-left: 10rpx;
+}
+.progressBox{
+    margin-top: 44rpx;
+}
+.progress-main{
+    display: flex;
+    width: 690rpx;
+    position: relative;
+}
+.progress-main-1{
+    width: 170rpx;
+    background: #42B5FE;
+    border-radius: 100rpx 0px 0px 100rpx;
+    height: 38rpx;
+}
+.color1{
+    background: #42B5FE;
+}
+.progress-main-2{
+    width: 200rpx;
+    background: #32D16E;
+    height: 38rpx;
+    margin-left: 2rpx;
+}
+.color2{
+    background: #32D16E;
+}
+.progress-main-3{
+    width: 144rpx;
+    background: #FFBB00;
+    height: 38rpx;
+    margin-left: 2rpx;
+}
+.color3{
+    background: #FFBB00;
+}
+.progress-main-4{
+    width: 170rpx;
+    background: #FE8A06;
+    border-radius:  0px 100rpx 100rpx 0px;
+    height: 38rpx;
+    margin-left: 2rpx;
+}
+.color4{
+    background: #FE8A06;
+}
+
+.progress-main2{
+    display: flex;
+}
+.progress-main2 text{
+    font-family: 'DINPro-Bold';
+    font-size: 24rpx;
+    color: #333333;
+    font-weight: 700;   
+}
+.progress-main2 text:nth-child(1){
+    margin-left: 150rpx;
+}
+.progress-main2 text:nth-child(2){
+    margin-left: 152rpx;
+}
+.progress-main2 text:nth-child(3){
+    margin-left: 105rpx;
+}
+.arrow{
+    position: absolute;
+    width: 27rpx;
+    height: 18rpx;
+    top: -10rpx;
+}
+
+.labelBox{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10rpx;
+}
+.labelBox-item{
+    /* width: 25%; */
+    display: flex;
+    align-items: center;
+}
+.text01{
+    font-family: 'PingFangSC-Regular';
+    font-size: 26rpx;
+    color: #000000;
+    font-weight: 400;   
+}
+.square{
+    border-radius: 4rpx;
+    width: 18rpx;
+    height: 18rpx;
+    margin-right: 10rpx;
+}
+.text02{
+    opacity: 0.65;
+    font-family: 'PingFangSC-Regular';
+    font-size: 24rpx;
+    color: #000000;
+    letter-spacing: -1rpx;
+    line-height: 40rpx;
+    font-weight: 400;    
+    margin-top: 40rpx;
+}
+.popup-content{
+    box-sizing: border-box;
+    padding-top: 50rpx;
+}
+.btnBox{
+    /* position: fixed; */
+    bottom: 0;
+    left: 0;
+    width: 750rpx;
+    background: #fff;
+    /* border-top: 1rpx solid #ccc; */
+    text-align: center;
+    padding: 20rpx 0 60rpx 0;
+}
+.btn{
+    background: #FF5F1B !important;
+    border-radius: 10rpx !important;  
+    font-size: 36rpx !important;  
+    color: #FFFFFF !important;  
+    text-align: center;
+    font-weight: 400 !important;   
+    width: 684rpx !important;
+    height: 100rpx !important;
+}

@@ -1,0 +1,483 @@
+/* pages/motion/list.wxss */
+page{
+    background: #F4F6F9 url(https://oss.mcloud.moveclub.cn/2025/csyyls/%E8%BF%90%E5%8A%A8-bg%402x.png) no-repeat;
+    width: 100%;
+    height: 100%;
+    background-position: center top;
+    background-size: contain;
+    box-sizing: border-box;
+    padding-bottom: 80rpx;
+}
+.header{
+    width: 100%;
+    height: 88rpx;
+    position: relative;
+    box-sizing: border-box;
+    padding: 128rpx 22rpx 39rpx;
+    font-size: 34rpx;
+    color: #30292C;
+    line-height: 44rpx;
+}
+
+.header>view{
+    display: flex;
+    align-items: center;
+}
+.main{
+    box-sizing: border-box;
+    padding: 54rpx 24rpx 80rpx;
+}
+.main .box{
+    background: #FFFFFF;
+    border-radius: 20rpx;
+    box-sizing: border-box;
+    padding: 24rpx 30rpx;
+    margin-bottom: 34rpx;
+}
+
+.main .box .month-switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 38rpx;
+}
+  
+  
+.main .box .month-switch .title {
+    text-align: center;
+    font-size: 28rpx;
+    color: #000000;
+    font-weight: 600;
+    padding: 0 35rpx;
+}
+.main .box .calendar{
+    background: #F0FBFB;
+    border-radius: 10rpx;
+    box-sizing: border-box;
+    padding: 13rpx 0;
+}
+.main .box .calendar .weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 28rpx;
+    color: #BFBFBF;
+    padding-bottom: 20rpx;
+}
+.main .box .calendar .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 34.29rpx;
+    color: #30292C;
+    text-align: center;
+    font-weight: 700;
+}
+.main .box .week{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    padding-top: 32rpx;
+}
+.main .box .week text{
+    font-size: 36rpx;
+    color: #00C7C7;
+    letter-spacing: -2.16rpx;
+    font-weight: 700;
+}
+.main .box .week>view{
+    width: 50%;
+    font-size: 30rpx;
+    color: rgb(0, 0, 0, .85);
+}
+.main .box .week>view>view:first-child{
+    font-size: 30rpx;
+    color: #000000;
+    font-weight: 500;
+    padding-bottom: 26rpx;
+}
+.main .sports{
+    box-sizing: border-box;
+    padding: 32rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.main .sports>view:first-child{
+    width: 382rpx;
+}
+.main .sports .s-title{
+    font-size: 32rpx;
+    color: #333333;
+    font-weight: 600;
+}
+.main .sports .s-title text{
+    font-size: 36rpx;
+    color: #00C7C7;
+}
+.main .sports .notice{
+    font-size: 22rpx;
+    color: rgb(0, 0, 0, .45);
+    display: flex;
+    align-items: center;
+}
+.main .sports image{
+    width: 209rpx;
+    height: 188rpx;
+}
+.main .sports .times{
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 28rpx 0;
+    flex-wrap: nowrap;
+}
+
+.main .sports .line{
+    background: linear-gradient(to right, #C8C8C8, #979797, #999999, #C1C1C1);
+    width: 73rpx;
+    height: 1.75rpx;
+    position: relative;
+    margin: 0 11rpx;
+}
+.main .sports .line::after{
+    position: absolute;
+    width: 7.04rpx;
+    height: 7rpx;
+    content: ' ';
+    background: #B4B4B4;
+    border-radius: 50%;
+    left: 45%;
+    top: -3rpx;
+}
+.box .tatal{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.box .tatal .notice{
+    font-size: 22rpx;
+    color: #90A09E;
+    display: flex;
+    align-items: center;
+    height: 36rpx;
+}
+.box .tatal>view:first-child{
+    padding-right: 10rpx;
+}
+.box .tatal>view:first-child>view:first-child{
+    font-size: 32rpx;
+    color: #333333;
+    font-weight: 500;
+}
+.box .tatal>view:first-child>view:nth-child(2){
+    font-size: 44rpx;
+    color: #333333;
+    letter-spacing: -2rpx;
+    font-weight: 700;
+}
+.box .tatal>view:nth-child(2){
+    display: flex;
+    align-items: center;
+    font-size: 24rpx;
+    color: rgb(0, 0, 0, .85);
+}
+.box .tatal>view:nth-child(2) .progress{
+    flex: 1;
+    width: 220rpx;
+}
+.box .tatal>view:nth-child(2)>view:first-child{
+    padding-right: 16rpx;
+}
+.box .tt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 24rpx;
+    font-size: 32rpx;
+    color: #262626;
+    text-align: center;
+    font-weight: 500;
+    line-height: 76rpx;
+}
+.box .tt .titimg{ 
+    width: 50rpx;
+    height: 24rpx;
+}
+.box .healbtn{
+    background: #FDF7E0;
+    border-radius: 12rpx;
+    box-sizing: border-box;
+    padding: 16rpx 22rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 28rpx;
+    color: #FF7E00;
+    letter-spacing: 0.45rpx;
+    margin-bottom: 37rpx;
+}
+.box .healbtn .btn{
+    width: 162rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    background: #FFFFFF;
+    border: 2rpx solid rgba(255,126,0,1);
+    border-radius: 25rpx;
+    font-size: 28rpx;
+    color: #FF7E00;
+    letter-spacing: 0.45rpx;
+    font-weight: 400;
+}
+.box .list{
+    padding-bottom: 24rpx;
+}
+.box .list .ltitle{
+    font-size: 32rpx;
+    color: #333333;
+    font-weight: 600;
+    padding-bottom: 24rpx;
+}
+.box .list .item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28rpx;
+}
+.box .list .item>view:nth-child(2)>view{
+    padding-right: 10rpx;
+}
+.box .list .item>view:first-child{
+    font-size: 26rpx;
+    color: #333333;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.box .list .item image{
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 9rpx;
+    margin-right: 20rpx;
+}
+.box .list .item>view:nth-child(2){
+    display: flex;
+    align-items: center;
+    font-size: 26rpx;
+    color: #000000;
+}
+.box .list .item>view:nth-child(2)>view:first-child{
+    color: #90A09E;
+}
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: #FFFFFF;
+    box-shadow: 0px -2rpx 12rpx 0px rgba(0,0,0,0.1);
+    width: 100%;
+    height: 148rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.footer>view{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24rpx;
+    color: #363A3C;
+    text-align: center;
+    font-weight: 500;
+}
+.footer>view image{
+    width: 80rpx;
+    height: 80rpx;
+}
+.van-calendar__popup--bottom, .van-calendar__popup--top {
+    height: var(--calendar-popup-height,70%) !important;
+}
+
+ .van-calendar__footer {
+    display: flex;
+    justify-content: center; /* 按钮左右分布 */
+}
+  
+.van-calendar__footer button {
+    width: 96% !important; /* 设置按钮宽度 */
+    margin: 0 1%; /* 添加间距 */
+}
+
+.editBox{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.editBox .editBox-title{
+    text-align: center;
+    font-size: 36rpx;
+    color: #333333;
+    letter-spacing: 0.58rpx;
+    text-align: center;
+    font-weight: 500;
+    box-sizing: border-box;
+    padding: 25rpx 0;
+    border-bottom: 1rpx solid #eee;
+}
+
+.editBox .formBox{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.editBox .formBox .formBox-item1{
+    display: flex;
+    align-items: center;
+    border-bottom: 1rpx solid #eee;
+    box-sizing: border-box;
+    padding: 30rpx;
+}
+
+.editBox .formBox .formBox-item1 image{
+    border-radius: 9rpx;
+    width: 80rpx;
+    height: 80rpx;
+    margin-right: 24rpx;
+}
+.editBox .formBox .formBox-item1 .ct{
+    font-size: 26rpx;
+    color: rgba(0, 0, 0, .45);
+}
+.editBox .formBox .formBox-item1 .ct>view:first-child{
+    font-size: 26rpx;
+    color: #000000;
+    font-weight: 600;
+}
+
+.editBox .formBox .formBox-item2{
+    display: flex;
+    align-items: center;
+    border-bottom: 1rpx solid #eee;
+    box-sizing: border-box;
+    padding: 30rpx 0;
+}
+
+.editBox .formBox .formBox-item2 .formBox-item2-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24rpx;
+    color: #333333;
+    letter-spacing: 0.39rpx;
+    width: 25%;
+}
+.editBox .formBox .formBox-item2 .formBox-item2-item>view:nth-child(2){
+    color: rgb(51, 51, 51, .45);
+    padding-top: 8rpx;
+}
+
+.editBox .formBox .formBox-item3{
+    box-sizing: border-box;
+    padding: 30rpx;
+    /* display: flex; */
+    /* justify-content: flex-end; */
+}
+
+.editBox .formBox .formBox-item3 input{
+    height: 105rpx;
+    border: 2.5rpx solid rgba(236,236,236,1);
+    border-radius: 15rpx;
+    padding-left: 36rpx;
+}
+
+.editBox .btnBox{
+    text-align: center;
+    margin-top: 24rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    width: 100%;
+}
+.editBox .btnBox-1{
+    background: #00C7C7 !important;
+    border-radius: 10px !important;  
+    font-family: 'PingFangSC-Regular';
+    font-size: 36rpx !important;
+    color: #FFFFFF !important;
+    text-align: center !important;
+    font-weight: 400 !important;  
+    width: 60% !important;
+    height: 100rpx !important;
+    line-height: 100rpx;
+}
+.editBox .cel{
+    width: 35% !important;
+    background: #FFFFFF !important;
+    color: #333333 !important;
+    border: 1rpx solid #d9d9d9;
+}
+.pop .pt{
+    box-sizing: border-box;
+    padding: 36rpx 46rpx 22rpx;
+    border-bottom: 1rpx solid #E3E2E2;
+    font-size: 35rpx;
+    color: #000000;
+    letter-spacing: -1.09rpx;
+}
+.pop image{
+    width: 70rpx;
+    height: 70rpx;
+    margin-right: 10rpx;
+}
+.pop .cell-title{
+    line-height: 70rpx;
+}
+.pop .btn{
+    border-top: 1rpx solid #E3E2E2;
+    height: 113rpx;
+    display: flex;   
+}
+.pop .btn>view{
+    text-align: center;
+    line-height: 113rpx;
+    width: 50%;
+    font-size: 35rpx;
+    color: #00C7C7;
+    letter-spacing: -1.09rpx;
+    font-weight: 500;
+}
+.pop .btn>view:first-child{
+    border-right: 1rpx solid #E3E2E2;
+    color: #000000;
+}
+.add{
+    position: fixed;
+    right: 40rpx;
+    top: 50%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24rpx;
+    background: #FFFFFF;
+    color: #363A3C;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: 0px 2rpx 5rpx 2rpx rgba(229,233,241,1);
+    border-radius: 20rpx;
+    box-sizing: border-box;
+    padding: 10rpx;
+}
+.add image{
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.van-progress__pivot {
+  box-shadow: 0px 2rpx 16rpx 2rpx rgba(113,188,181,0.3) !important; 
+}

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "心率",
+  "usingComponents": {
+    "van-popup": "@vant/weapp/popup/index",
+    "van-calendar": "@vant/weapp/calendar/index",
+    "chart": "plugin://echarts/chart"
+  }
+}

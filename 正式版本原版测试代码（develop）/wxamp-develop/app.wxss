@@ -1,0 +1,9 @@
+/**app.wxss**/
+image{
+  width: 100%;
+  height: 100%;
+}
+@font-face{
+  font-family: 'DINBlack';
+  src:url('https://oss.mcloud.moveclub.cn/font/DIN-Black.otf');
+}

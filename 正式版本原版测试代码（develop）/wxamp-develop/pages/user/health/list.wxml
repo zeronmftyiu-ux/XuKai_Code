@@ -1,0 +1,18 @@
+<!--pages/user/health/list.wxml-->
+<view class="logo">
+    <image src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/Health_RGB_PNG(%E4%B8%AD%E6%96%87%E6%A8%AA%E7%89%88)_300ppi.png" />
+</view>
+<view class="main">
+    <view class="item" bind:tap="goto">
+        <view >华为运动健康服务</view>
+        <view>
+            <text >{{auth?'已授权':'未授权'}}</text>
+            <image src="https://oss.mcloud.moveclub.cn/2024/movewell/right.png" />
+        </view>
+    </view>
+    <view class="notice">
+        <image src="https://oss.mcloud.moveclub.cn/2025/mv/info-circle-fill.png" />
+        <view >温馨提示：授权前请绑定华为手环</view>
+        <view class="btn" bind:tap="gono">如何绑定</view>
+    </view>
+</view>

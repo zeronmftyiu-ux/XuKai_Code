@@ -1,0 +1,51 @@
+<view class="header">
+    <view >根据你的BMI分解</view>
+    <view >我们推荐的合理体重管控目标如下，你可以根据需要手动调整</view>
+</view>
+<view class="body">
+    <view class="title">
+        <view >目标体重</view>
+        <view >
+            <!-- <view ><van-icon color="#8F9AA7" name="warning-o" />目标体重过轻</view>
+            <view ><van-icon color="#8F9AA7" name="warning-o" />目标体重不可低于安全值</view> -->
+        </view>
+    </view>
+    <view class="weight-picker">
+        <view class="label"><text >{{selectedWeight+17}} </text>KG</view>
+        <scroll-view 
+        scroll-x 
+        class="scroll-view" 
+        scroll-left="{{weightScrollLeft}}rpx" 
+        bindscroll="onWeightScroll"
+        enhanced
+        bounces="{{false}}"
+        >
+        <view class="ruler">
+            <block wx:for="{{weights}}" wx:key="index">
+            <view class="tick {{item % 5 === 0 ? 'gao' :''}}" style="left: {{index * 20}}rpx;">
+                <text class="tick-label" wx:if="{{item % 10 === 0}}">{{item}}</text>
+            </view>
+            </block>
+        </view>
+        </scroll-view>
+        <view class="line"></view>
+    </view>
+    <view class="target">
+        <view class="label">达成时间</view>
+        <picker bindchange="bindChange" value="{{index}}" range="{{list}}">
+            <view class="picker">
+                <view >{{list[index]}} <van-tag wx:if="{{index==0}}" plain type="success">推荐时长</van-tag></view>
+                <van-icon name="arrow-down" />
+            </view>
+        </picker>
+    </view>
+    <view class="boxs">
+        <view >
+            需要约<text >{{item.week}}</text>周，每周{{check==2?'减重':'增重'}}<text>{{item.lweight}}</text>公斤
+        </view>
+        <view >
+            {{item.desc}}
+        </view>
+    </view>
+    <view class="mvbutton" bind:tap="next">下一步</view>
+</view>

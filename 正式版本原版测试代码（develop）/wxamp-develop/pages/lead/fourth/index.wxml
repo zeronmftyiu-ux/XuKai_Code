@@ -1,0 +1,24 @@
+<view class="header">
+    <view >你管理体重的初衷是？</view>
+    <view >根据你的需求，调整计划设定方向</view>
+</view>
+<van-radio-group value="{{ radio }}" bind:change="onChange">
+  <view class="checkbox" data-name="1" catch:tap="onClick">
+    <view >因为太胖</view>
+    <van-radio checked-color="#00C7C7" name="1" />
+  </view>
+  <view class="checkbox" data-name="2" catch:tap="onClick">
+    <view >体重正常，想提升曲线穿衣好看</view>
+    <van-radio checked-color="#00C7C7" name="2" />
+  </view>
+  <view class="checkbox" data-name="3" catch:tap="onClick">
+    <view >体检或医生建议</view>
+    <van-radio checked-color="#00C7C7" name="3" />
+  </view>
+  <view class="checkbox" data-name="4" catch:tap="onClick">
+    <view >没有，就随便逛逛看</view>
+    <van-radio checked-color="#00C7C7" name="4" />
+  </view>
+</van-radio-group>
+
+<view class="mvbutton" bind:tap="next">下一步</view>

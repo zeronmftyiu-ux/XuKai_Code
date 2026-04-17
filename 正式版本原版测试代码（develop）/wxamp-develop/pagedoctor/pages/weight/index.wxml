@@ -1,0 +1,100 @@
+<view class="box">
+    <view class="month-switch">
+        <van-icon bindtap="prevMonth" name="arrow-left" color="#999" size="40rpx" />
+        <view class="title">{{sdate}} - {{edate}}</view>
+        <van-icon name="arrow" bindtap="nextMonth" color="#999" size="40rpx"  />
+        <view class="today" bindtap="today">今日</view>
+    </view>
+
+    <view class="calendar">
+        <view class="weekdays">
+            <view>日</view>
+            <view>一</view>
+            <view>二</view>
+            <view>三</view>
+            <view>四</view>
+            <view>五</view>
+            <view>六</view>
+        </view>
+
+        <view class="days">
+            <block wx:for="{{weekDays}}" wx:key="index">
+                <view class="day {{ selectdate === item.date ? 'dayclick' : (activeIndex === index ? 'dayclick' : '') }}" 
+                data-index="{{ index }}" data-date="{{item.date}}" bindtap="dateClick">
+                {{item.value}}</view>
+            </block>
+        </view>
+    </view>
+</view>
+
+<view class="state">
+    <view class="left">打卡情况</view>
+    <view class="right">统计：{{dakanum}}/{{weightlist.length}} 人</view>
+</view>
+
+
+<block wx:for="{{weightlist}}" wx:key="index">
+    <view class="list" data-index="{{ item.info.urid }}" data-day="{{selectdate}}" bindtap="gopatient"> 
+        <view class="top">
+            <view class="topchild">
+                <image class="avatar" src="{{item.info.avatarurl}}"></image>
+                <view class="name">{{item.info.realname}}</view>
+            </view>
+            <view class="topchild">
+                <block wx:for="{{ item.info.tags }}" wx:key="*this">
+                        <view class="tag {{item.type == 1 ? 'red' : item.type == 2 ? 'green' : 'yellow'}}">
+                        {{ item.tagname }}
+                        </view>
+                </block>
+            </view>
+        </view>
+        <view class="bottom {{(item.balance[selectdate].calorie_intake==0&&item.balance[selectdate].exercise==0)||item.balance[selectdate].signin == 0? 'zhihui' : ''}}">
+            <!-- <view class="describe">
+                <view>还可摄入(千卡)</view>
+                <view>计划摄入</view>
+                <view>饮食</view>
+                <view>运动</view>
+            </view>
+            <view class="number">
+                <view class="numberall">{{ item.balance[selectdate].banlance || 0 }}</view>
+                <view class="operator" style="padding:0 12rpx">=</view>
+                <view class="numberchild">{{ item.balance[selectdate].standard_intake || 0 }}</view>
+                <view class="operator">-</view>
+                <view class="numberchild">{{ item.balance[selectdate].calorie_intake || 0 }}</view>
+                <view class="operator">+</view>
+                <view class="numberchild">{{ item.balance[selectdate].exercise || 0 }}</view>
+            </view> -->
+
+            <view class="h">
+                    <view >还可摄入(千卡)</view>
+                    <view class="{{(item.balance[selectdate].calorie_intake==0&&item.balance[selectdate].exercise==0)||item.balance[selectdate].signin == 0? 'zhihui' : item.balance[selectdate].banlance>0? 'zhengshu':'fushu'}}">
+                        <view wx:if="{{item.balance[selectdate].standard_intake == 0}}" >/</view>
+                        <view wx:else>{{ item.balance[selectdate].banlance | 0 || 0 }}</view>
+                    </view>
+            </view>
+            <view class="fu">
+                =
+            </view>
+            <view class="h">
+                <view >计划摄入</view>
+                <view wx:if="{{item.balance[selectdate].standard_intake == 0}}" >/</view>
+                <view wx:else>{{ item.balance[selectdate].standard_intake | 0 || 0 }}</view>
+            </view>
+            <view class="fu">
+                -
+            </view>
+            <view class="h">
+                <view >饮食</view>
+                <view >{{ item.balance[selectdate].calorie_intake | 0  || 0 }}</view>
+            </view>
+            <view class="fu">
+                +
+            </view>
+            <view class="h">
+                <view >运动</view>
+                <view >{{ item.balance[selectdate].exercise | 0  || 0 }}</view>
+            </view>
+
+        </view>
+    </view>
+</block>

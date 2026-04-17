@@ -1,0 +1,55 @@
+page{
+    background: #F4F6F9;
+    width: 100%;
+    height: 100%;
+}
+
+.title{
+    width: 100%;
+    display: flex;
+    background: #FFFFFF;
+}
+.title .tab{ 
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20rpx 0 0 0;
+}
+.title .text{
+    opacity: 0.25;
+    font-size: 32rpx;
+    color: #000000;
+    text-align: center;
+    font-weight: 400;
+    height: 66rpx;
+    width: 36%;
+}
+.title .text.active{
+    opacity: 0.85;
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    color: #000000;
+    text-align: center;
+    font-weight: 400;
+    border-bottom: 5rpx solid #00C7C7;
+}
+
+.body{ 
+    box-sizing: border-box;
+    padding: 20rpx 0 0 0;
+}
+.body .img{ 
+    width: 750rpx;
+    height: auto;
+    display: block;
+}
+.body .text{ 
+    opacity: 0.85;
+    font-size: 32rpx;
+    color: #000000;
+    font-weight: 500;
+    align-items: center;
+    padding: 24rpx 40rpx;
+    background: #FFFFFF;
+}

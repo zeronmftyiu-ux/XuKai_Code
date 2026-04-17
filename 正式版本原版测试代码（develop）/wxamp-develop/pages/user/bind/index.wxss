@@ -1,0 +1,74 @@
+/* pages/user/bind/index.wxss */
+page{
+    background: #F2F3F5 url(https://oss.mcloud.moveclub.cn/2025/mv/%E4%B8%AA%E4%BA%BA-bg%402x.png) no-repeat;
+    background-size: contain;
+    background-position: top;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 80rpx 30rpx;
+}
+.title{
+    font-size: 36rpx;
+    color: #FFFFFF;
+    letter-spacing: 1.12rpx;
+    font-weight: 600;
+    padding-bottom: 40rpx;
+}
+.box{
+    background: #FFFFFF;
+    /* background-size: 255rpx 205rpx;
+    background-position: top 25rpx right 36rpx; */
+    width: 100%;
+    border-radius: 8rpx;
+    box-sizing: border-box;
+    padding: 69rpx 36rpx 16rpx;
+}
+.wait{
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 8rpx;
+    box-sizing: border-box;
+    padding: 69rpx 36rpx 62rpx;
+}
+.box-title{
+    width: 364rpx;
+    font-size: 36rpx;
+    color: #000000;
+    margin-bottom: 66rpx;
+}
+.btn{
+    width: 100%;
+    background: #F3F2F6;
+    border-radius: 12rpx; 
+    height: 91rpx;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    margin-bottom: 40rpx;  
+    font-size: 30rpx;
+    color: rgba(0, 0, 0, .65);
+}
+.btn text{
+    padding-left: 10rpx;
+}
+.box-img{
+    width: 148rpx;
+    height: 148rpx;
+}
+.box-imgs {
+    width: 228rpx;
+    height: 208rpx;
+}
+.box-wait{
+    width: 431rpx;
+    font-size: 36rpx;
+    color: #333333;
+    letter-spacing: 0.58rpx;
+    text-align: center;
+    font-weight: 500;
+    padding-top: 74rpx;
+}

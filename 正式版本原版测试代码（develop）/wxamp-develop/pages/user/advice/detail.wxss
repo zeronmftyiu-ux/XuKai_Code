@@ -1,0 +1,94 @@
+/* pages/user/advice/detail.wxss */
+page{
+    font-family: '宋体', 'SimSun', 'sans-serif';
+    background: #F6F6F6;
+}
+.main{
+    margin-top: 10rpx;
+    background: #FFFFFF;
+    box-sizing: border-box;
+    padding: 84rpx 30rpx 84rpx;
+    position: relative;
+    width: 100%;
+}
+.tag{
+    position: absolute;
+    background: url(https://oss.mcloud.moveclub.cn/2025/mv/hutag.png) no-repeat;
+    width: 85rpx;
+    height: 63rpx;
+    background-size: 100%;
+    right: 35rpx;
+    top: 20rpx;
+}
+.title{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 36rpx;
+    color: #000000;
+    letter-spacing: 0.58rpx;
+    text-align: center;
+    font-weight: 700;
+    padding-bottom: 40rpx;
+}
+.order{
+    display: flex;
+    align-items: center;
+    font-size: 26rpx;
+    color: #000000;
+    letter-spacing: 0.42rpx;
+    font-weight: 700;
+}
+.order>view:first-child{
+    padding-right: 43rpx;
+}
+.boxs{
+    box-sizing: border-box;
+    padding: 28rpx 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 26rpx;
+    color: #000000;
+    letter-spacing: 0.42rpx;
+    border-bottom: 1rpx solid rgba(70,70,70,1);
+}
+.boxs .cell{
+    display: flex;
+    margin-bottom: -12rpx;
+}
+.boxs .cell .value{
+    padding-right: 20rpx;
+}
+.cont{
+    box-sizing: border-box;
+    padding: 40rpx 0;
+    border-bottom: 1rpx solid rgba(70,70,70,1);
+    font-size: 26rpx;
+    color: #000000;
+    letter-spacing: 0.42rpx;
+}
+.cont>view:first-child{
+    font-weight: 400;
+    padding-bottom: 14rpx;
+}
+.cont .txts{
+    white-space: nowrap;
+    font-weight: 800;
+}
+.cont .text{
+    display: flex;
+    padding-bottom: 8rpx;
+}
+
+.dc{
+    box-sizing: border-box;
+    padding-top: 40rpx;
+    font-size: 26rpx;
+    color: #000000;
+    letter-spacing: 0.42rpx;
+}
+.dc>view:first-child{
+    padding-bottom: 38rpx;
+}

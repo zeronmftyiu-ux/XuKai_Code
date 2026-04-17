@@ -1,0 +1,191 @@
+<view class="user-card">
+<view class="stats-item">
+  <view class="content">
+    <text class="stats-label">待签约</text>
+    <text class="stats-number">{{waitnum}}</text>
+  </view>
+  <view>
+    <image class="avatar" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E5%BE%85%E7%AD%BE%E7%BA%A6%402x.png" mode=""></image>
+  </view>
+</view>
+<view class="divider"></view>
+<view class="stats-item">
+  <view class="content">
+    <text class="stats-label">已签约</text>
+    <text class="stats-number">{{signnum}}</text>
+  </view>
+  <view>
+    <image class="avatar" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E5%B7%B2%E7%AD%BE%E7%BA%A6%402x.png" mode=""></image>
+  </view>
+</view>
+</view>
+
+<view class="search">
+  <van-search value="{{ value }}" shape="round" placeholder="搜索居民姓名"
+  custom-class="custom-search" bind:change="onSearch"/>
+</view>
+
+<view class="body"> 
+  <view class="body1">
+    <view
+        wx:for="{{tabs}}" wx:key="id"
+        class="title {{currentTab === item.id ? 'active' : ''}}"
+        bindtap="switchTab"
+        data-index="{{item.id}}">
+        {{item.name}}
+    </view>
+  </view>
+
+  <view class="alllist"> 
+    <!-- 生效中 -->
+    <view wx:if="{{currentTab === 'active'}}">
+      <block wx:for="{{info}}" wx:key="index">
+        <view wx:if="{{item.state == 1 }}" class="list">
+            <view class="top">
+                <view class="top1">
+                    <image class="avatar" src="{{item.avatarurl}}"></image>
+                    <view class="name">{{item.realname}}</view>
+                </view>
+                <view class="top2">
+                    <van-tag plain custom-class="title" size="medium" type="primary">生效中</van-tag>
+                </view>
+            </view>
+            <view class="divider"></view>
+            <view class="bottom">
+                <view class="bottom1">
+                    <view class="text">基础信息</view>
+                    <view class="time">{{item.sex}} | {{item.age}}岁 | {{item.phone}}</view>
+                </view>
+                <view class="bottom1">
+                    <view class="text">签约时间</view>
+                    <view class="time">{{item.create_time}}</view>
+                </view>
+                <view class="content">
+                    <view class="text">居民标签</view>
+                    <block wx:for="{{ item.tags }}" wx:key="tagid">
+                        <view class="bing {{item.type == 1 ? 'red' : item.type == 2 ? 'green' : 'yellow'}}">{{ item.tagname }}</view>
+                    </block>
+                </view>
+                <view class="button">
+                    <view class="button2" bindtap="goeffect" data-index="{{item.urid}}">签约信息</view>
+                    <view class="button1" bindtap="gopatient" data-index="{{item.urid}}">居民详情</view>
+                </view>
+            </view>
+        </view>         
+      </block>
+      <view wx:if="{{info.length == 0}}" class="whitearea">暂无数据</view>
+    </view>
+    <!-- 待签约 -->
+    <view wx:if="{{currentTab === 'pending'}}">
+        <block wx:for="{{info}}" wx:key="index">
+        <view wx:if="{{item.state == 2 }}" class="list">
+            <view class="top">
+                <view class="top1">
+                    <image class="avatar" src="{{item.avatarurl}}"></image>
+                    <view class="name">{{item.realname}}</view>
+                </view>
+                <view class="top2">
+                    <van-tag plain custom-class="title2" size="medium" type="success">待审核</van-tag>
+                </view>
+            </view>
+            <view class="divider"></view>
+            <view class="bottom">
+                <view class="bottom1">
+                    <view class="text">基础信息</view>
+                    <view class="time">{{item.sex}} | {{item.age}}岁 | {{item.phone}}</view>
+                </view>
+                <view class="bottom1">
+                    <view class="text">身份证号</view>
+                    <view class="time">{{item.id_number}}</view>
+                </view>
+                <view class="content">
+                <view class="text">申请时间</view>
+                    <view class="time">{{item.create_time}}</view>
+                </view>
+                <view class="button">
+                    <view class="button2" bindtap="gosign" data-index="{{item.urid}}">查看详情</view>
+                    <view class="button2" bindtap="gorefuse" data-index="{{item.urid}}">驳回</view>
+                    <view class="button2" bindtap="gopass" data-index="{{item.urid}}">审核通过</view>
+                </view>
+            </view>
+        </view>         
+        </block>
+        <view wx:if="{{info.length == 0}}" class="whitearea">暂无数据</view>
+    </view>
+    <!-- 已过期 -->
+    <view wx:if="{{currentTab === 'expired'}}">
+        <block wx:for="{{info}}" wx:key="index">
+        <view class="list">
+            <view class="top">
+                <view class="top1">
+                    <image class="avatar" src="{{item.avatarurl}}"></image>
+                    <view class="name">{{item.realname}}</view>
+                </view>
+                <view class="top2">
+                    <van-tag plain custom-class="title3" size="medium">已过期</van-tag>
+                </view>
+            </view>
+            <view class="divider"></view>
+            <view class="bottom">
+                <view class="bottom1">
+                    <view class="text">基础信息</view>
+                    <view class="time">{{item.sex}} | {{item.age}}岁 | {{item.phone}}</view>
+                </view>
+                <view class="bottom1">
+                    <view class="text">签约时间</view>
+                    <view class="time">{{item.create_time}}</view>
+                </view>
+                <view class="content">
+                <view class="text">居民标签</view>
+                    <block wx:for="{{ item.tags }}" wx:key="*this">
+                        <view class="bing {{item.type == 1 ? 'red' : item.type == 2 ? 'green' : 'yellow'}}">{{ item.tagname }}</view>
+                    </block>
+                </view>
+                <view class="button">
+                    <view class="button2" bindtap="goexpire" data-index="{{item.urid}}">签约信息</view>
+                    <view class="button1" bindtap="gopatient" data-index="{{item.urid}}">居民详情</view>
+                </view>
+            </view>
+        </view>         
+        </block>
+        <view wx:if="{{info.length == 0}}" class="whitearea">暂无数据</view>
+    </view>
+    <!-- 已驳回 -->
+    <view wx:if="{{currentTab === 'rejected'}}">
+        <block wx:for="{{info}}" wx:key="index">
+        <view wx:if="{{item.state == 3 }}" class="list">
+            <view class="top">
+                <view class="top1">
+                    <image class="avatar" src="{{item.avatarurl}}"></image>
+                    <view class="name">{{item.realname}}</view>
+                </view>
+                <view class="top2">
+                    <van-tag plain custom-class="title4" size="medium" type="danger">已驳回</van-tag>
+                </view>
+            </view>
+            <view class="divider"></view>
+            <view class="bottom">
+                <view class="bottom1">
+                    <view class="text">基础信息</view>
+                    <view class="time">{{item.sex}} | {{item.age}}岁 | {{item.phone}}</view>
+                </view>
+                <view class="bottom1">
+                    <view class="text">身份证号</view>
+                    <view class="time">{{item.id_number}}</view>
+                </view>
+                <view class="content">
+                <view class="text">申请时间</view>
+                    <view class="time">{{item.create_time}}</view>
+                </view>
+                <view class="button">
+                    <view class="button2" bindtap="goreject" data-index="{{item.urid}}">查看详情</view>
+                    <view class="button2" bindtap="gopass" data-index="{{item.urid}}">审核通过</view>
+                </view>
+            </view>
+        </view>         
+        </block>
+        <view wx:if="{{info.length == 0}}" class="whitearea">暂无数据</view>
+    </view>
+  </view>
+</view>
+

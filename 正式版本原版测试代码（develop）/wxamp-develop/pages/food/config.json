@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "添加自定义食物",
+  "usingComponents": {
+    "van-field": "@vant/weapp/field/index"
+  }
+}

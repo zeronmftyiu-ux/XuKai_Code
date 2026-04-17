@@ -1,0 +1,99 @@
+<view class="header">
+    <view class="left" bindtap="goback">
+        <van-icon name="arrow-left" size="44rpx" color="#444444" />      
+        <view >动吃平衡日志</view>  
+    </view>
+    
+</view>
+<view class="body">
+    <view class="main">
+        <view class="top">
+            <view >
+                <view >超量摄入</view>
+                <view >
+                    <text >{{daydata.more}} </text>
+                    <span class="toptian">天</span>
+                </view>
+            </view>
+            <view >
+                <view >摄入不足</view>
+                <view >
+                    <text >{{daydata.less}} </text>
+                    <span class="toptian">天</span>
+                </view>
+            </view>
+            <view >
+                <view >健康减脂</view>
+                <view >
+                    <text >{{daydata.nal}} </text>
+                    <span class="toptian">天</span>
+                </view>
+            </view>
+        </view>
+        <view class="calendar">
+            <!-- 月份切换 -->
+            <view class="month-switch">
+                <van-icon bindtap="prevMonth" name="arrow-left" color="#999" size="40rpx" />
+                <view class="title">{{currentMonth}}</view>
+                <van-icon name="arrow" bindtap="nextMonth" color="#999" size="40rpx"  />
+            </view>
+
+            <!-- 星期标题 -->
+            <view class="weekdays">
+                <view>日</view>
+                <view>一</view>
+                <view>二</view>
+                <view>三</view>
+                <view>四</view>
+                <view>五</view>
+                <view>六</view>
+            </view>
+
+            <!-- 日历日期 -->
+            <view class="days">
+                <block wx:for="{{calendar}}" wx:key="*this">
+                    <van-circle wx:if="{{item}}" value="{{ item.pro }}" class="day" layer-color="#CDE0DD" size="{{width}}" stroke-width="4" color="{{item.color}}" data-index="{{ index }}" data-date="{{item.date}}" text="{{item.value}}"/>
+                    <view wx:else class="day empty"></view>
+                </block>
+                
+            </view>
+            </view>
+    </view>
+    <view class="btitle">
+        明细记录
+    </view>
+    <view class="list">
+        <view class="item" wx:for="{{list}}" wx:key="idx">
+            <view class="date">
+                时间：{{item.date}}
+            </view>
+            <view class="box {{item.signin == 0? 'zhihui' : ''}}">
+                <view class="h">
+                    <view >还可摄入(千卡)</view>
+                    <view style="color: {{item.color}};font-size: 46rpx;font-weight: 700;letter-spacing: -3.83rpx;">{{item.banlance}}</view>
+                </view>
+                <view class="fu">
+                    =
+                </view>
+                <view class="h">
+                    <view >计划摄入</view>
+                    <view >{{item.standard_intake}}</view>
+                </view>
+                <view class="fu">
+                    -
+                </view>
+                <view class="h">
+                    <view >饮食</view>
+                    <view >{{item.calorie_intake}}</view>
+                </view>
+                <view class="fu">
+                    +
+                </view>
+                <view class="h">
+                    <view >运动*0.9</view>
+                    <view >{{item.exercise||0}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

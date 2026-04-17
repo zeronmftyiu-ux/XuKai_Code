@@ -1,0 +1,118 @@
+<view class="main">
+    <view class="tab">
+        <block wx:for="{{ tab }}">
+            <view class="tab-item {{ idx == index ? 'active' : '' }}" data-idx="{{ index }}" bindtap="toggleTab">{{ item
+                }}</view>
+        </block>
+    </view>
+    <!-- 日 -->
+    <view class="dateBox" wx:if="{{ idx == 0 }}">
+        <view class="dateBox-value" bindtap="showDate">
+            {{ dayValue }}
+            <image
+                src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/assets/%E4%B8%89%E8%A7%92%E5%BD%A2%402x.png">
+            </image>
+        </view>
+    </view>
+    <!-- 总 -->
+    <view class="dateBox" wx:if="{{ idx == 1 }}">
+        <view class="dateBox-value">{{ total_date }}</view>
+    </view>
+
+    <view class="echarts">
+        <chart chart-class="chart" width="690rpx" height="450rpx" option="{{ option }}" bindinstance="onInstance" />
+    </view>
+
+    <view class="img" bindtap="showPopup2">
+        <image
+            src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/assets/%E8%AE%B0%E5%BD%95%E4%BD%93%E9%87%8D%402x.png">
+        </image>
+    </view>
+
+    <view class="sport-stat">
+        <view class="sport-stat-title">
+            <image
+                src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/assets/%E4%BD%93%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%402x.png">
+            </image>
+            <view>体成分分析</view>
+        </view>
+        <view class="sport-stat-content">
+            <view class="sport-stat-content-item">
+                <view class="sport-stat-content-item-1">{{ bmi }}</view>
+                <view class="sport-stat-content-item-2">BMI指数</view>
+            </view>
+            <view class="sport-stat-content-item">
+                <view class="sport-stat-content-item-1">{{ label }}</view>
+                <view class="sport-stat-content-item-2">当前级别</view>
+            </view>
+            <view class="sport-stat-content-item">
+                <view class="sport-stat-content-item-1">{{ weight }}<text>公斤</text></view>
+                <view class="sport-stat-content-item-2">体重</view>
+            </view>
+
+
+        </view>
+    </view>
+
+    <view class="progressBox">
+        <view class="progress-main">
+            <view class="progress-main-1">
+            </view>
+            <view class="progress-main-2">
+            </view>
+            <view class="progress-main-3">
+            </view>
+            <view class="progress-main-4">
+            </view>
+            <image class="arrow" style="left: {{ width }}rpx;"
+                src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/assets/%E4%B8%89%E8%A7%92%E5%BD%A2%402x.png">
+            </image>
+        </view>
+        <view class="progress-main2">
+            <text>18.5</text>
+            <text>24.0</text>
+            <text>28.0</text>
+        </view>
+        <view class="labelBox">
+            <view class="labelBox-item">
+                <view class="square color1"></view>
+                <view class="text01">偏瘦</view>
+            </view>
+            <view class="labelBox-item">
+                <view class="square color2"></view>
+                <view class="text01">正常</view>
+            </view>
+            <view class="labelBox-item">
+                <view class="square color3"></view>
+                <view class="text01">超重</view>
+            </view>
+            <view class="labelBox-item">
+                <view class="square color4"></view>
+                <view class="text01">肥胖</view>
+            </view>
+        </view>
+        <view class="text02">
+            长期处于肥胖状态的人，稍微运动会出现心机气短、怕热、多汗、易疲劳的情况，甚至会有慢性疾病的风险。建议改变生活习惯，坚持控制饮食摄入量，检查运动锻炼，减少脂肪囤积。
+        </view>
+    </view>
+
+
+</view>
+<van-popup class="popup" closeable show="{{ show2 }}" z-index="6000" position="bottom" custom-style="height: 25%;"
+    bind:close="onClose2">
+    <view class="popup-content">
+        <van-field
+            label="体重"
+            model:value="{{ weight_value }}"
+            placeholder="请输入体重,单位kg"
+            type="digit"
+            border="{{ false }}"
+            bind:change="onChange"
+        />
+        <view class="btnBox">
+            <van-button custom-class="btn" bind:click="onSubmit">提交</van-button>
+        </view>
+    </view>
+</van-popup>
+<van-calendar show="{{ show }}" min-date="{{ minDate }}" bind:close="onClose" bind:select="selectDate"
+    show-confirm="{{ false }}" />

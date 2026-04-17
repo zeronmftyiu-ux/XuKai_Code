@@ -1,0 +1,32 @@
+<view class="list">
+    <view class="item" wx:for="{{list}}" wx:key="index">
+        <view class="title">
+            <view >体成分分析报告</view>
+            <view >{{item.created_at}}</view>
+        </view>
+        <view class="group">
+            <view class="cell">
+                <view class="label">报告ID</view>
+                <view class="value">{{item.id}}</view>
+            </view>
+            <view class="cell">
+                <view class="label">姓名</view>
+                <view class="value">{{item.user_name}}</view>
+            </view>
+            <view class="cell">
+                <view class="label">匹配状态</view>
+                <view class="value {{item.status=='success'?'success':'wait'}}">{{item.status == 'success' ? '成功' : '待处理'}}</view>
+            </view>
+            <view class="cell">
+                <view class="label">体测时间</view>
+                <view class="value">{{item.exam_time}}</view>
+            </view>
+        </view>
+        <view class="footer">
+            <view class="mvbutton" data-url="{{item.report_url}}" bindtap="godetail">查看明细</view>
+        </view>
+    </view>
+    <view wx:if="{{ pdfUrl=='' }}" style="display: flex;justify-content: center;padding: 32px;"> 
+        <view style="background: #E6F4FF;border-radius: 8rpx;padding:4rpx 16rpx;">暂未上传报告</view>
+    </view>
+</view>

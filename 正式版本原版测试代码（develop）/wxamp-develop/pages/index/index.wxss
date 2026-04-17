@@ -1,0 +1,679 @@
+/**index.wxss**/
+page {
+  background: #f5f5f5 url(https://oss.mcloud.moveclub.cn/2025/mv/bg%402x.png) no-repeat;
+  width: 100%;
+  height: 100%;
+  background-position: center top;
+  background-size: contain;
+  box-sizing: border-box;
+  padding: 189rpx 24rpx 0;
+}
+.header{
+  /* background:  no-repeat; */
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  padding: 18rpx 20rpx 21rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.header .info{
+  display: flex;
+  align-items: center;
+}
+.header .info image{
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+  margin-right: 22.5rpx;
+}
+.header .info .name{
+  font-size: 26rpx;
+  color: #333333;
+  font-weight: 500;
+  padding-right: 20rpx;
+}
+.header .info .points{
+  display: flex;
+  align-items: center;
+}
+.header .info .points>view:first-child{
+  border: 1rpx solid rgba(189,189,189,1);
+  border-radius: 4rpx;
+  font-size: 24rpx;
+  color: #61656C;
+  box-sizing: border-box;
+  padding: 4rpx 7rpx 3rpx 9rpx;
+  margin-right: 20rpx;
+}
+.header .message{
+  display: flex;
+  font-size: 24rpx;
+  color: rgb(0, 0, 0, .65);
+  align-items: center;
+}
+.header .message image{
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 7.5rpx;
+}
+.header .message>view{
+  align-self: flex-end;
+  color: #61656C;
+}
+
+.indicator {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  transform: translateX(50%); 
+  right: 50%; 
+  bottom: 8rpx;
+}
+.dot {
+  width: 10rpx;
+  height: 10rpx;
+  margin: 0 6rpx;
+  border-radius: 50%;
+  background: #ccc;
+}
+.dot.active {
+  background: #00C7C7;
+  width: 20rpx;
+  border-radius: 8rpx;
+}
+.advice{
+  box-sizing: border-box;
+  padding: 24rpx 34rpx 26rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 2rpx 5rpx 0px rgba(229,233,241,1);
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #414141;
+}
+.advice image{
+  width: 36rpx;
+  height: 36rpx;
+}
+.advice>view:first-child{
+  display: flex;
+  align-items: center;
+}
+.advice>view:first-child image{
+  width: 97rpx;
+  height: 50rpx;
+}
+.ai{
+  background: url(http://oss.mcloud.moveclub.cn/2025/mv/doctor/AI%E9%97%AE%E7%AD%94%E5%A4%87%E4%BB%BD%402x.png) no-repeat;
+  width: 100%;
+  height: 230rpx;
+  background-size: cover;
+  box-sizing: border-box;
+  padding: 29rpx 22rpx 27rpx;
+  box-shadow: 0px 2rpx 5rpx 0px rgba(229,233,241,1);
+  
+}
+.ai .search{
+  background: #FFFFFF;
+  border: 4rpx solid #00C7C7;
+  border-radius: 42rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 8rpx 8rpx 8rpx 36rpx;
+  justify-content: space-between;
+  width: 511rpx;
+  height: 83rpx;
+}
+.ai .search .input{
+  opacity: 0.45;
+  font-size: 24rpx;
+  color: #000000;
+}
+.ai .search .icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  font-weight: 600;
+  background: #00C7C7;
+  border-radius: 42px;
+  width: 138rpx;
+  height: 67rpx;
+  box-sizing: border-box;
+  padding: 0 17rpx;
+}
+.ai .search .icon image{
+  width: 45rpx;
+  height: 45rpx;
+  margin-right: 5rpx;
+}
+.ai .setic{
+  padding-top: 50rpx;
+  display: flex;
+  align-items: center;
+}
+.ai .setic>view:first-child{
+  font-size: 24rpx;
+  color: #FFFFFF;
+  letter-spacing: 0.39rpx;
+  font-weight: 600;
+  background: #FFC603;
+  border-radius: 18rpx 18rpx 0rpx 18rpx;
+  box-sizing: border-box;
+  padding: 2rpx 17rpx 2rpx 14rpx;
+  margin-right: 42rpx;
+}
+.ai .setic>view:nth-child(2){
+  font-size: 24rpx;
+  color: rgb(0, 0, 0, .85);
+  letter-spacing: 0.39rpx;
+  line-height: 48rpx;
+  padding-left: 33rpx;
+  position: relative;
+}
+.ai .setic>view:nth-child(2)::before{
+  position: absolute;
+  content: ' ';
+  width: 14rpx;
+  height: 14rpx;
+  left: 0rpx;
+  top: 18rpx;
+  background: #797A7A;
+  border-radius: 50%;
+}
+.hot{
+  box-sizing: border-box;
+  padding: 10rpx;
+  background: #ffffff;
+  border-radius: 20rpx;
+
+}
+.van-progress__pivot {
+  box-shadow: 0px 2rpx 16rpx 2rpx rgba(113,188,181,0.3) !important; 
+}
+
+.echats{
+  margin-top: 20rpx;
+  box-sizing: border-box;
+  background-image: linear-gradient(180deg, #D3FEF8 0%, #FFFFFF 21%);
+  box-shadow: 0px 2rpx 5rpx 2rpx rgba(229,233,241,1);
+  border-radius: 20rpx;
+  padding: 24rpx 30rpx;
+}
+.echats .top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.echats .top>view:first-child{
+  font-size: 32rpx;
+  color: #262626;
+  font-weight: 600;
+}
+.echats .top>view:nth-child(2){
+  font-size: 28rpx;
+  color: #61656C;
+}
+.echats .cover{
+  background: url(https://oss.mcloud.moveclub.cn/2025/mv/%E9%81%AE%E7%BD%A9%E5%B1%82%402x.png) no-repeat;
+  width: 100%;
+  height: 165rpx;
+  background-size: 100%;
+  margin: 10rpx 0;
+}
+.echats .left{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 9rpx;
+}
+.echats .left .one{
+  font-size: 28rpx;
+  color: #61656C;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 200rpx;
+  box-sizing: border-box;
+  /* padding: 0 20rpx; */
+  width: 170rpx;
+  align-items: center;
+}
+.echats .left .one>view:first-child{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.echats .left .one image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.echats .left .one>view:nth-child(2){
+  font-size: 44rpx;
+  color: #262626;
+  text-align: center;
+  font-weight: 700;
+  padding-top: 15rpx;
+}
+.echats .notice{
+  font-size: 24rpx;
+  color: rgba(0,0,0,0.65);
+  font-weight: 400;
+  margin: auto;
+  /* padding-top: 14rpx; */
+  background: #EAFFFC;
+  border-radius: 23rpx;
+  width: 290rpx;
+  height: 45rpx;
+  text-align: center;
+  line-height: 45rpx;
+}
+.echats .left .canvas{
+  width: 300rpx;
+  height: 200rpx;
+  background-size: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.echats .left .canvas .my-canvas {
+  width: 300rpx;
+  height: 200rpx;
+  position: relative;
+  z-index: 10;
+}
+
+.echats .left .btn-area{
+  position: absolute;
+  top: 0rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28rpx;
+  color: #61656C;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  z-index: 10;
+  height: 200rpx;
+}
+
+.echats .left .btn-area>view:nth-child(2){
+  font-size: 44rpx;
+  color: #262626;
+  text-align: center;
+  font-weight: 700;
+  padding-top: 15rpx;
+}
+
+.echats .left .btn-area .btn{
+  background: url(https://oss.mcloud.moveclub.cn/2024/movewell/btn.png) no-repeat;
+  background-size: 100%;
+  width: 60rpx;
+  height: 27rpx;
+  margin-left: 5rpx;
+}
+.tabs{
+  margin: 20rpx 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+.tabs .tab{
+  /* width: 224rpx; */
+  /* height: 135rpx; */
+  background: #FFFFFF;
+  box-shadow: 0px 2rpx 5rpx 2rpx rgba(229,233,241,1);
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  padding: 9rpx 25rpx 16rpx;
+  display: flex;
+  align-items: center;
+}
+.tabs .tab image{
+  width: 174rpx;
+  height: 110rpx;
+}
+
+.healths{
+  background:url(http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E7%BC%96%E7%BB%84%2052%402x.png) no-repeat;
+  /* height: 344rpx; */
+  width: 100%;
+  background-size: cover;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  padding: 24rpx 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0px 2rpx 5rpx 2rpx rgba(229,233,241,1);
+}
+.healths .title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.healths .title>view:first-child{
+  font-size: 24rpx;
+  color: #90A09E;
+}
+.healths .title>view:first-child>view:first-child{
+  font-size: 32rpx;
+  color: #262626;
+  font-weight: 600;
+  padding-bottom: 4rpx;
+}
+
+.healths .title>view:nth-child(2){
+  align-self: flex-start;
+  font-size: 36rpx;
+  color: #555555;
+}
+
+.healths .heal{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 25rpx;
+  padding-bottom: 35rpx;
+}
+.healths .heal>view:first-child{
+  font-size: 44rpx;
+  color: #212327;
+  font-weight: 700;
+}
+
+.healths .heal>view:first-child text{
+  font-size: 24rpx;
+  color: #90A09E;
+  font-weight: 400;
+}
+
+.healths .heal .bmi{
+  font-size: 28rpx;
+  color: #212327;
+  font-weight: 500;
+}
+.healths .heal .bmi>view:first-child{
+  font-size: 28rpx;
+  color: #90A09E;
+  font-weight: 400;
+}
+.healths .heal .add{
+  background: #E8F7F6;
+  border-radius: 40rpx;
+  text-align: center;
+  width: 144rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  font-size: 32rpx;
+  color: #212327;
+}
+.healths .bi{
+  padding-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.healths .bi>view{
+  font-size: 28rpx;
+  color: #90A09E;
+}
+.healths .bi>view text{
+  font-size: 30rpx;
+  color: #212327;
+  font-weight: 500;
+}
+.healths .plan{
+  width: 642rpx;
+  height: 72rpx;
+  box-sizing: border-box;
+  padding: 0 23rpx 0 13rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #738384;
+  background: #EBFAFA;
+  border-radius: 8rpx;
+}
+.healths .plan>view:first-child{
+  display: flex;
+  align-items: center;
+}
+.healths .plan image{
+  width: 134rpx;
+  height: 72rpx;
+}
+.healths .plan .btn{
+  background: #FFFFFF;
+  border: 1rpx solid rgba(5,184,173,1);
+  border-radius: 28rpx;
+  width: 144rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #05B8AD;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+.read{
+  width: 100%;
+  margin-top: 24rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 2rpx 9rpx 0px #E5E9F1;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  padding: 41rpx 30rpx 30rpx;
+}
+.read .title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 2rpx;
+}
+.read .title>view:first-child{
+  font-size: 36rpx;
+  color: #000000;
+  font-weight: 600;
+}
+.read .title>view:nth-child(2){
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  color: #000000;
+}
+.read .title>view:nth-child(2) image{
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.read .list .item{
+  margin-top: 37rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 170rpx;
+}
+
+.read .list .item>view:first-child{
+  font-size: 26rpx;
+  color: rgba(0,0,0,0.45);
+  line-height: 43rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 170rpx;
+  flex: 1;
+  padding-right: 10rpx;
+}
+.read .list .item>view:first-child>view:first-child{
+  font-size: 30rpx;
+  color: #000000;
+}
+
+.read .list .item>view:nth-child(2){
+  width: 260rpx;
+  height: 170rpx;
+}
+.read .list .item>view:nth-child(2) image{
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.block {
+  width: 567rpx;
+  /* height: 120px; */
+}
+.bg{
+  background: url('https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/assets/%E5%BC%B9%E7%AA%97bg%402x.png') no-repeat;
+  background-size: 100% 100%;
+  width: 567rpx;
+  /* height: 659rpx; */
+  box-sizing: border-box;
+  padding-top: 340rpx;
+  padding-bottom: 20rpx;
+}
+.bg-title{
+  opacity: 0.85;
+  font-family: 'PingFangSC-Semibold';
+  font-size: 40rpx;
+  color: #000000;
+  text-align: center;
+  font-weight: 600;
+  text-align: center;
+}
+.bg-text{
+  opacity: 0.65;
+  font-family: 'PingFangSC-Regular';
+  font-size: 26rpx;
+  color: #000000;
+  letter-spacing: 0.42rpx;
+  font-weight: 400;
+  box-sizing: border-box;
+  padding: 0 50rpx;
+  margin-top: 27rpx;
+}
+.bg-btnbox{
+  text-align: center;
+}
+.bg-btn{
+  width: 426rpx !important;
+  height: 80rpx !important;
+  background: #00C7C7 !important;
+  border-radius: 40rpx !important;
+  font-size: 30rpx !important;
+  color: #FFFFFF !important;
+  letter-spacing: 0.48rpx;
+  text-align: center;
+  font-weight: 500;
+  margin: auto;
+  margin-top: 44rpx;
+}
+.closeBox{
+  text-align: center;
+  margin-top: 27rpx;
+}
+
+.popup-content{
+  box-sizing: border-box;
+  padding-top: 50rpx;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; */
+  /* height: 100%;
+  width: 100%; */
+}
+
+.popup-content>view:first-child{
+  font-size: 36rpx;
+  color: #333333;
+  letter-spacing: 0.58rpx;
+  text-align: center;
+  font-weight: 500;
+  padding-bottom: 35rpx;
+}
+
+.popup-content .btnBox{
+  /* position: fixed; */
+  bottom: 0;
+  left: 0;
+  width: 750rpx;
+  background: #fff;
+  /* border-top: 1rpx solid #ccc; */
+  text-align: center;
+  padding: 20rpx 0 60rpx 0;
+}
+
+.popup-content .btn{
+  background: #00C7C7;
+  border-radius: 10rpx;  
+  font-size: 36rpx;  
+  color: #FFFFFF;  
+  text-align: center;
+  font-weight: 400;   
+  width: 684rpx;
+  height: 100rpx;
+  margin: auto;
+  line-height: 100rpx;
+}
+.popup-content .cell{
+  width: 100%;
+  height: 104rpx;
+  background: #F8FBFC;
+  font-size: 32rpx;
+  color: #000000;
+  font-weight: 600;
+  text-align: center;
+  line-height: 104rpx;
+  margin-bottom: 10rpx;
+}
+.popup-content .input{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 26rpx;
+  margin-bottom: 300rpx;
+}
+.popup-content input {
+  width: 423rpx;
+  height: 106rpx;
+  border: 2.5rpx solid rgba(236,236,236,1);
+  border-radius: 15rpx;
+  box-sizing: border-box;
+  padding: 26rpx 32rpx;
+  line-height: 54rpx;
+}
+
+.popup-content .vbtn{
+  width: 111rpx;
+  height: 90rpx;
+  text-align: center;
+  color: #00C7C7;
+  background: #EBFAFA;
+  border-radius: 8rpx;
+  line-height: 90rpx;
+  margin-left: 39rpx;
+}

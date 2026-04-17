@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "navigationBarBackgroundColor": "#F2F5F7",
+  "usingComponents": {
+    "van-sticky": "@vant/weapp/sticky/index"
+  }
+}

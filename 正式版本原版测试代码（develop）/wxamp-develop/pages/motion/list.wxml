@@ -1,0 +1,202 @@
+<view class="header">
+    <view class="left" bindtap="goback">
+        <van-icon name="arrow-left" size="44rpx" color="#444444" />      
+        <view >每日运动</view>  
+    </view>  
+</view>
+<wxs module="medal">
+    var getMedal = function(rank){
+        switch(rank*1){
+            case 0:
+                return "https://oss.mcloud.moveclub.cn/2025/csyyls/%E5%8E%BB%E6%89%93%E5%8D%A1%402x.png";
+            case 1:
+                return "https://oss.mcloud.moveclub.cn/2025/csyyls/%E7%BB%A7%E7%BB%AD%E5%8A%AA%E5%8A%9B%402x.png";
+            case 2:
+                return "https://oss.mcloud.moveclub.cn/2025/csyyls/%E7%9B%AE%E6%A0%87%E6%9B%B4%E8%BF%91%E4%BA%86%402x.png";
+            case 3:
+                return "https://oss.mcloud.moveclub.cn/2025/csyyls/%E5%B7%B2%E5%AE%8C%E6%88%90%402x.png";
+            default:
+                return "https://oss.mcloud.moveclub.cn/2025/csyyls/%E8%B6%85%E9%A2%9D%E5%AE%8C%E6%88%90%402x.png";
+        }
+    }
+    
+    module.exports= getMedal
+</wxs>
+<view class="main">
+    
+    <view class="box">
+        <view class="month-switch">
+            <van-icon bindtap="prevMonth" name="arrow-left" color="#999" size="40rpx" />
+            <view class="title">{{sdate}} - {{edate}}</view>
+            <van-icon name="arrow" bindtap="nextMonth" color="#999" size="40rpx"  />
+        </view>
+
+        <view class="calendar">
+            <view class="weekdays">
+                <view>日</view>
+                <view>一</view>
+                <view>二</view>
+                <view>三</view>
+                <view>四</view>
+                <view>五</view>
+                <view>六</view>
+            </view>
+
+            <view class="days">
+                <block wx:for="{{weekDays}}" wx:key="*this">
+                    <view class="day" data-index="{{ index }}" data-date="{{item.date}}">{{item.value}}</view>
+                </block>
+            </view>
+        </view>
+        <block wx:if="{{isplan}}">
+            <view class="sports">
+                <view >
+                    <view class="s-title">
+                        本周已运动<text > {{detail.num}}</text>/3 次
+                    </view>
+                    <view class="times">
+                        <van-icon name="checked" size="65rpx" color="{{detail.num>=1?'#00C7C7':'#D8DADD'}}" />
+                        <view class="line"></view>
+                        <van-icon name="checked" size="65rpx" color="{{detail.num>=2?'#00C7C7':'#D8DADD'}}" />
+                        <view class="line"></view>
+                        <van-icon name="checked" size="65rpx" color="{{detail.num>=3?'#00C7C7':'#D8DADD'}}" />
+                    </view>
+                    <view class="notice">
+                        <van-icon name="info" color="#000" size="30rpx" />
+                        推荐至少3次/周
+                    </view>
+                </view>
+                <view >
+                    <image src="{{medal(detail.num)}}" />
+                </view>
+            </view>
+            <view class="tatal">
+                <view >
+                    <view >累计运动</view>
+                    <view >{{detail.cal}}</view>
+                    <view class="notice">
+                        <van-icon name="info" color="#333333" size="28rpx" />
+                        至少{{detail.pin||'-'}}千卡/次
+                    </view>
+                </view>
+                <view >
+                    <view >平均每次消耗</view>
+                    <van-progress custom-class="progress" text-color="#02C7C7" color="#00C7C7" percentage="{{detail.pro||0}}" pivot-text="{{detail.pcal||0}}" pivot-color="#FFFFFF" stroke-width="16rpx"/>
+                </view>
+            </view>
+        </block>
+        <view wx:else class="week">
+            <view >
+                <view >本周已运动</view>
+                <view ><text > {{detail.num}}</text> 次</view>
+            </view>
+            <view >
+                <view >累计运动</view>
+                <view ><text > {{detail.cal}}</text> 卡路里</view>
+            </view>
+        </view>   
+    </view>
+    <view class="box">
+        <view class="tt">
+            <image class="titimg" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/l%402x.png" />
+            <view style="margin: 0 12rpx;">该周运动</view>
+            <image class="titimg" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/r%402x.png" />
+        </view>
+        <view class="healbtn" bindtap="showTag">
+            <view >{{auth?'已开启华为运动健康数据':'开启华为运动健康数据同步'}}</view>
+            <view wx:if="{{auth}}" class="btn">同步数据</view>
+            <van-icon wx:else name="play-circle" size="39rpx" />
+        </view>
+        <view class="list" wx:for="{{list}}" wx:key="index">
+            <view class="ltitle">{{item.date}}</view>
+            <view class="item" wx:for="{{item.item}}" wx:for-item="citem" data-item="{{citem}}" wx:for-index="cindex" bindtap="showEdit">
+                <view>
+                    <image src="{{citem.icon}}" />
+                    <view >{{citem.title}}</view>
+                </view>
+                <view>
+                    <view >{{citem.calorie||'-'}}千卡</view>
+                    <view >{{citem.source}}</view>
+                    <van-icon wx:if="{{citem.source=='手动添加'}}" name="arrow" size="30rpx" />
+                </view>
+            </view>
+        </view>
+    </view>   
+</view>
+<van-calendar custom-class="custom-calendar" show="{{ show }}" color="#00C7C7" min-date="{{ minDate }}" max-date="{{ maxDate }}" bind:close="onClose" position="bottom" bind:confirm="onConfirm" />
+<view class="add" bindtap="add">
+    <image src="https://oss.mcloud.moveclub.cn/2025/csyyls/%E8%BF%90%E5%8A%A8%E6%89%93%E5%8D%A1.png" />
+    <view style="color: #333333;">运动打卡</view>
+</view>
+<!-- <view class="footer">
+    <view bindtap="add">
+        <image src="https://oss.mcloud.moveclub.cn/2025/csyyls/%E8%BF%90%E5%8A%A8%E6%89%93%E5%8D%A1.png" />
+        <view >运动打卡</view>
+    </view>
+    <view bindtap="gomo">
+        <image src="https://oss.mcloud.moveclub.cn/2025/csyyls/%E8%BF%90%E5%8A%A8%E8%AF%BE%E7%A8%8B.png" />
+        <view >运动课程</view>
+    </view>
+</view> -->
+<van-popup show="{{ showS }}" position="bottom" round="{{ true }}" custom-style="height: 55%;" bind:close="onClose"
+    closeable="{{ true }}">
+    <view class="editBox">
+        <view class="editBox-title">编辑运动</view>
+        <view class="formBox">
+            <view >
+                <view class="formBox-item1">
+                    <image src="{{item.icon}}" />
+                    <view class="ct">
+                        <view >{{item.title}}</view>
+                        <view >{{item.energy}}千卡/{{item.unitvalue||''}}{{item.unit||''}}</view>
+                    </view>
+                </view>
+                <view class="formBox-item3">
+                    <van-field
+                        value="{{ item.value }}"
+                        center
+                        label=""
+                        type="digit"
+                        placeholder="请输入"
+                        border="{{ false }}"
+                        use-button-slot
+                        bind:input="changenum"
+                        bind:change="changenum"
+                    >
+                        <view slot="button" size="small" type="primary">
+                            {{item.unit}}
+                        </view>
+                    </van-field>
+                </view>
+            </view>
+                
+            <view class="btnBox">
+                <view class="btnBox-1 cel" bindtap="delFood">删除</view>
+                <view class="btnBox-1" bindtap="addFood">确认打卡</view>
+            </view>
+        </view>
+    </view>
+</van-popup>
+
+<van-popup show="{{ showT }}" close-on-click-overlay="{{true}}" bind:click-overlay="onClose" bind:close="onClose" custom-style="width: 640rpx;" round>
+    <view class="pop">
+        <view class="pt">请选择数据同步来源</view>
+        <view class="pc">
+            <van-radio-group value="{{ radio }}" bind:change="onChange">
+                <van-cell title="{{item.title}}" title-class="cell-title" clickable data-name="{{item.id}}" size="large" border="{{ false }}" bind:click="onClick" wx:for="{{sourelist}}" wx:key="idx">
+                    <image src="{{item.icon}}" slot="icon" />
+                    <van-radio slot="right-icon" style="display:flex" checked-color="#00C7C7" name="{{item.id}}" />
+                </van-cell>
+                <!-- <van-cell title="微信运动步数" title-class="cell-title" clickable data-name="2" size="large" border="{{ false }}" bind:click="onClick">
+                    <image src="https://oss.mcloud.moveclub.cn/2025/csyyls/wchat.png" slot="icon" />
+                    <van-radio slot="right-icon" style="display:flex" checked-color="#00C7C7" name="2" />
+                </van-cell> -->
+            </van-radio-group>
+        </view>
+        <view class="btn">
+            <view bindtap="onClose">取消</view>
+            <view bindtap="onConfirmT">确定</view>
+        </view>
+    </view>
+</van-popup>
+

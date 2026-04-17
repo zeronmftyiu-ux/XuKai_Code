@@ -1,0 +1,24 @@
+<!--pages/user/bind/index.wxml-->
+<view class="title">我的专属医生</view>
+<view class="box" wx:if="{{userInfo.bdinfo.binding == 0}}">
+    <view class="box-title">请选择您的绑定方式，填写签约信息</view>
+
+    <view class="btn" bindtap="goscan">
+        <van-icon name="scan" size="50rpx" />
+        <text >扫码绑定</text>
+    </view>
+    <view class="btn" bindtap="goedit">
+        <van-icon name="edit" size="50rpx" />
+        <text >填写邀请码</text>
+    </view>
+</view>
+<view class="wait" wx:elif="{{userInfo.bdinfo.binding == 1 && userInfo.bdinfo.bdstate == 3}}">
+    <image class="box-imgs" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E5%B7%B2%E9%A9%B3%E5%9B%9E%402x.png" />
+
+    <view class="box-wait" style="padding-top: 54rpx;">您的申请已被驳回！</view>
+</view>
+<view class="wait" wx:else>
+    <image class="box-img" src="https://oss.mcloud.moveclub.cn/2024/movewell/wait.png" />
+
+    <view class="box-wait">您已提交申请信息，请耐心等待医生确认！</view>
+</view>

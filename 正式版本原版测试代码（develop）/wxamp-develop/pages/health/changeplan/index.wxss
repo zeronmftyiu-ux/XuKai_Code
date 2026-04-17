@@ -1,0 +1,105 @@
+page{ 
+    background: #F4F6F9;
+}
+
+.body{
+    border-radius: 4rpx 4rpx 0rpx 0rpx;
+    box-sizing: border-box;
+    padding: 24rpx;
+}
+.card{ 
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 8rpx 24rpx;
+    margin-bottom: 24rpx;
+}
+.list{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90rpx;
+    border-bottom: 1rpx solid #ECECED;
+}
+.list .title{
+    font-size: 32rpx;
+    color: #333333;
+    letter-spacing: 0;
+    font-weight: 600;
+}
+.list .content{
+    display: flex;
+    align-items: center;
+}
+.list .item{
+    font-size: 32rpx;
+    color: #64656B;
+    letter-spacing: 0;
+    text-align: right;
+    font-weight: 400;
+}
+.list .icon{
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 10rpx;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 130rpx;
+    background: #FFFFFF;
+    box-shadow: 0rpx -2rpx 12rpx 0rpx rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer .confirmbt{
+    background: #00C7C7;
+    border-radius: 60rpx;
+    width: 80%;
+    height: 88rpx;
+    font-size: 32rpx;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnBox{
+    /* display: flex;
+    justify-content: center; */
+    width: 100% !important;
+    text-align: center;
+    margin-top: 20rpx;
+}
+.btn{
+    width: 96% !important;
+    margin: 420rpx 0 0 0 !important;
+    text-align: center;
+    border-radius: 20rpx !important;
+    background: #00C7C7 !important;
+    font-size: 36rpx !important;
+}
+.contentt{
+    box-sizing: border-box;
+    padding-top: 50rpx;
+    font-size: 36rpx !important;
+}
+.van-radio-group{
+    width: 95%;
+    margin: auto;
+}
+.van-cell {
+    font-size: 36rpx !important;
+}
+
+.picker{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

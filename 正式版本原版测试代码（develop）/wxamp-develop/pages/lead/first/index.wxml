@@ -1,0 +1,54 @@
+<view class="back" bindtap="goback">
+    <van-icon name="arrow-left" size="44rpx" />
+</view>
+
+<view class="header">
+    <view class="title">
+        <view >欢迎使用</view>
+        <view >填写你的相关信息，定制更适合你的计划</view>
+    </view>
+    <view class="btn" bind:tap="nextto">跳过</view>
+</view>
+
+<view class="cell">
+    <view class="label">
+        <view >你的性别是：</view>
+        <view >生理性别和激素会影响我们的身体代谢速度</view>
+    </view>
+    <view class="sex">
+        <view class="item {{form.gender==item.id?'active':''}}" wx:for="{{sexlist}}" wx:key="idx" data-id="{{item.id}}" bindtap="change">
+            <image src="{{item.icon}}" />
+            <view >{{item.name}}</view>
+            <view >{{item.nname}}</view>
+        </view>
+    </view>
+</view>
+
+<view class="cell">
+    <view class="label">
+        <view >你的出生日期：</view>
+        <view >年龄与基础代谢水平、身体活动水平息息相关</view>
+    </view>
+    <view class="input">
+        <picker bindchange="bindYearChange" value="{{yearindex}}" range="{{yearlist}}">
+            <view class="year">
+                <view >{{yearlist[yearindex]}}</view>
+                <view >年</view>
+            </view>
+        </picker>
+        <picker bindchange="bindMonthChange" value="{{monthindex}}" range="{{monthlist}}">
+            <view class="month">
+                <view >{{monthlist[monthindex]}}</view>
+                <view >月</view>
+            </view>
+        </picker>
+        <picker bindchange="bindDayChange" value="{{dayindex}}" range="{{daylist}}">
+            <view class="day">
+                <view >{{daylist[dayindex]}}</view>
+                <view >日</view>
+            </view>
+        </picker>
+    </view>
+</view>
+
+<view class="mvbutton" bind:tap="next">下一步</view>

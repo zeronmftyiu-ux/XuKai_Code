@@ -1,0 +1,36 @@
+<view class="top">
+    <view class="topleft"> 
+        <view class="qipao">个性化定制</view>
+        <view class="maintitle">智能运动计划</view>
+    </view>
+    <view class="topright">
+        <image class="img" src="" ></image>
+    </view>
+</view>
+<view class="progress">
+    <view class="content">
+        <view class="circle">1</view>
+        <view class="text">基本信息</view>
+    </view>
+    <view class="line">······</view>
+    <view class="content">
+        <view class="circle">2</view>
+        <view class="text">计划目标</view>
+    </view>
+    <view class="line">······</view>
+    <view class="content">
+        <view class="circle">3</view>
+        <view class="text">专属方案</view>
+    </view>
+</view>
+
+<view class="body">
+    <view class="bodytitle">
+        <view>请确认您的身体信息</view>
+        <view>帮助我们为您定制最合适的运动方案</view>
+    </view>
+</view>
+
+<view class="footers">
+    <view class="footbut">下一步</view>
+</view>

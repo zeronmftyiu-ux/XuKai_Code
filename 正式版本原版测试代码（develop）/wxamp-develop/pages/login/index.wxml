@@ -1,0 +1,43 @@
+<image class="loginicon" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E5%8C%BB%E7%94%9Flogin.png" mode="widthFix" />
+
+<view class="title">您好，欢迎登录！</view>
+
+<view class="text">如果您是普通用户，请点击返回到上一页</view>
+
+<view class="titlet">手机号</view>
+<!-- <view>
+    <view class="input">
+        <input class="input-text" placeholder="请输入手机号"  />
+    </view>
+    <view class="button1">获取验证码</view>
+</view> -->
+<van-cell-group border="{{ false }}" custom-class="vangroup">
+  <van-field
+    value="{{ phone }}"
+    center
+    clearable
+    placeholder="请输入手机号"
+    border="{{ false }}"
+    use-button-slot
+    bind:change="onPhoneChange"
+  >
+    <van-button slot="button" size="small" bindtap="send">
+      {{btntips}}
+    </van-button>
+  </van-field>
+</van-cell-group>
+<view class="titlet">验证码</view>
+<van-cell-group border="{{ false }}" custom-class="vangroup">
+  <van-field
+    value="{{ code }}"
+    center
+    clearable
+    placeholder="请输入验证码"
+    border="{{ false }}"
+    use-button-slot
+    bind:change="onCodeChange"
+  >
+  </van-field>
+</van-cell-group>
+
+<view bindtap="verifyDoctor" class="button">登录</view>

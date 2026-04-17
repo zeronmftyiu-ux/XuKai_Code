@@ -1,0 +1,31 @@
+<view class="title">
+    <view class="tab" data-type="0" ><!-- bindtap="choosetabs" -->
+        <view class="text {{choosetab==0?'active':''}}">使用指南</view>
+    </view>
+    <view class="tab" data-type="1" ><!-- bindtap="choosetabs" -->
+        <view class="text {{choosetab==1?'active':''}}">常见问题</view>
+    </view>
+</view>
+
+<view class="body">
+    <van-cell-group>
+        <van-cell title="如何绑定专属医生？" size='large' is-link bindtap="godetails" data-id="1"/>
+        <van-cell title="如何手动绑定手环？" size='large' is-link bindtap="godetails" data-id="2"/>
+        <van-cell title="如何扫码绑定手环？" size='large' is-link bindtap="godetails" data-id="3"/>
+        <van-cell title="如何使用小程序打卡？" size='large' is-link bindtap="godetails" data-id="4"/>
+        <!-- <van-cell title="如何修改体重管理计划？" size='large' is-link bindtap="godetails" data-id="5"/>
+        <van-cell title="如何删除饮食记录？" size='large' is-link bindtap="godetails" data-id="6"/>
+        <van-cell title="如何删除运动记录？" size='large' is-link bindtap="godetails" data-id="7"/> -->
+    </van-cell-group>
+</view>
+
+<view class="footer">
+    <view class="left" bindtap="gofeedback">
+        <image class="icon" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E6%84%8F%E8%A7%81%E5%8F%8D%E9%A6%88%402x.png" mode=""></image>
+        <view>意见反馈</view>
+    </view>
+    <view class="right" bindtap="gohisgfeedback">
+        <image class="icon" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E5%8E%86%E5%8F%B2%E5%8F%8D%E9%A6%88%402x.png" mode=""></image>
+        <view>历史反馈</view>
+    </view>
+</view>

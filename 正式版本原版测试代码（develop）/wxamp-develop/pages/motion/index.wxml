@@ -1,0 +1,133 @@
+<view class="header">
+  <view class="left" bindtap="goback">
+    <van-icon name="arrow-left" size="44rpx" color="#444444" />
+    <view>每日运动</view>
+  </view>
+</view>
+
+<view class="camp-motion-head" wx:if="{{fromCamp}}">
+  <view class="camp-motion-head-top">
+    <view class="camp-motion-title">{{campTaskInfo.title}}</view>
+    <view class="camp-motion-back" bindtap="goCampDetail">返回活动</view>
+  </view>
+  <view class="camp-motion-desc">{{campTaskInfo.targetText}}</view>
+  <view class="camp-motion-point">{{campTaskInfo.pointText}}</view>
+</view>
+
+<view class="main">
+  <view class="box overview-box">
+    <view class="month-switch">
+      <van-icon bindtap="prevMonth" name="arrow-left" color="#999" size="40rpx" />
+      <view class="title">{{sdate}} - {{edate}}</view>
+      <van-icon bindtap="nextMonth" name="arrow" color="#999" size="40rpx" />
+    </view>
+
+    <view class="calendar">
+      <view class="weekdays">
+        <view>日</view>
+        <view>一</view>
+        <view>二</view>
+        <view>三</view>
+        <view>四</view>
+        <view>五</view>
+        <view>六</view>
+      </view>
+
+      <view class="days">
+        <block wx:for="{{weekDays}}" wx:key="date">
+          <view
+            class="day-item {{item.checked ? 'checked' : ''}} {{item.hasRecord ? 'has-record' : ''}} {{item.isToday ? 'today' : ''}} {{item.isFuture ? 'future' : ''}}"
+            data-date="{{item.date}}"
+            data-future="{{item.isFuture}}"
+            bindtap="chooseDay"
+          >
+            <view class="day-num">{{item.value}}</view>
+            <view wx:if="{{item.isToday && !item.checked}}" class="today-tag">今</view>
+            <view wx:if="{{item.hasRecord && !item.checked && !item.isFuture}}" class="day-dot"></view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view class="summary-grid">
+      <view class="summary-card">
+        <view class="summary-label">本周最长连续运动</view>
+        <view class="summary-value">
+          <text>{{detail.streakDays || 0}}</text> 天
+        </view>
+      </view>
+
+      <view class="summary-card">
+        <view class="summary-label">本周累计消耗</view>
+        <view class="summary-value">
+          <text>{{detail.cal || 0}}</text> 千卡
+        </view>
+      </view>
+
+      <view class="summary-card">
+        <view class="summary-label">本周活跃天数</view>
+        <view class="summary-value">
+          <text>{{detail.activeDays || 0}}</text> 天
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="box detail-box">
+    <view class="tt">
+      <view class="tbtn">当天运动</view>
+    </view>
+
+    <view class="selected-date-row">
+      <view class="selected-date">{{selectedDate}}</view>
+      <view class="selected-date-tip">仅展示当天打卡记录</view>
+    </view>
+
+    <view class="healbtn" bindtap="showTag">
+      <view>{{auth ? '已开启运动健康数据' : '开启运动健康数据同步'}}</view>
+      <view wx:if="{{auth}}" class="btn">同步数据</view>
+      <van-icon wx:else name="play-circle" size="39rpx" />
+    </view>
+
+    <block wx:if="{{list.length}}">
+      <view class="day-list">
+        <view
+          class="item"
+          wx:for="{{list}}"
+          wx:key="index"
+          data-item="{{item}}"
+          bindtap="showEdit"
+        >
+          <view class="item-left">
+            <view class="item-icon-wrap">
+              <image src="{{item.icon}}" />
+            </view>
+            <view class="ct">
+              <view class="item-title">{{item.title}}</view>
+              <view class="item-sub">{{item.source}}</view>
+            </view>
+          </view>
+
+          <view class="item-right">
+            <view class="item-cal">{{item.calorie || '-'}}千卡</view>
+            <van-icon name="arrow" size="30rpx" color="#B8BFCC" />
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <view wx:else class="empty-day">
+      <image
+        class="empty-icon"
+        src="https://oss.mcloud.moveclub.cn/2025/csyyls/%E8%BF%90%E5%8A%A8%E6%89%93%E5%8D%A1.png"
+      />
+      <view class="empty-title">这一天还没有运动记录</view>
+      <view class="empty-desc">点击右下角“运动打卡”，通过模块完成记录</view>
+    </view>
+  </view>
+</view>
+
+<view class="add" bindtap="goTaskPage">
+  <image src="https://oss.mcloud.moveclub.cn/2025/csyyls/%E8%BF%90%E5%8A%A8%E6%89%93%E5%8D%A1.png" />
+  <view>运动打卡</view>
+</view>

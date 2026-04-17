@@ -1,0 +1,101 @@
+<!--pages/sports/heart.wxml-->
+<view class="main">
+    <view class="tab">
+        <block wx:for="{{ tab }}">
+            <view class="tab-item {{ idx == index ? 'active' : '' }}" data-idx="{{ index }}" bindtap="toggleTab">{{ item }}</view>
+        </block>       
+    </view>
+    <!-- 日 -->
+    <!-- <view class="dateBox" wx:if="{{ idx == 0 }}">
+        <view class="dateBox-value" bindtap="showDate">
+            {{ dayValue }}
+            <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/assets/%E4%B8%89%E8%A7%92%E5%BD%A2%402x.png"></image>
+        </view>
+    </view> -->
+   <!-- 周 -->
+   <view class="dateBox" wx:if="{{ tab[idx] == '周' }}">
+        <view class="dateBox-value" bindtap="showDate">
+            {{ weekValue }}
+            <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/assets/%E4%B8%89%E8%A7%92%E5%BD%A2%402x.png"></image>
+        </view>
+    </view>
+    <!-- 月 -->
+    <view class="dateBox" wx:if="{{ tab[idx] == '月' }}">
+        <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+            <view class="month-item {{ month_idx == index ? 'dateBox-value' : '' }}" wx:for="{{ months }}" data-idx="{{ index }}" bindtap="toggleMonth">{{ item.month }}</view>
+        </scroll-view>
+    </view>
+    <!-- 年 -->
+    <view class="dateBox" wx:if="{{ tab[idx] == '年' }}">
+        <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+            <view class="month-item {{ year_idx == index ? 'dateBox-value' : '' }}" wx:for="{{ years }}" data-idx="{{ index }}" bindtap="toggleYear">{{ item }}</view>
+        </scroll-view>
+    </view>
+
+    <view class="echarts">
+        <chart wx:if="{{ idx == 0 }}" chart-class="chart" width="690rpx" height="450rpx" option="{{ option }}" bindinstance="onInstance" />
+        <chart wx:if="{{ idx == 1 }}" chart-class="chart" width="690rpx" height="450rpx" option="{{ option }}" bindinstance="onInstance" />
+        <chart wx:if="{{ idx == 2 }}" chart-class="chart" width="690rpx" height="450rpx" option="{{ option }}" bindinstance="onInstance" />
+        <chart wx:if="{{ idx == 3 }}" chart-class="chart" width="690rpx" height="450rpx" option="{{ option }}" bindinstance="onInstance" />
+    </view>
+
+    <!-- <view class="labelBox">
+        <view class="labelBox-item">
+            <view class="square color1"></view>
+            <view class="text01">{{ label.a }}</view>
+        </view>
+        <view class="labelBox-item">
+            <view class="square color2"></view>
+            <view class="text01">{{ label.b }}</view>
+        </view>
+        <view class="labelBox-item">
+            <view class="square color3"></view>
+            <view class="text01">{{ label.c }}</view>
+        </view>
+        <view class="labelBox-item">
+            <view class="square color4"></view>
+            <view class="text01">{{ label.d }}</view>
+        </view>
+    </view> -->
+
+    <view class="sport-stat">
+        <view class="sport-stat-title">
+            <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/assets/%E5%8E%8B%E5%8A%9B%402x.png"></image>
+            <view class="title01">压力分析</view>
+        </view>
+        <view class="sport-stat-content">
+            <view class="sport-stat-content-item">
+                <view class="text01"><text>{{ lastvalue }}</text></view>
+                <view class="text02">最近压力</view>
+            </view>
+            <view class="sport-stat-content-item">
+                <view class="text01"><text>{{ avgvalue }}</text></view>
+                <view class="text02">平均压力</view>
+            </view>            
+        </view>
+        <!-- <view class="abnormalList">
+            <view class="abnormalList-title">异常血压</view>
+            <view class="list">
+                <view class="item" wx:for="{{ list }}">
+                    <view class="item-left">高压异常<text>120/90</text><text>mmHg</text></view>
+                    <view class="item-right">8月16日 07:32</view>
+                </view>
+            </view>
+        </view> -->
+    </view>
+    <!-- <view class="progressBox">
+        <view wx:for="{{ pressureData }}" style="width: {{ item.value }}%;" class="progressBox-item {{ item.color }} {{ item.border }}"></view>
+    </view>
+    <view class="progressBox2">
+        <view class="progressBox2-item" wx:for="{{ pressureData }}">
+            <view class="labelBox-item">
+                <view class="square {{item.color}}"></view>
+                <view class="text01">{{ item.type }} {{ item.value }}%</view>
+            </view>
+            <view class="time">{{ item.time }}</view>
+        </view>
+    </view> -->
+
+</view>
+
+<van-calendar show="{{ show }}" min-date="{{ minDate }}" bind:close="onClose" bind:select="selectDate" show-confirm="{{ false }}" />

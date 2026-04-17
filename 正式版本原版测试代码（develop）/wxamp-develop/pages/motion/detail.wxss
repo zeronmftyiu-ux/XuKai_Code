@@ -1,0 +1,178 @@
+/* pages/motion/detail.wxss */
+page{
+    box-sizing: border-box;
+    padding-bottom: 180rpx;
+}
+.banner{
+    width: 750rpx;
+    height: 448rpx;
+}
+.banner image{
+    width: 750rpx;
+    height: 448rpx;
+}
+.main{
+    background: #FFFFFF;
+    border-radius: 30rpx 30rpx 0px 0px;   
+    margin-top: -30rpx;
+    position: relative;
+    z-index: 10;
+    box-sizing: border-box;
+    padding: 20rpx;
+}
+.title{
+    font-family: 'PingFangSC-Medium';
+    font-size: 48rpx;
+    color: #2B2B2B;
+    letter-spacing: 0;
+    font-weight: 500;  
+    box-sizing: border-box;
+    padding-top: 20rpx;  
+}
+.subtitle{
+    opacity: 0.45;
+    font-family: 'PingFangSC-Regular';
+    font-size: 24rpx;
+    color: #000000;
+    letter-spacing: 0;
+    font-weight: 400;    
+    margin-top: 12rpx;
+}
+.desc{
+    margin-top: 24rpx;
+}
+.desc-con{
+    opacity: 0.45;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #000000;
+    letter-spacing: 0;
+    font-weight: 400;  
+    height: 80rpx;
+    overflow: hidden; 
+}
+.look{
+    font-family: 'PingFangSC-Semibold';
+    font-size: 24rpx;
+    color: #2B2B2B;
+    letter-spacing: 0;
+    font-weight: 600;  
+    text-align: center; 
+    padding: 20rpx 0;
+}
+.labelBox{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.labelBox-item{
+    background: #FFFAF1;
+    border-radius: 16rpx;  
+    width: 343rpx;  
+    box-sizing: border-box;
+    padding: 25rpx;
+    margin-bottom: 20rpx;
+}
+.labelBox-item-01{
+    font-family: 'PingFangSC-Regular';
+    font-size: 26rpx;
+    color: #847A6F;
+    font-weight: 400;
+}
+.labelBox-item-02{
+    font-family: 'PingFangSC-Semibold';
+    font-size: 30rpx;
+    color: #474747;
+    font-weight: 600;
+    margin-top: 10rpx;
+}
+.list{
+    border-top: 16rpx solid #EBEBEB;
+    box-sizing: border-box;
+    padding: 32rpx 25rpx;
+}
+.list-title{
+    font-size: 36rpx;
+    color: #2B2B2B;
+    letter-spacing: 0;
+    font-weight: 600;    
+}
+.item-con{
+    display: flex;
+    align-items: center;
+}
+.left{
+    width: 116rpx;
+    height: 116rpx;
+    border-radius: 16rpx;
+}
+.left image{
+    width: 116rpx;
+    height: 116rpx;
+    border-radius: 16rpx;
+}
+.text05{
+    font-family: 'PingFangSC-Regular';
+    font-size: 28rpx;
+    color: #2B2B2B;
+    letter-spacing: 0;
+    font-weight: 400; 
+    display: -webkit-box;
+    /* 设置为WebKit内核的弹性盒子模型 */
+    -webkit-box-orient: vertical;
+    /* 垂直排列 */
+    -webkit-line-clamp: 1;
+    /* 限制显示两行 */
+    overflow: hidden;
+    /* 隐藏超出范围的内容 */
+    text-overflow: ellipsis;
+    /* 使用省略号 */   
+}
+.right{
+    margin-left: 20rpx;
+    width: calc(100% - 136rpx);
+    border-bottom: 1rpx solid #C7C7C7;
+    box-sizing: border-box;
+    padding: 40rpx 0;
+}
+.text06{
+    opacity: 0.45;
+    font-family: 'PingFangSC-Regular';
+    font-size: 22rpx;
+    color: #2B2B2B;
+    letter-spacing: 0;
+    font-weight: 400;
+    display: -webkit-box;
+    /* 设置为WebKit内核的弹性盒子模型 */
+    -webkit-box-orient: vertical;
+    /* 垂直排列 */
+    -webkit-line-clamp: 1;
+    /* 限制显示两行 */
+    overflow: hidden;
+    /* 隐藏超出范围的内容 */
+    text-overflow: ellipsis;
+    /* 使用省略号 */    
+    margin-top: 12rpx;
+    
+}
+
+.btnBox{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 750rpx;
+    background: #fff;
+    border-top: 1rpx solid #ccc;
+    text-align: center;
+    padding: 20rpx 0 60rpx 0;
+}
+.btn{
+    background: #FF5F1B !important;
+    border-radius: 10rpx !important;  
+    font-size: 36rpx !important;  
+    color: #FFFFFF !important;  
+    text-align: center;
+    font-weight: 400 !important;   
+    width: 684rpx !important;
+    height: 100rpx !important;
+}

@@ -1,0 +1,109 @@
+page{
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+.custom-title {
+  font-size: 36rpx !important;
+}
+
+.custom-search{
+  height: 68rpx !important;
+}
+.van-search__content {
+  height: 68rpx !important;
+  min-height: auto !important;
+  align-items: center !important;
+}
+.van-field__body input {
+  height: 100% !important;
+  font-size: 28rpx !important;
+}
+
+.search {
+  padding: 40rpx 0rpx;
+  margin: 20rpx 0;
+}  
+
+.list  {
+  padding: 0 24rpx;
+}
+
+.list  .title {
+  font-size: 32rpx;
+  margin: 12rpx 0;
+  color: rgba(0,0,0,0.80);
+  letter-spacing: 0;
+  line-height: 32rpx;
+  font-weight: 500;
+}
+
+.list  .personlist { 
+  padding: 12rpx 0;
+}
+
+.list  .item{
+  display: flex;
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid rgba(231,231,231,1);
+}
+
+.list  .item  .avatar {
+  width: 22%;
+  height: 92rpx;
+  border-radius: 50%;
+  background-color: #eee;
+  margin-right: 10px;
+}
+
+.list  .item  .content1 {
+  display: flex;
+  flex-direction: column;
+  padding: 0 12rpx;
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list  .item  .content2 {
+  white-space: nowrap;
+  text-align: right;
+}
+
+.list  .item  .name {
+  font-size: 32rpx;
+  color: #333333;
+  letter-spacing: 0;
+  line-height: 32rpx;
+  font-weight: 500;
+  padding: 10rpx 0;
+}
+
+.list  .item  .class {
+  font-size: 26rpx;
+  color: #2DCFCF
+}
+
+.list  .item  .action {
+  padding: 0  12rpx 0 0;
+  font-size: 26rpx;
+  color: #61656C;
+}
+
+.list  .item  .time {
+  font-size: 24rpx;
+  color: #90A09E;
+  padding: 4rpx 0;
+}
+
+.list  .item  .info {
+  font-size: 22rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36rpx;
+  height: 36rpx;
+  background: #F95051;
+  color: white;
+  border-radius: 50%;
+}

@@ -1,0 +1,123 @@
+<van-sticky>
+    <view class="header">
+        <van-search
+            value="{{ value }}"
+            shape="round"
+            placeholder="请输入运动名称"
+            clearable
+            bind:search="onSearch"
+            bind:change="onSearch"
+            bind:cancel="onCancel"
+            bind:clear="onCancel"
+            />
+    </view>
+</van-sticky>
+<view class="container">
+    <scroll-view scroll-y class="category-list" bindscroll="onCategoryScroll">
+        <view wx:for="{{tabList}}" wx:key="index" class="category-item {{active === index ? 'active' : ''}}" wx:key="index" data-type="{{index}}" bindtap="change">
+        {{item}}
+        </view>
+    </scroll-view>
+    <scroll-view scroll-y class="product-list">
+        <view class="item" wx:for="{{list}}" wx:key="index" data-item="{{item}}" bindtap="add">
+            <view class="left">
+                <image src="{{item.icon}}" />
+                <view class="ct">
+                    <view >{{item.title}}</view>
+                    <view >{{item.value | 0}}千卡/{{item.unitvalue||''}}{{item.unit||''}}</view>
+                </view>
+            </view>
+            <van-icon wx:if="{{item.num && item.num > 0}}" name="add-o" size="45rpx" info="1" />
+            <van-icon wx:else name="add-o" size="45rpx" />
+            <!-- <view class="add">
+                <image class="add"  src="https://oss.mcloud.moveclub.cn/movewell/img/add%402x.png" />
+            </view> -->
+            
+        </view>
+        <van-empty wx:if="{{list.length==0}}" description="暂无数据" />
+    </scroll-view>
+</view>
+<!-- <view class="footer">
+    <view >
+        <image src="https://oss.mcloud.moveclub.cn/2025/csyyls/%E8%BF%90%E5%8A%A8-1%402x.png"  />
+
+        <view class="tx" bind:tap="showtap">
+            {{typename}} ({{checklist.length}})
+        </view>
+    </view>
+    <view class="btn" bindtap="submit">确认打卡</view>
+</view> -->
+
+<van-popup show="{{ show }}" position="bottom" round="{{ true }}" custom-style="height: 55%;" bind:close="onClose"
+    closeable="{{ true }}">
+    <view class="editBox">
+        <view class="editBox-title">添加运动</view>
+        <view class="formBox">
+            <view >
+                <view class="formBox-item1">
+                    <image src="{{detail.icon}}" />
+                    <view class="ct">
+                        <view >{{detail.title}}</view>
+                        <view >{{detail.value}}千卡/{{detail.unitvalue||''}}{{detail.unit||''}}</view>
+                    </view>
+                </view>
+                <view class="formBox-item3">
+                    <van-field
+                        value="{{ detail.num }}"
+                        center
+                        label=""
+                        type="digit"
+                        placeholder="请输入"
+                        border="{{ false }}"
+                        use-button-slot
+                        bind:input="changenum"
+                        bind:change="changenum"
+                    >
+                        <view slot="button" size="small" type="primary">
+                            {{detail.unit}}
+                        </view>
+                    </van-field>
+                </view>
+            </view>
+                
+            <view class="btnBox">
+                <van-button custom-class="btnBox-1" bindtap="addFood">确认打卡</van-button>
+            </view>
+        </view>
+    </view>
+</van-popup>
+<van-popup show="{{ showadd }}" position="bottom" round="{{ true }}" z-index="{{98}}" custom-style="height: 55%;" bind:close="onCloseA"
+    closeable="{{ true }}">
+    <view class="editList">
+        <view class="editList-item" wx:for="{{checklist}}" wx:key="index">
+            <view class="editList-item-left">
+                <image src="{{item.icon}}" />
+                <view class="ct">
+                    <view >{{item.title}}</view>
+                    <view >{{item.value}}千卡/{{item.unitvalue||''}}{{item.unit||''}}</view>
+                </view>
+            </view>
+            <view class="editList-item-right">
+                <van-field
+                    value="{{ item.num }}"
+                    center
+                    label=""
+                    type="digit"
+                    data-index="{{index}}"
+                    placeholder="请输入"
+                    border="{{ false }}"
+                    input-width="80rpx"
+                    use-button-slot
+                    bind:input="changecheck"
+                    bind:change="changecheck"
+                >
+                    <view slot="button" size="small" type="primary">
+                        {{detail.unit}}
+                    </view>
+                </van-field>
+                <!-- <van-stepper value="{{ item.num }}" step="1" min="0" data-index="{{index}}" bind:change="changecheck" integer input-width="80rpx" button-size="64rpx" /> -->
+            </view>
+            
+        </view>
+    </view>
+</van-popup>

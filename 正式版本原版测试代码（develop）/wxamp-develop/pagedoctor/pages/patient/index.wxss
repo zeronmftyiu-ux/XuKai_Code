@@ -1,0 +1,619 @@
+page {
+  background: #F0F6F6;
+}
+
+.header {
+  background: #FFFFFF;
+  box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(200,230,227,0.5);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx 8rpx;
+}
+.header .top{ 
+    display: flex;
+    align-items: center;
+}
+.header .top .topchild{
+    display: flex;
+}
+.header .top .avatar{
+    width: 86rpx;
+    height: 86rpx;
+    border-radius: 42rpx;
+    margin-right: 24rpx;
+}
+.header .top .name{
+    align-items: center;
+    display: flex;
+    font-size: 30rpx;
+    color: #333333;
+    font-weight: 600;
+    padding-right: 12rpx;
+}
+.header .top .tag{
+    margin-left: 12rpx;
+    border-radius: 8rpx;
+    font-size: 22rpx;
+    line-height: 34rpx;
+    font-weight: 400;
+    white-space: nowrap;
+    padding: 8rpx 12rpx;
+    height: 32rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3ED4A7;
+    background: #EFFBF7;
+}
+.header .top .green{
+    color: #3ED4A7;
+    background: #EFFBF7;
+}
+.header .top .red{
+    background: #FFF2F1;
+    color: #FA746B;
+}
+.header .top .yellow{
+    background: #FFFAE3;
+    color: #FFD14B;
+}
+
+.accordion {
+  border-radius: 8rpx;
+  overflow: hidden;
+  position: relative;
+}
+.accordion .accordion-header {
+  padding: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+.accordion .accordion-header .shoufengqin {
+  background: #000000;
+  border-radius: 9rpx;
+  width: 40rpx;
+  height: 6rpx;
+}
+.accordion .arrow {
+  width: 30rpx;
+  height: 30rpx;
+  transition: transform 0.3s ease;
+}
+.accordion .arrow.open {
+  transform: rotate(180deg);
+}
+.accordion .accordion-content {
+  transition: height 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  padding: 0 0 0 100rpx;
+}
+.accordion .content-inner1 {
+    display: flex;
+}
+.accordion .content-inner2 {
+    display: flex;
+}
+.accordion .text1 {
+    font-size: 24rpx;
+    color: #90A09E;
+    font-weight: 400;
+    margin-bottom: 4rpx;
+}
+.accordion .text2 {
+    font-size: 24rpx;
+    color: #61656C;
+    font-weight: 400;
+}
+
+.body  { 
+    box-sizing: border-box;
+    padding: 30rpx 28rpx 100rpx;
+}
+
+.body .state { 
+    display: flex;
+    gap: 20rpx;
+    white-space: nowrap;
+    margin: 16rpx 0;
+}
+.state .btn  { 
+    border-radius: 32rpx;
+    font-size: 28rpx;
+    letter-spacing: -0rpx;
+    text-align: center;
+    padding: 12rpx 24rpx;
+}
+.state .btn1  { 
+    background: #FFFFFF;
+    opacity: 0.65;
+    color: #000000;
+    font-weight: 400;
+}
+.state .btn2 { 
+    background: #00C7C7;
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+
+.box{
+    background: #FFFFFF;
+    border-radius: 20rpx;
+    box-sizing: border-box;
+    padding: 35rpx;
+    margin: 34rpx 0;
+    box-shadow: 0px 2px 5px 2px rgba(175,228,220,0.3);
+}
+.box .month-switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 38rpx;
+}
+.box .month-switch .today{
+    background: #E8F7F6;
+    border-radius: 88%;
+    width: 64rpx;
+    height: 56rpx;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 24rpx;
+    margin: 0 -24rpx 0 20rpx;
+}
+.box .month-switch .title {
+    text-align: center;
+    font-size: 30rpx;
+    color: #000000;
+    font-weight: 600;
+    padding: 0 32rpx;
+}
+.box .calendar{
+    border-radius: 10rpx;
+    box-sizing: border-box;
+    padding: 13rpx 0;
+}
+.box .calendar .weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 26rpx;
+    color: #30292C;
+    font-weight: 400;
+    padding-bottom: 20rpx;
+}
+.box .calendar .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 30rpx;
+    color: #30292C;
+    text-align: center;
+    font-weight: 700;
+}
+.box .calendar .day {
+    background: #E8F7F6;
+    border-radius: 50%;
+    width: 56rpx;
+    height: 56rpx;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+}
+.box .calendar .dayclick  { 
+    color: #FFFFFF;
+    background: #00C7C7;
+}
+
+.box .bottom { 
+    width: 100%;
+    background: #E8F7F6;
+    border-radius: 16rpx;
+    box-sizing: border-box;
+    padding: 20rpx 28rpx 18rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24rpx;
+    color: #212327;
+    margin: 10rpx 0 0 0;
+}
+.box .bottom .describe{
+    display: flex;
+    font-size: 24rpx;
+    color: #212327;
+    font-weight: 400;
+    justify-content: space-between;
+    margin-bottom: 12rpx;
+}
+.box .bottom .number{ 
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.box .bottom .number .operator {
+    font-size: 28rpx;
+    color: #212327;
+    width: 15%;
+    text-align: center;
+    flex-shrink: 0;
+}
+.box .bottom .number .numberall{ 
+    width: 30%;
+    font-size: 46rpx;
+    color: #FF8D4F;
+    letter-spacing: -3.83rpx;
+    font-weight: 700;
+    margin: 0 36rpx 0 12rpx;
+    text-align: center;
+}
+.box .bottom .number .numberchild{ 
+    width: 15%;
+    font-size: 28rpx;
+    color: #212327;
+    letter-spacing: -2.33rpx;
+    font-weight: 700;
+    margin: 0 8rpx 0 -8rpx;
+    text-align: center;
+}
+
+.box2{
+    background: #FFFFFF;
+    border-radius: 20rpx;
+    box-sizing: border-box;
+    padding: 0rpx 0rpx 10rpx;
+    margin: 34rpx 0;
+    box-shadow: 0px 2px 5px 2px rgba(175,228,220,0.3);
+}
+.box2 .title{ 
+    display: flex;
+    width: 100%;
+    height: 100rpx;
+    margin: 0 0 16rpx 0;
+}
+.title .left{ 
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    padding: 20rpx 0;
+    font-size: 32rpx;
+    color: rgba(255,255,255,0.80);
+    letter-spacing: 0;
+    font-weight: 900;
+    background: url(http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E5%88%87%E6%8D%A22.png) no-repeat;
+    background-size: 100% 100%;
+}
+.title .right{ 
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    padding: 20rpx 0;
+    font-size: 32rpx;
+    color: rgba(255,255,255,0.80);
+    letter-spacing: 0;
+    font-weight: 900;
+    background: url(http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E5%88%87%E6%8D%A2.png) no-repeat;
+    background-size: 100% 100%;
+}
+.title .active{
+    font-size: 32rpx;
+    color: #000000;
+    letter-spacing: 0;
+    font-weight: 900;
+    position: relative;
+    background:transparent;
+}
+.title .active::after{
+    position: absolute;
+    content: ' ';
+    background: url(http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E7%BA%BF.png);
+    width: 143rpx;
+    height: 22rpx;
+    background-size: 100%;
+    left: 28%;
+    bottom: 6rpx;
+}
+
+.box2 .list{
+    display : flex;
+    flex-direction: column;
+    box-size: border-box;
+    padding: 0 35rpx;
+}
+.list .top{ 
+    display: flex;
+    justify-content: space-between;
+}
+.list .top .item{ 
+    display: flex;
+    align-items: center;
+}
+.list .top .item1{ 
+    font-size: 36rpx;
+    color: #000000;
+    font-weight: 600;
+    margin-right: 20rpx;
+}
+.list .top .item2{ 
+    font-size: 30rpx;
+    color: #000000;
+    font-weight: 400;
+}
+.list .top .item3{ 
+    font-size: 36rpx;
+    color: #000000;
+    font-weight: 400;
+}
+.list .top .item4{ 
+    font-size: 28rpx;
+    color: #A8ACBC;
+    font-weight: 400;
+}
+
+.list .bottom{ 
+    display: flex;
+    flex-direction: column;
+}
+.list .bottom .eachlist{ 
+    display: flex;
+    margin: 20rpx 0;
+    align-items: center;
+    justify-content: space-between;
+}
+.list .bottom .avatar{ 
+    width: 88rpx;
+    height: 88rpx;
+    border-radius: 9rpx;
+    margin-right: -250rpx;
+}
+.list .bottom .info{ 
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+.list .bottom .info .name{ 
+    font-size: 26rpx;
+    color: #000000;
+    font-weight: 600;
+}
+.list .bottom .info .cup{ 
+    opacity: 0.45;
+    font-size: 26rpx;
+    color: #000000;
+    font-weight: 400;
+}
+.list .bottom .kaluli{ 
+    font-size: 26rpx;
+    color: #A8ACBC;
+    text-align: right;
+    font-weight: 400;
+}
+
+.box2 .list2{
+    display : flex;
+    flex-direction: column;
+    box-size: border-box;
+    padding: 0 35rpx;
+}
+.list2 .eachexercise{
+    display : flex;
+    align-items: center;
+    margin: 0 0 28rpx 0;
+}
+.eachexercise .left{
+    display : flex;
+    width: 50%;
+    height: 100rpx;
+}
+.eachexercise .left .avatar{
+    width: 90rpx;
+    height: 90rpx;
+    background: #F4F6F9;
+    border-radius: 9rpx;
+}
+.eachexercise .left .children{
+    display : flex;
+    flex-direction: column;
+    margin-left: 20rpx;
+    justify-content: center;
+    gap: 8rpx;
+}
+.eachexercise .left .tit{
+    font-size: 26rpx;
+    color: #000000;
+    font-weight: 600;
+}
+.eachexercise .left .time{
+    opacity: 0.45;
+    font-size: 26rpx;
+    color: #000000;
+    font-weight: 400;
+}
+.eachexercise .right{
+    width: 50%;
+    display : flex;
+    justify-content: space-between;
+    margin-left: 36rpx;
+}
+.eachexercise .right .kaluli{
+    font-size: 26rpx;
+    color: #A8ACBC;
+    font-weight: 400;
+}
+.eachexercise .right .type{
+    font-size: 26rpx;
+    color: #000000;
+    text-align: right;
+    font-weight: 400;
+}
+
+.footer{
+    display: flex;
+    justify-content: flex-end;
+    padding: 24rpx 48rpx;
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    box-shadow: 0rpx -2rpx 4rpx 0rpx rgba(0,0,0,0.2);
+}
+.footer .btn1{
+    background: #FFFFFF;
+    border: 1rpx solid rgba(207,207,207,1);
+    border-radius: 35rpx;
+    padding: 15rpx 34rpx;
+    font-size: 28rpx;
+    color: #000000;
+    font-weight: 400;
+    margin-right: 20rpx;
+}
+.footer .btn2{
+    background: #00C7C7;
+    border-radius: 35rpx;
+    padding: 15rpx 34rpx;
+    font-size: 28rpx;
+    color: #FFFFFF;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+}
+.footer .btn2 .btnicon{
+    width: 54rpx;
+    height: 46rpx;
+    margin-right: 14rpx;
+}
+
+.plan{
+    background: #FFFFFF;
+    box-shadow: 0rpx 2rpx 5rpx 2rpx rgba(175,228,220,0.3);
+    border-radius: 20rpx;
+    margin: 32rpx 0;
+}
+.plan .part1{
+    box-sizing: border-box;
+    padding: 24rpx 30rpx;
+}
+.plan .top{
+    display: flex;
+    align-items: center;
+}
+.plan .xian{ 
+    background: #FF8D4F;
+    border-radius: 6rpx;
+    width: 10rpx;
+    height: 30rpx
+}
+.plan .title{
+    font-size: 32rpx;
+    color: #262626;
+    font-weight: 600;
+    margin-left: 14rpx;
+}
+.plan .part1 .bottom{
+    margin: 0 0 20rpx 0;
+}
+.plan .part1 .list{
+    display: flex;
+    border-bottom: 1rpx solid rgba(209,209,209,1);
+    margin: 0rpx 24rpx;
+    padding: 34rpx 0;
+    justify-content: space-between;
+}
+.plan .part1 .list .left{
+    font-size: 28rpx;
+    color: #90A09E;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+.plan .part1 .list .right{
+    font-size: 28rpx;
+    color: rgba(0,0,0,0.85);
+    line-height: 48rx;
+    font-weight: 400;
+}
+.plan .part1 .list .end{
+    font-size: 28rpx;
+    color: #90A09E;
+    letter-spacing: 0;
+    font-weight: 400;
+    padding-left: 20rpx;
+}
+
+.plan .part2 {
+    box-sizing: border-box;
+    padding: 24rpx 30rpx;
+}
+.plan .part2 .bottom {
+    
+}
+.plan .part2 .bottom .list1{
+    display: flex;
+    padding: 20rpx 0;
+}
+.plan .part2 .bottom .tag{
+    font-size: 30rpx;
+    color: #566176;
+    letter-spacing: 0;
+    font-weight: 600;
+    padding-right: 30rpx;
+}
+.plan .part2 .bottom  .text{
+    font-size: 28rpx;
+    color: #9BA7BB;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+.plan .part2 .bottom .list2{
+    display: flex;
+}
+.plan .part2 .bottom  .text1{
+    font-size: 30rpx;
+    color: #3A4253;
+    letter-spacing: 0;
+    font-weight: 600;
+}
+.plan .part2 .bottom  .text2{
+    font-size: 28rpx;
+    color: #90A09E;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+.plan .part2 .bottom  .text3{
+    font-size: 24rpx;
+    color: #3A4253;
+    line-height: 40rpx;
+    font-weight: 400;
+}
+
+.h{
+    height: 88rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+}
+.fu{
+    align-self: flex-end;
+    padding-bottom: 2rpx;
+}
+
+.zhihui  {
+    opacity: 0.45 !important;
+    color: #212327 !important;
+    background: #F9F9F9 !important;
+    font-size: 46rpx;font-weight: 700;letter-spacing: -3.83rpx;
+}
+.fushu { 
+    color: #FF8D4F;font-size: 46rpx;font-weight: 700;letter-spacing: -3.83rpx;
+}
+.zhengshu { 
+    color: #00C7C7;font-size: 46rpx;font-weight: 700;letter-spacing: -3.83rpx;
+}

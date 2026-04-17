@@ -1,0 +1,28 @@
+<view class="title">
+    <view class="tab" data-type="0" bindtap="choosetabs">
+        <view class="text {{choosetab==0?'active':''}}">图文说明</view>
+    </view>
+    <view class="tab" data-type="1" bindtap="choosetabs">
+        <view class="text {{choosetab==1?'active':''}}">视频讲解</view>
+    </view>
+</view>
+
+<view wx:if="{{choosetab==0}}" class="body">
+    <image class="img" src="{{matchimg}}" mode="widthFix"></image>
+</view>
+
+<view wx:if="{{choosetab==1}}" class="body">
+    <video
+    style="width: 750rpx; height: 420rpx;"
+    id="myVideo"  
+    controls  
+    bindwaiting
+    enable-play-gesture="true"
+    show-fullscreen-btn="true"
+    show-mute-btn="true"
+    auto-pause-if-navigate
+    auto-pause-if-open-native
+    src="{{matchvideo}}">
+    </video>
+    <view class="text">视频：{{matchname}}</view>
+</view>

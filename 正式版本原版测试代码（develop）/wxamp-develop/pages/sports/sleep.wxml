@@ -1,0 +1,101 @@
+<view class="main">
+    <view class="tab">
+        <block wx:for="{{ tab }}">
+            <view class="tab-item {{ idx == index ? 'active' : '' }}" data-idx="{{ index }}" bindtap="toggleTab">{{ item }}</view>
+        </block>       
+    </view>
+    <!-- 日 -->
+    <view class="dateBox" wx:if="{{ tab[idx] == '日' }}">
+        <view class="dateBox-value" bindtap="showDate">
+            {{ dayValue }}
+            <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/assets/%E4%B8%89%E8%A7%92%E5%BD%A2%402x.png"></image>
+        </view>
+    </view>
+   <!-- 周 -->
+   <view class="dateBox" wx:if="{{ tab[idx] == '周' }}">
+        <view class="dateBox-value" bindtap="showDate">
+            {{ weekValue }}
+            <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/assets/%E4%B8%89%E8%A7%92%E5%BD%A2%402x.png"></image>
+        </view>
+    </view>
+    <!-- 月 -->
+    <view class="dateBox" wx:if="{{ tab[idx] == '月' }}">
+        <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+            <view class="month-item {{ month_idx == index ? 'dateBox-value' : '' }}" wx:for="{{ months }}" data-idx="{{ index }}" bindtap="toggleMonth">{{ item.month }}</view>
+        </scroll-view>
+    </view>
+    <!-- 年 -->
+    <view class="dateBox" wx:if="{{ tab[idx] == '年' }}">
+        <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+            <view class="month-item {{ year_idx == index ? 'dateBox-value' : '' }}" wx:for="{{ years }}" data-idx="{{ index }}" bindtap="toggleYear">{{ item }}</view>
+        </scroll-view>
+    </view>
+
+    <!-- <view class="echarts" wx:if="{{ idx == 0 }}">
+        <chart id="echarts" chart-class="chart" width="690rpx" height="450rpx" option="{{ option }}" bindinstance="onInstance" />
+    </view> -->
+    <view class="echarts">
+        <chart chart-class="chart" width="690rpx" height="450rpx" option="{{ option3 }}" bindinstance="onInstance" />
+    </view>
+
+    <view class="labelBox">
+        <view class="labelBox-item">
+            <view class="square color1"></view>
+            <view class="text01">深睡</view>
+        </view>
+        <view class="labelBox-item">
+            <view class="square color2"></view>
+            <view class="text01">浅睡</view>
+        </view>
+        <view class="labelBox-item">
+            <view class="square color3"></view>
+            <view class="text01">快速眼动</view>
+        </view>
+        <!-- <view class="labelBox-item">
+            <view class="square color4"></view>
+            <view class="text01">清醒</view>
+        </view> -->
+    </view>
+
+    <view class="sport-stat">
+        <view class="sport-stat-title">
+            <image src="https://moveclub-file.oss-cn-hangzhou.aliyuncs.com/movewell/assets/%E7%9D%A1%E7%9C%A0%402x.png"></image>
+            <view class="title01">总睡眠</view>
+            <view class="title02"><text>{{ hours }}</text><span style="color: #90A09E;">小时</span><text>{{ minutes }}</text><span style="color: #90A09E;">分钟</span></view>
+        </view>
+        <view class="sport-stat-content">
+            <view class="echarts">
+                <chart chart-class="chart" width="190rpx" height="190rpx" option="{{ option2 }}" bindinstance="onInstance" />
+            </view>
+            <view class="sport-stat-content-label">
+                <view class="label-item">
+                    <view class="left">
+                        <view class="square color1"></view>
+                        <view class="text03">平均深睡</view>
+                    </view>
+                    <view class="right">{{ ndata[0].value }} 分钟</view>
+                </view>
+                <view class="label-item">
+                    <view class="left">
+                        <view class="square color2"></view>
+                        <view class="text03">平均浅睡</view>
+                    </view>
+                    <view class="right">{{ ndata[1].value }} 分钟</view>
+                </view>
+                <view class="label-item">
+                    <view class="left">
+                        <view class="square color3"></view>
+                        <view class="text03">平均快速眼动</view>
+                    </view>
+                    <view class="right">{{ ndata[2].value }} 分钟</view>
+                </view>
+            </view>
+            
+            
+        </view>
+    </view>
+
+
+</view>
+
+<van-calendar show="{{ show }}" min-date="{{ minDate }}" bind:close="onClose" bind:select="selectDate" show-confirm="{{ false }}" />

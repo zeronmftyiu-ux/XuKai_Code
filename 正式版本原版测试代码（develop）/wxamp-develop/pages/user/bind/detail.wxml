@@ -1,0 +1,135 @@
+<!--pages/user/bind/detail.wxml-->
+<view class="title">减重计划</view>
+<view wx:if="{{mycyclelist.length>0}}" class="weightlist">
+    <view class="eachlist">
+        <view class="left">身高</view>
+        <view class="right">{{mycyclelist[0].height}} cm</view>
+    </view>
+    <view class="diliver"></view>
+    <view class="eachlist">
+        <view class="left">体重</view>
+        <view class="right">{{mycyclelist[0].start}} kg</view>
+    </view>
+    <view class="eachlist">
+        <view class="left">目标体重</view>
+        <view class="right">{{mycyclelist[0].target}} kg</view>
+    </view>
+    <view class="eachlist">
+        <view class="left">减重时长</view>
+        <view class="right">{{mycyclelist[0].title}} ({{mycyclelist[0].startday}}起)</view>
+    </view>
+</view>
+<view wx:else class="plan">
+    <image class="jihuaicon" src="http://moveclub-file.oss-cn-hangzhou.aliyuncs.com/2025/mv/doctor/%E8%AE%A1%E5%88%92%402x.png"></image>
+    <view class="text">您还未定制体重管理计划，需定制后提交申请</view>
+    <view bindtap="goplan" data-sign="1" class="planbutton">定制计划</view>
+</view>
+
+<view class="title">个人信息</view>
+<wxs module="tool">
+    var showtips = function(tips)
+    {
+        switch(tips*1) {
+            case 1:
+                return '身份证'
+            case 2:
+                return '护照'
+            case 3:
+                return '港澳通行证'
+            default:
+                return '请选择证件类型'
+        }
+    }
+    module.exports={
+    showtips:showtips
+    };
+</wxs>
+<van-cell-group>
+  <van-field
+    value="{{ value }}"
+    label="姓名"
+    data-name="name"
+    placeholder="请输入姓名"
+    input-align="right"
+    bind:change="onChange"
+    size="large"
+  />
+  <!-- <van-cell title="证件类型" size="large" is-link value="{{tool.showtips(form.idtype)}}" data-label="idtype" bind:click="showDialog" /> -->
+  <van-field
+    value="{{ value }}"
+    label="证件号码后6位"
+    data-name="idcard"
+    placeholder="请输入号码"
+    input-align="right"
+    bind:change="onChange"
+    size="large"
+  />
+  <van-cell title="性别" size="large">
+    <van-radio-group slot="" style="float:right" direction="horizontal" value="{{ form.gender }}" bind:change="onRadioChange">
+        <van-radio name="{{1}}" checked-color="#00C7C7">男</van-radio>
+        <van-radio name="{{2}}" checked-color="#00C7C7">女</van-radio>
+    </van-radio-group>
+  </van-cell>
+  <van-cell title="出生日期" size="large" value="{{ form.birth||'请选择出生日期' }}" is-link data-label="birth" bind:click="showDialog" />
+  <van-field
+    value="{{ form.phone }}"
+    label="联系电话"
+    data-name="phone"
+    placeholder="请输入电话号码"
+    input-align="right"
+    bind:change="onChange"
+    size="large"
+  />
+  <van-field
+    value="{{ form.bcode }}"
+    label="医生编码"
+    data-name="bcode"
+    placeholder="请输入编码号码"
+    input-align="right"
+    bind:change="onChange"
+    size="large"
+  />
+</van-cell-group>
+
+
+
+
+
+<view class="footer">
+    <view class="mvbutton" bindtap="submit">提交申请</view>
+</view>
+
+
+<van-popup show="{{ show }}" position="bottom" custom-style="height: 50%;" bind:close="onClose">
+    <view class="content" wx:if="{{ type == 'idtype' }}">
+        <van-radio-group value="{{ dvalue }}" bind:change="onChangeT">
+            <van-cell-group>
+                <van-cell title="身份证" clickable data-name="1" bind:click="onClick">
+                    <van-radio slot="right-icon" name="1" checked-color="#00C7C7"></van-radio>
+                </van-cell>
+                <van-cell title="护照" clickable data-name="2" bind:click="onClick">
+                    <van-radio slot="right-icon" name="2" checked-color="#00C7C7"></van-radio>            
+                </van-cell>
+                <van-cell title="港澳通行证" clickable data-name="3" bind:click="onClick">
+                    <van-radio slot="right-icon" name="3" checked-color="#00C7C7"></van-radio>
+                </van-cell>
+            </van-cell-group>    
+        </van-radio-group>
+        <view class="btnBox">   
+            <van-button custom-class="btn" type="info" bind:click="handleSubmit">确定</van-button>
+        </view>
+    </view>
+    <view class="content" wx:if="{{ type == 'birth' }}">
+        <van-datetime-picker
+            type="date"
+            value="{{ currentDate }}"
+            min-date="{{ minDate }}"
+            bind:change="changeDate"
+            bind:cancel="onClose"
+            bind:confirm="handleSubmit"
+        />
+        <!-- <view class="btnBox">   
+            <van-button custom-class="btn" type="info" bind:click="handleSubmit">确定</van-button>
+        </view> -->
+    </view>
+</van-popup>

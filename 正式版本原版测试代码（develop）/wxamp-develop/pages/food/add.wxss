@@ -1,0 +1,333 @@
+page{
+    background: #fff;
+}
+
+.header{
+    box-sizing: border-box;
+    padding: 30rpx 0 10rpx;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+.container {
+    display: flex;
+    height: calc(100vh - 382rpx);
+    margin-top: 148rpx; /* 确保内容不会被头部遮挡 */
+    padding-bottom: 150rpx;
+}
+
+.container .category-list {
+    width: 248rpx;
+    background: #F4F6F9;
+    box-sizing: border-box;
+    padding: 16rpx 0;
+}
+  
+.container .category-item {
+    padding: 27rpx 30rpx;
+    font-size: 28rpx;
+    color: rgb(0, 0, 0, .45);
+}
+  
+.container .category-item.active {
+    background-color: #fff;
+    font-weight: 600;
+    color: rgb(0, 0, 0, .85);
+}
+.product-list {
+    flex: 1;
+    box-sizing: border-box;
+    padding: 30rpx;
+}
+  
+.product-list .item{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 30rpx;
+    padding: 0 15rpx 30rpx 0;
+    box-sizing: border-box;
+    border-bottom: 0.5rpx solid rgb(235, 237, 240, 1);
+}
+.product-list .item .left{
+    display: flex;
+    align-items: center;
+}
+
+.product-list .item .left image{
+    border-radius: 9rpx;
+    width: 80rpx;
+    height: 80rpx;
+    margin-right: 24rpx;
+}
+
+.product-list .item .left .ct{
+    font-size: 26rpx;
+    color: rgba(0, 0, 0, .45);
+}
+.product-list .item .left .ct>view:first-child{
+    font-size: 30rpx;
+    color: #000000;
+    font-weight: 600;
+}
+
+.product-list .add {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   
+}
+
+.product-list .add image{
+    width: 218rpx;
+    height: 218rpx;
+    margin-bottom: 62rpx;
+}
+.product-list .add .mvbutton{
+    background: #00C7C7;
+    box-shadow: inset 0px 0px 16rpx 0px rgba(255,255,255,0.4);
+    border-radius: 48rpx;
+    width: 472rpx;
+    height: 96rpx;
+    text-align: center;
+    line-height: 96rpx;
+    font-size: 34rpx;
+    color: #FFFFFF;
+}
+
+/* .list .item .add{
+    width: 45rpx;
+    height: 45rpx;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.list .item .add image{
+    width: 45rpx;
+    height: 45rpx;
+} */
+
+.footer{
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    bottom: 0;
+    background: #F4F6F9;
+    box-shadow: 0px -2rpx 12rpx 0px rgba(0,0,0,0.1);
+    width: 100%;
+    height: 234rpx;
+    box-sizing: border-box;
+    padding: 30rpx 30rpx 16rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.footer .datetime{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 25rpx;
+    border-bottom: 1rpx solid #F5F5F5;
+}
+.footer .datetime>view:first-child{
+    font-size: 32rpx;
+    color: #333333;
+    letter-spacing: 0.52rpx;
+    text-align: center;
+    font-weight: 500;
+}
+.footer .datetime>view:nth-child(2){
+    font-size: 32rpx;
+    color: #000000;
+}
+.footer .datetime>view:nth-child(3){
+    font-size: 32rpx;
+    color: #000000;
+    font-weight: 600;
+}
+
+.footer>view:nth-child(2){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer>view:nth-child(2)>view:first-child{
+    display: flex;
+    align-items: center;
+}
+.footer>view:nth-child(2)>view:first-child image{
+    width: 96rpx;
+    height: 64rpx;
+    margin-right: 20rpx;
+}
+
+.footer .btn{
+    width: 330rpx;
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    background: #00C7C7;
+    border-radius: 50rpx;
+    color: #FFFFFF;
+    font-size: 36rpx;
+}
+
+.editBox{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.editBox .editBox-title{
+    text-align: center;
+    font-size: 36rpx;
+    color: #333333;
+    letter-spacing: 0.58rpx;
+    text-align: center;
+    font-weight: 500;
+    box-sizing: border-box;
+    padding: 25rpx 0;
+    border-bottom: 1rpx solid #eee;
+}
+.editBox .formBox{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* .editBox .formBox>view:first-child{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+} */
+.editBox .formBox .formBox-item1{
+    display: flex;
+    align-items: center;
+    border-bottom: 1rpx solid #eee;
+    box-sizing: border-box;
+    padding: 48rpx 30rpx;
+}
+
+.editBox .formBox .formBox-item1 image{
+    border-radius: 9rpx;
+    width: 80rpx;
+    height: 80rpx;
+    margin-right: 24rpx;
+}
+.editBox .formBox .formBox-item1 .ct{
+    font-size: 26rpx;
+    color: rgba(0, 0, 0, .45);
+}
+.editBox .formBox .formBox-item1 .ct>view:first-child{
+    font-size: 26rpx;
+    color: #000000;
+    font-weight: 600;
+}
+
+.editBox .formBox .formBox-item2{
+    display: flex;
+    align-items: center;
+    border-bottom: 1rpx solid #eee;
+    box-sizing: border-box;
+    padding: 32rpx 0;
+}
+
+.editBox .formBox .formBox-item2 .formBox-item2-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24rpx;
+    color: #333333;
+    width: 25%;
+    border-right: 1rpx solid #EDF0F1 ;
+}
+.editBox .formBox .formBox-item2 .formBox-item2-item>view:nth-child(2){
+    color: rgb(51, 51, 51, .45);
+    padding-top: 8rpx;
+}
+
+.editBox .formBox .formBox-item3{
+    box-sizing: border-box;
+    padding: 30rpx 30rpx 30rpx 0;
+    /* display: flex;
+    justify-content: flex-end; */
+}
+.editBox .formBox .formBox-item3 input{
+    height: 105rpx;
+    border: 2.5rpx solid rgba(236,236,236,1);
+    border-radius: 15rpx;
+    padding-left: 36rpx;
+    font-size: 32rpx;
+}
+
+.editBox .btnBox{
+    text-align: center;
+    margin-top: 24rpx;
+}
+.editBox .btnBox-1{
+    background: #00C7C7 !important;
+    border-radius: 10px !important;  
+    font-family: 'PingFangSC-Regular';
+    font-size: 36rpx !important;
+    color: #FFFFFF !important;
+    text-align: center !important;
+    font-weight: 400 !important;  
+    width: 683rpx !important;
+    height: 100rpx !important;
+}
+
+.editList{
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 90rpx 30rpx 50rpx;
+}
+
+.editList .editList-item{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 45rpx;
+}
+.editList .editList-item .editList-item-left{
+    display: flex;
+    align-items: center;
+}
+.editList .editList-item .editList-item-right{
+    display: flex;
+    align-items: center;
+}
+.editList .editList-item .editList-item-right input{
+    width: 130rpx;
+    height: 64rpx;
+    border: 2rpx solid rgba(236,236,236,1);
+    border-radius: 12rpx;
+    padding-left: 10rpx;
+}
+
+.editList .editList-item .editList-item-left image{
+    border-radius: 9rpx;
+    width: 80rpx;
+    height: 80rpx;
+    margin-right: 24rpx;
+}
+
+.editList .editList-item .editList-item-left .ct{
+    font-size: 26rpx;
+    color: rgba(0, 0, 0, .45);
+}
+.editList .editList-item .editList-item-left .ct>view:first-child{
+    font-size: 26rpx;
+    color: #000000;
+    font-weight: 600;
+}

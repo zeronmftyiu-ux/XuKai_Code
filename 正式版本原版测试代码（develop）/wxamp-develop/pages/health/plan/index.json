@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "体重管理计划",
+  "usingComponents": {
+    "van-progress": "@vant/weapp/progress/index"
+  }
+}

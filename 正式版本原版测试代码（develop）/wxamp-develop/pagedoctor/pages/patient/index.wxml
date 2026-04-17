@@ -1,0 +1,412 @@
+<view class="header">
+    <view class="top">
+        <view class="topchild">
+            <image class="avatar" src='{{patientinfo.avatarurl}}'></image>
+            <view class="name">{{patientinfo.realname}}</view>
+        </view>
+        <view class="topchild">
+            <block wx:for="{{ patientinfo.tags }}" wx:key="*this">
+                    <view class="tag {{item.type == 1 ? 'red' : item.type == 2 ? 'green' : 'yellow'}}">
+                        {{ item.tagname }}
+                    </view>
+            </block>
+        </view>
+    </view>
+
+    <view class="accordion">
+        <view class="accordion-content" style="height:{{isOpen ? 2*contentHeight + 'rpx' : '0rpx'}}">
+            <view class="content-inner1">
+                <view class="text1">基础信息：</view>
+                <view class="text2">{{patientinfo.gender}} | {{patientinfo.birthdate}}岁 | {{patientinfo.height}}cm</view>
+            </view>
+            <view class="content-inner2">
+                <view class="text1">当前体重：</view>
+                <view class="text2">{{patientinfo.weight}}kg</view>
+            </view>
+        </view>
+        <view class="accordion-header" bindtap="toggleAccordion">
+            <view class="shoufengqin"></view>
+        </view>
+    </view>
+</view>
+
+<view class="body">
+    <view class="state">
+        <view class="btn {{choose == 0 ? 'btn2' : 'btn1'}}"
+            bindtap="chooseTab" 
+            data-index="0">
+        动吃打卡</view>
+        <view class="btn {{choose == 1 ? 'btn2' : 'btn1'}}"
+            bindtap="chooseTab" 
+            data-index="1">
+        干预计划</view>
+        <view class="btn {{choose == 2 ? 'btn2' : 'btn1'}}"
+            bindtap="chooseTab"
+            data-index="2">
+        身体评估</view>
+        <view class="btn {{choose == 3 ? 'btn2' : 'btn1'}}"
+            bindtap="chooseTab"
+            data-index="3">
+        体成分报告</view>
+    </view>
+
+    <view wx:if="{{choose=='0'}}">
+    <view class="box">
+        <view class="month-switch">
+            <van-icon bindtap="prevMonth" name="arrow-left" color="#999" size="40rpx" />
+            <view class="title">{{sdate}} - {{edate}}</view>
+            <van-icon name="arrow" bindtap="nextMonth" color="#999" size="40rpx"  />
+            <view class="today" bindtap="today">今日</view>
+        </view>
+
+        <view class="calendar">
+            <view class="weekdays">
+                <view>日</view>
+                <view>一</view>
+                <view>二</view>
+                <view>三</view>
+                <view>四</view>
+                <view>五</view>
+                <view>六</view>
+            </view>
+
+            <view class="days">
+                <block wx:for="{{weekDays}}" wx:key="index">
+                    <view class="day {{ selectdate === item.date ? 'dayclick' : (activeIndex === index ? 'dayclick' : '') }}" 
+                    data-index="{{ index }}" data-date="{{item.date}}" bindtap="dateClick">
+                    {{item.value}}</view>
+                </block>
+            </view>
+        </view>
+        <view class="bottom">
+            <view class="h">
+                    <view >还可摄入(千卡)</view>
+                    <view class="{{patientinfo.balance[selectdate].signin == 0? 'zhihui' : patientinfo.balance[selectdate].banlance>0? 'zhengshu':'fushu'}}">
+                        <view wx:if="{{patientinfo.balance[selectdate].standard_intake == 0}}" >/</view>
+                        <view wx:else>{{ patientinfo.balance[selectdate].banlance | 0 || 0 }}</view>
+                    </view>
+            </view>
+            <view class="fu">
+                =
+            </view>
+            <view class="h">
+                <view >计划摄入</view>
+                <view wx:if="{{patientinfo.balance[selectdate].standard_intake == 0}}" >/</view>
+                <view wx:else >{{ patientinfo.balance[selectdate].standard_intake | 0 || 0 }}</view>
+            </view>
+            <view class="fu">
+                -
+            </view>
+            <view class="h">
+                <view >饮食</view>
+                <view >{{ patientinfo.balance[selectdate].calorie_intake | 0 || 0 }}</view>
+            </view>
+            <view class="fu">
+                +
+            </view>
+            <view class="h">
+                <view >运动</view>
+                <view >{{ patientinfo.balance[selectdate].exercise | 0 || 0 }}</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="box2">
+        <view class="title">
+            <view class="left {{activeTab == 'diet' ? 'active' : ''}}" bindtap="handleTab" data-tab="diet">
+                <view>饮食明细</view>
+            </view>
+            <view class="right {{activeTab == 'exercise' ? 'active' : ''}}" bindtap="handleTab" data-tab="exercise">
+                <view>运动明细</view>
+            </view>
+        </view>
+
+        <view wx:if="{{activeTab==='diet'}}" class="list"> 
+          <view wx:for="{{patientinfo.dietinfo[1]}}">
+            <view class="top">
+                <view class="item">
+                    <view class="item1">早餐</view>
+                    <view class="item2">{{item.rdatetime}}</view>
+                </view>
+                <view class="item">
+                    <view class="item3">{{item.value}}千卡</view>
+                    <!-- <view class="item4">/455</view> -->
+                </view>
+            </view>
+            <view class="bottom">
+                <block wx:for="{{item.details}}" wx:key="index">
+                    <view class="eachlist">
+                        <image class="avatar" src="{{item.imgurl}}"></image>
+                        <view class="info">
+                            <view class="name">{{item.component}}</view>
+                            <view class="cup">{{item.amount}}{{item.unit}}</view>
+                        </view>
+                      <view class="kaluli">{{item.totalvalue}}千卡</view>
+                    </view>
+                </block>
+            </view>
+          </view>
+          <view wx:for="{{patientinfo.dietinfo[2]}}">
+            <view class="top">
+                <view class="item">
+                    <view class="item1">午餐</view>
+                    <view class="item2">{{item.rdatetime}}</view>
+                </view>
+                <view class="item">
+                    <view class="item3">{{item.value}}千卡</view>
+                    <!-- <view class="item4">/455</view> -->
+                </view>
+            </view>
+            <view class="bottom">
+                <block wx:for="{{item.details}}" wx:key="index">
+                    <view class="eachlist">
+                        <image class="avatar" src="{{item.imgurl}}"></image>
+                        <view class="info">
+                            <view class="name">{{item.component}}</view>
+                            <view class="cup">{{item.amount}}{{item.unit}}</view>
+                        </view>
+                      <view class="kaluli">{{item.totalvalue}}千卡</view>
+                    </view>
+                </block>
+            </view>
+          </view>
+          <view wx:for="{{patientinfo.dietinfo[3]}}">
+            <view class="top">
+                <view class="item">
+                    <view class="item1">晚餐</view>
+                    <view class="item2">{{item.rdatetime}}</view>
+                </view>
+                <view class="item">
+                    <view class="item3">{{item.value}}千卡</view>
+                    <!-- <view class="item4">/455</view> -->
+                </view>
+            </view>
+            <view class="bottom">
+                <block wx:for="{{item.details}}" wx:key="index">
+                    <view class="eachlist">
+                        <image class="avatar" src="{{item.imgurl}}"></image>
+                        <view class="info">
+                            <view class="name">{{item.component}}</view>
+                            <view class="cup">{{item.amount}}{{item.unit}}</view>
+                        </view>
+                      <view class="kaluli">{{item.totalvalue}}千卡</view>
+                    </view>
+                </block>
+            </view>
+          </view>
+          <view wx:for="{{patientinfo.dietinfo[4]}}">
+            <view class="top">
+                <view class="item">
+                    <view class="item1">加餐</view>
+                    <view class="item2">{{item.rdatetime}}</view>
+                </view>
+                <view class="item">
+                    <view class="item3">{{item.value}}千卡</view>
+                </view>
+            </view>
+            <view class="bottom">
+                <block wx:for="{{item.details}}" wx:key="index">
+                    <view class="eachlist">
+                        <image class="avatar" src="{{item.imgurl}}"></image>
+                        <view class="info">
+                            <view class="name">{{item.component}}</view>
+                            <view class="cup">{{item.amount}}{{item.unit}}</view>
+                        </view>
+                      <view class="kaluli">{{item.totalvalue}}千卡</view>
+                    </view>
+                </block>
+            </view>
+          </view>
+        </view>
+
+        <view  wx:if="{{activeTab==='exercise'}}" class="list2">
+          <block wx:for="{{exercise.act}}" wx:key="index">
+            <view class="eachexercise">
+                <view class="left">
+                    <image class="avatar" src="{{item.icon}}"></image>
+                    <view class="children">
+                        <view class="tit">{{item.title}}</view>
+                        <view class="time">{{item.recorddate}}</view>
+                    </view>
+                </view>
+                <view class="right">
+                    <view class="kaluli">{{item.calorie}}千卡</view>
+                    <view class="type">{{item.source}}</view>
+                </view>
+            </view>
+          </block>
+        </view>
+
+    </view>
+    </view>
+
+    <view wx:if="{{choose=='1'}}" class="plan">
+        <view class="part1">
+            <view class="top">
+                <view class="xian"/>
+                <view class="title">当前目标</view>
+            </view>
+            <view class="bottom">
+                <view class="list">
+                    <view class="left">初始体重</view>
+                    <view style="display: flex;">
+                        <view class="right">{{patientcycle.origin}}</view>
+                        <view class="end">kg</view>
+                    </view>
+                </view>
+                <view class="list">
+                    <view class="left">目标体重</view>
+                    <view style="display: flex;">
+                        <view class="right">{{patientcycle.target}}</view>
+                        <view class="end">kg</view>
+                    </view>
+                </view>
+                <view class="list">
+                    <view class="left">开始时间</view>
+                    <view class="right">{{patientcycle.startday}}</view>
+                </view>
+                <view class="list">
+                    <view class="left">结束时间</view>
+                    <view class="right">{{patientcycle.endday}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="part2">
+            <view class="top">
+                    <view class="xian"/>
+                    <view class="title">运动干预</view>
+            </view>
+            <view class="bottom">
+                <view class="list1">
+                    <view class="tag">1</view>
+                    <view>
+                        <view class="text1">{{patientcycle.startday}} 开始，运动目标：</view>
+                        <view class="text2">运动时长 {{patientcycle.motion[0].duration}} 分钟，运动频次 {{patientcycle.motion[0].weeknum}} 次/周，热量消耗 {{patientcycle.motion[0].calorie}} 千卡/次</view>
+                    </view>
+                </view>
+                <view class="list2">
+                    <view class="tag">2</view>
+                    <view>
+                        <view class="text1">建议运动项目：</view>
+                        <view style="display: flex;" wx:for="{{aerobicSports}}" wx:key="index">
+                            <view class="text2">{{item.key}}：</view>
+                            <view class="text3">{{item.value}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="list1">
+                    <view class="tag">3</view>
+                    <view>
+                        <view class="text1">不建议运动项目：</view>
+                        <view class="text3">{{'无'}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view wx:if="{{choose=='2'}}" class="plan">
+      <view class="part1">
+        <view class="top">
+            <view class="xian"/>
+            <view class="title">身体评估</view>
+        </view>
+        <view class="bottom">
+            <view class="list">
+                <view class="left">身高</view>
+                <view style="display: flex;">
+                    <view class="right">{{assessmentinfo.height}}</view>
+                    <view class="end">cm</view>
+                </view>
+            </view>
+            <view class="list">
+                <view class="left">体重</view>
+                <view style="display: flex;">
+                    <view class="right">{{assessmentinfo.weight}}</view>
+                    <view class="end">kg</view>
+                </view>
+            </view>
+            <view class="list">
+                <view class="left">BMI</view>
+                <view style="display: flex;">
+                    <view class="right">{{assessmentinfo.bmi}}</view>
+                    <!-- <view class="end">kg/m²</view> -->
+                </view>
+            </view>
+            <view class="list">
+                <view class="left">腰围</view>
+                <view style="display: flex;">
+                    <view class="right">{{assessmentinfo.waist_circumference}}</view>
+                    <view class="end">cm</view>
+                </view>
+            </view>
+            <view class="list">
+                <view class="left">臀围</view>
+                <view style="display: flex;">
+                    <view class="right">{{assessmentinfo.hip_circumference}}</view>
+                    <view class="end">cm</view>
+                </view>
+            </view>
+            <view class="list">
+                <view class="left">腰臀比</view>
+                <view style="display: flex;">
+                    <view class="right">{{assessmentinfo.waist_hip_ratio}}</view>
+                </view>
+            </view>
+            <view class="list">
+                <view class="left">腿围</view>
+                <view style="display: flex;">
+                    <view class="right">{{assessmentinfo.thigh_circumference}}</view>
+                    <view class="end">cm</view>
+                </view>
+            </view>
+            <view class="list">
+                <view class="left">臂围</view>
+                <view style="display: flex;">
+                    <view class="right">{{assessmentinfo.arm_circumference}}</view>
+                    <view class="end">cm</view>
+                </view>
+            </view>
+            <view class="list">
+                <view class="left">体脂率</view>
+                <view style="display: flex;">
+                    <view class="right">{{assessmentinfo.body_fat_percentage}}</view>
+                </view>
+            </view>
+            <view class="list">
+                <view class="left">骨密度</view>
+                <view style="display: flex;">
+                    <view class="right">T值＞{{assessmentinfo.bone_density_t}}，Z值＞{{assessmentinfo.bone_density_z}}</view>
+                </view>
+            </view>
+          </view>
+      </view>
+    </view>
+
+    <view wx:if="{{choose=='3'}}" class="plan">
+      <view class="part1">
+        <view class="top">
+            <view class="xian"/>
+            <view class="title">体成分报告</view>
+        </view>
+        <view class="bottom">
+            <view data-url="{{item.report_url}}" bindtap="godetail" class="list" style="display: flex;justify-content: space-between;align-items: center;" wx:for="{{reportlist}}">
+                <view>
+                    <view style="font-weight: 500;padding-bottom:8rpx">{{item.exam_time}}</view>
+                    <view class="left">上传时间：{{item.created_at}}</view>
+                </view>
+                <view style="font-weight: 400;font-size:32rpx">></view>
+            </view>
+        </view>
+      </view>
+    </view>
+
+</view>
+
+<view class="footer">
+    <view class="btn1" bindtap="gogogo" data-state="{{patientinfo.state}}">签约信息</view>
+    <view class="btn2" bindtap="gomessage">
+        <image class="btnicon" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E6%B6%88%E6%81%AF%E7%AE%A1%E7%90%86.png" />
+        发消息
+    </view>
+</view>

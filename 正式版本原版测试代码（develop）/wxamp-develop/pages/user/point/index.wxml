@@ -1,0 +1,43 @@
+
+<view class="page-container-margin">
+  <view class="content-card">
+    <image src="https://oss.mcloud.moveclub.cn/alphajiushivip/20230704/1688448052.1688448078562/card2_bg.png" class="content-image"></image>
+    <view class="content-point-content" style="margin-left: 47rpx; padding-top: 40rpx">
+      <view class="content-point-title">账户总积分</view>
+      <view class="content-point">{{totalPoint}}</view>
+    </view>
+    <view class="content-point-tip">温馨提示：积分按获得时间优先使用</view>
+  </view>
+  <!-- 积分明细 -->
+  <view class="record-list">
+    <view class="record-list-content">
+      <view class="record-list-title-view">
+        <view class="record-list-title">积分明细</view>
+        <view class="record-list-date-view">
+          <picker mode="date" fields="month" bindchange="bindDateChange">
+            <view class="record-list-date">{{year}}年{{month}}月</view>
+          </picker>
+          <van-icon name="arrow-down" size="30rpx" color="#666666" />
+        </view>
+      </view>
+      <!-- <view class="record-content-upload-tip-view"  bindtap="onClickUse">
+        <image src="https://oss.mcloud.moveclub.cn/alphajiushivip/20230615/1686809476.1686809482542/brocade_study_msg_icon.png" class="record-content-upload-tip-image"></image>
+        <view class="record-content-upload-tip" wx:if="{{expirePoint > 0}}">本月即将过期 {{expirePoint}} 积分</view>
+        <view class="record-content-upload-tip" wx:else>您有 {{totalPoint}} 积分</view>
+        <view class="record-content-upload-button">去使用 ></view>
+      </view> -->
+      <view class="record-list-content-item" wx:for="{{list}}">
+        <image src="{{item.icon}}" class="record-list-item-coin"></image>
+        <view class="record-list-content-item-info">
+          <view class="record-list-content-item-info-content">
+            <view class="record-list-content-item-info-title">{{item.description}}</view>
+            <view class="record-list-content-item-info-appname" wx:if="{{item.app != 2 && item.value > 0}}">{{item.appname}}</view>
+          </view>
+          <view class="record-list-content-item-info-time">{{item.time}}</view>
+        </view>
+        <view class="record-list-content-item-score" wx:if="{{item.value > 0}}">+{{item.value}}</view>
+        <view class="record-list-content-item-score" style="color: #FF572F;" wx:else>{{item.value}}</view>
+      </view>
+    </view>
+  </view>
+</view>

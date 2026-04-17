@@ -1,0 +1,320 @@
+page {
+  background: #f5f5f5 url(https://oss.mcloud.moveclub.cn/2025/mv/bg%402x.png) no-repeat;
+  width: 100%;
+  height: 100%;
+  background-position: center top;
+  background-size: 100%;
+  box-sizing: border-box;
+  padding: 32rpx 24rpx 0;
+}
+
+.back{
+    position: absolute;
+    left: 20rpx;
+    top: 100rpx;
+    width: 100rpx;
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.user-header .avatar {
+  width: 104rpx;
+  height: 104rpx;
+  border-radius: 50%;
+  margin: 8rpx 12rpx 4rpx 20rpx;
+  padding-top: 8rpx;
+}
+.user-header .user-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin: 36rpx 0rpx 4rpx 12rpx;
+}
+
+.user-card {
+  margin: 24rpx 20rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 18rpx 20rpx 21rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.user-card2{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0rpx 20rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 8rpx 12rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.user-card3{
+  display: flex;
+  justify-content: space-between;
+  margin: 24rpx 20rpx;
+  border-radius: 20rpx;
+  padding: 0 20rpx;
+}
+.user-card3 .ttext{ 
+  font-size: 24rpx;
+  color: #262626;
+  font-weight: 400;
+  padding: 16rpx 0 0 0;
+}
+
+.avatar-1{
+    width: 48rpx;
+    height: 48rpx;
+    margin-right: 24rpx;
+    margin-left: 32rpx;
+}
+
+.avatar-3{
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    margin: 14rpx 18rpx;
+}
+
+.invite-code {
+  position: absolute;
+  top: -20rpx;
+  right: -20rpx;
+  background: #fff url(http://oss.mcloud.moveclub.cn/2025/mv/doctor/%E8%A7%92.png) no-repeat;
+  padding: 10rpx 12rpx 10rpx 18rpx;
+  border-radius: 0 16rpx 0 0rpx;
+  display: flex;
+  align-items: center;
+  width: 55%;
+  height: 56rpx
+}
+.invite-code .icon {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.code-text {
+  font-size: 24rpx;
+  margin-right: 16rpx;
+  color: #36675E ;
+  white-space: nowrap;
+}
+
+.copy-btn {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 18rpx;
+}
+
+.user-details {
+  display: flex;
+  justify-content: space-between;
+  padding: 16rpx;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  align-items: flex-start;
+  width: 50%;
+}
+
+.detail-item .icon {
+  width: 56rpx;
+  height: 40rpx;
+  margin: 0 12rpx;
+}
+
+.detail-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-text .title {
+  font-size: 26rpx;
+  color: #90A09E;
+  letter-spacing: 0;
+  line-height: 28rpx;
+  font-weight: 400;
+  margin-bottom: 5rpx;
+}
+
+.detail-text .content {
+  font-size: 24rpx;
+  color: #61656C;
+  letter-spacing: 0;
+  line-height: 28rpx;
+  font-weight: 400;
+}
+
+.stats-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 8rpx 0;
+}
+
+.stats-number {
+  font-size: 38rpx;
+  color: #000000;
+  font-weight: 700;
+  margin-bottom: 8rpx;
+}
+
+.stats-label {
+  font-size: 24rpx;
+  color: #61656C;
+  font-weight: 400;
+}
+
+.goods-item{
+    display: flex;
+    flex-direction: column;  
+    align-items: center; 
+}
+
+.goods-list{
+    display: flex;
+    margin: 0rpx 20rpx;
+    flex-wrap: wrap;
+}
+
+.dongtai{
+    margin-bottom: 20rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+}
+
+.activity-list {
+  margin-top: 20rpx;
+  width: 100%;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+  height: 100rpx;
+}
+
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.activity-content {
+  flex: 1;
+}
+
+.name {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.action {
+  font-size: 28rpx;
+  color: #000;
+  margin-top: 10rpx;
+}
+
+.activity-time {
+  font-size: 28rpx;
+  color: #000;
+  margin: 0 24rpx;
+}
+
+.divider {
+  width: 1rpx;
+  height: 86rpx;
+  background-color: #EDF0F1;
+  margin: 0 10rpx;
+}
+
+.custom-cell {
+  background-color: transparent !important; /* 设置背景透明 */
+  margin: 0 !important;
+  padding: 0 !important;
+  position: static !important;
+  line-height: 0rpx !important;
+}
+/* 隐藏右侧箭头 */
+.custom-cell .van-cell__right-icon-wrap {
+  display: none !important;
+}
+
+.sharebutton { 
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  border-radius: 0rpx;
+  box-sizing: border-box;
+  color: transparent;
+  cursor: pointer;
+  display: block;
+  font-size: 0px;
+  line-height: 0;
+  margin-left: 0;
+  margin-right: 0;
+  overflow: hidden;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+}
+wx-button:after {
+  border: 2rpx solid rgb(0 0 0 / 0);
+}
+
+.popbody {
+  background: #F6F7F9;
+  margin: 40rpx;
+  padding: 36rpx;
+  width: 360rpx;
+  height: 380rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popbottom {
+  display: flex;
+  justify-content: center;
+  margin: 24rpx 0;
+}
+.popbutton {
+  background: #00C7C7;
+  font-size: 29rpx;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 41rpx;
+  font-weight: 500;
+  width: 300rpx;
+  height: 67rpx;
+  border-radius: 28rpx;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.closeicon{
+  width: 64rpx;
+  height: 64rpx;
+  align-items: center;
+}
+.van-fade-enter-active, .van-fade-leave-active {
+    transition-property: opacity;
+    background: transparent;
+}
+.van-popup {
+    background: transparent !important;
+}

@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "居民详情",
+  "disableScroll": false,
+  "enablePullDownRefresh": false,
+  "onReachBottomDistance": 50,
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-tab": "@vant/weapp/tab/index"
+  }
+}

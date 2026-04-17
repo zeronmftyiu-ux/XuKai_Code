@@ -1,0 +1,95 @@
+page{
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    padding: 36rpx 0 24px 0;
+}
+
+.top{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 36rpx;
+}
+.top .topleft{
+    width: 50%;
+}
+.top .topleft .qipao{ 
+    background: url(https://oss.mcloud.moveclub.cn/2025/mv/bg%402x.png) no-repeat;
+    font-size: 24rpx;
+    color: #163E3E;
+    letter-spacing: 3rpx;
+    font-weight: 400;
+}
+.top .topleft .maintitle{
+    font-size: 48rpx;
+    color: #1D170E;
+    font-weight: 600;
+}
+.top .topright{
+    width: 50%;
+}
+.top .topright .img{ 
+    width: 200rpx;
+    height: 200rpx;
+}
+
+.progress{ 
+    padding: 0 36rpx;
+    margin: 0 0 36rpx 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.progress .content{ 
+    display: flex;
+    align-items: center;
+}
+.progress .circle{
+    font-size: 22rpx;
+    color: #1D170E;
+    text-align: center;
+    font-weight: 400;
+    background: #D8DADD;
+    width: 32rpx;
+    height: 32rpx;
+    border-radius: 50%;
+    align-items: center;
+}
+.progress .text{
+    opacity: 0.65;
+    font-size: 28rpx;
+    color: #1D170E;
+    font-weight: 400;
+    margin-left: 6rpx;
+}
+.progress .line{
+    color: #979797;
+}
+
+.body{
+    padding: 0 36rpx;
+}
+
+.footers{
+    background: #FFFFFF;
+    box-shadow: 0rpx -2rpx 12rpx 0rpx rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150rpx;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.footers .footbut{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 84%;
+    height: 100rpx;
+    background: #00C7C7;
+    border-radius: 60rpx;
+    font-size: 32rpx;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 400;
+}

@@ -1,0 +1,81 @@
+<view class="search">
+  <van-search value="{{ value }}" shape="round" placeholder="搜索居民姓名"
+  custom-class="custom-search" bind:change="onSearch"/>
+</view>
+
+<view class="body">
+  <view class="title">
+    <text class="title1">异常列表</text>
+    <view class="right">
+    <!-- <image class="icon" src="http://oss.mcloud.moveclub.cn/2025/mv/doctor/piliang2.png" mode="widthFix" />
+    <text class="title2" bindtap="showPopup">批量处理</text> -->
+    </view>
+  </view>
+  <view class="alllist"> 
+    <block wx:for="{{abnormalList}}" wx:key="index">
+    <view class="list">
+        <view class="top">
+          <view>
+            <view class="top1">
+                <view class="name">{{item.info.realname}}</view>
+                <block wx:for="{{ item.info.tags }}" wx:key="*this">
+                    <view class="bing {{item.type == 1 ? 'red' : item.type == 2 ? 'green' : 'yellow'}}">{{ item.tagname }}</view>
+                </block>
+            </view>
+            <view class="lasttime">最后打卡时间：{{item.sign_date}}</view>
+          </view>
+          <view style="display: flex; justify-content: space-between; width: 32%; align-items: center;">
+            <view wx:if="{{item.days>=0}}" class="top2">
+              <view class="day">
+                  <view class="day1">{{item.days}}</view>
+                  <view class="day2">天</view>
+              </view>
+              <view class="continue">连续未打卡</view>
+            </view>
+            <view wx:else class="top2">
+              <view class="day3">从未打卡</view>
+            </view>
+            <view class="arrow"> 
+              <van-icon name="arrow" bindtap="gopatient" data-index="{{item.urid}}"/>
+            </view>
+          </view>
+        </view>
+        <view class="divider"></view>
+        <view class="bottom">
+            <view class="lasttime">消息时间：{{item.alert}}</view>
+            <button class="button" bindtap="gomessage" data-index="{{item.urid}}">处理</button>
+        </view>
+    </view>         
+    </block>
+  </view>
+</view>
+
+<!-- <van-popup
+  show="{{ show }}"
+  position="bottom"
+  custom-style="height: 50%;"
+  bind:close="onClose"
+>
+    <view class="poptitle">批量处理选择</view>
+    <view class="poplist"> 
+        <van-checkbox-group value="{{ result }}" shape="square" bind:change="onChange">
+           <view class="checkbox" wx:for="{{abnormalList}}" wx:key="index">
+                <van-checkbox name="{{item.info.realname}}">
+                    <view class="itemname">{{item.info.realname}}</view>
+                </van-checkbox>
+                <view class="icon"> 
+                    <view wx:for="{{item.tablist}}" data-tagname="{{item.name}}" data-type="{{citem.type}}" 
+                    data-index="{{index}}" wx:for-item="citem" wx:for-index="cindex" class="radiobig" 
+                    style="border: 3rpx solid {{activelist[index].active===true ?(activelist[index].type===citem.type?citem.color:'transparent'):'transparent'}}" 
+                    catchtap="choosecolor" >
+                        <view class="radio" style="background: {{citem.color}};"/>
+                    </view>
+                </view> 
+           </view>
+        </van-checkbox-group>
+    </view>
+    <view class="popbottom">
+        <view class="button1" bindtap="onClose">取消</view>
+        <view class="button2" bindtap="onSelect">确定</view>
+    </view>
+</van-popup> -->

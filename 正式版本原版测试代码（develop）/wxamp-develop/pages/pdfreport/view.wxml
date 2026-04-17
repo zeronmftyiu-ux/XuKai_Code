@@ -1,0 +1,3 @@
+<view class="container">
+  <view class="loading">正在打开PDF文档...</view>
+</view>
