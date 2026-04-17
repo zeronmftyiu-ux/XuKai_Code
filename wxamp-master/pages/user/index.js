@@ -138,7 +138,7 @@ Page({
 
       if (status === 'current') {
         const currentList = campSummary.currentCamps || []
-      
+
         if (!currentList.length) {
           wx.showToast({
             title: '暂无进行中活动',
@@ -146,9 +146,18 @@ Page({
           })
           return
         }
-      
+
+        const campId = currentList[0].camp_id || ''
+        const userInfo = wx.getStorageSync('userInfo') || {}
+        const query = [
+          `camp_id=${encodeURIComponent(campId)}`,
+          `urid=${encodeURIComponent(userInfo.urid || '')}`,
+          `token=${encodeURIComponent(userInfo.token || '')}`,
+          'from=current'
+        ].join('&')
+
         wx.navigateTo({
-          url: `/pages/user/campDetail/index?camp_id=${currentList[0].camp_id}`
+          url: `/pages/user/campDetail/index?${query}`
         })
         return
       }
