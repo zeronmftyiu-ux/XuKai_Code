@@ -7,6 +7,9 @@ import { formatCampStatusText, normalizeCampData } from '../../../utils/camp'
 Page({
   data: {
     camp_id: '',
+    urid: '',
+    token: '',
+    from: '',
     loading: false,
 
     info: {},
@@ -104,12 +107,16 @@ Page({
 
   async onLoad(options = {}) {
     const campId = options.camp_id || ''
+    const userInfo = wx.getStorageSync('userInfo') || {}
 
     this.setData({
-      camp_id: String(campId || '')
+      camp_id: String(campId || ''),
+      urid: options.urid || userInfo.urid || '',
+      token: options.token || userInfo.token || '',
+      from: options.from || ''
     })
 
-    if (!campId) {
+    if (!campId && this.data.from !== 'current') {
       wx.showToast({
         title: '活动ID缺失',
         icon: 'none'
@@ -184,8 +191,8 @@ Page({
   },
 
   async getDetail() {
-    const { camp_id } = this.data
-    if (!camp_id) return
+    const { camp_id, urid, token } = this.data
+    if (!camp_id && !urid) return
 
     this.setData({ loading: true })
 
@@ -195,9 +202,14 @@ Page({
     })
 
     try {
-      const res = await campService.getCampDetail({
+      const detailParams = {
         camp_id
-      })
+      }
+
+      if (urid) detailParams.urid = urid
+      if (token) detailParams.token = token
+
+      const res = await campService.getCampDetail(detailParams)
 
       console.log('camp detail res = ', res)
 
@@ -214,7 +226,7 @@ Page({
 
         if (pageMode === 'ongoing') {
           await this.loadCurrentCampList()
-          this.syncCurrentCampIndex(camp_id)
+          this.syncCurrentCampIndex(info.camp_id || camp_id)
           this.buildDashboard(info)
           this.loadWeightTrend()
         } else {
